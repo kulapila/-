@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+.venv/
+venv/
+
+# API keys
+.env
+
+# Large binary files (regenerated on each run)
+data/embeddings/
+
+# IDE
+.vscode/
+.idea/
+pipeline.log

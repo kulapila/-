@@ -1,0 +1,196 @@
+[
+  {
+    "arxiv_id": "2605.28557",
+    "title": "Token Optimization Strategies for LLM-Based Oracle-to-PostgreSQL Migration",
+    "authors": [
+      "Oleg Grynets",
+      "Dmytro Babarytskyi",
+      "Vasyl Lyashkevych"
+    ],
+    "abstract": "LLMs are increasingly used for software modernization, code translation, and database migration. However, LLM-based Oracle2PostgreSQL migration remains constrained by high token consumption, long-context degradation, dialect-specific semantic differences, and the risk of semantic drift during query transformation. Direct inclusion of large Oracle SQL/PL-SQL artefacts, schema definitions, procedural logic, and migration instructions into the model context increases cost and may reduce generation quality. This paper shows token optimization as a constrained transformation problem in LLM-based Oracle2PostgreSQL migration. The study formalizes and evaluates twelve token optimization strategies: baseline representation, context pruning, minification, DSL-based semantic compression, metadata augmentation, context refactoring, schema distillation, adaptive routing, AST-based minification, identifier masking, output constraint enforcement, and hybrid optimization. The strategies are evaluated on samples of 10 and 100 Oracle SQL queries using Valid Syntax Rate, Exact Match, Semantic Match, CodeBLEU, and Token Efficiency. The results show that mild context pruning preserves semantic quality almost at the baseline level, achieving 89.75% Semantic Match on the 100-query sample compared with 89.80% for the unoptimized baseline. Adaptive routing provides the best practical trade-off, reducing input tokens by 8.72% and output tokens by 5.49% while maintaining 88.40% Semantic Match and increasing Token Efficiency by 6.67%. Aggressive schema distillation increases Token Efficiency by 132.22% but results in a 44.50-percentage-point decrease in Semantic Match. The findings demonstrate that token optimization cannot be treated as simple prompt shortening; it must be evaluated as a multi-objective migration problem balancing cost, syntactic validity, semantic preservation, and structural fidelity.",
+    "published": "2026-05-27",
+    "url": "http://arxiv.org/abs/2605.28557v1",
+    "primary_category": "cs.LO",
+    "categories": [
+      "cs.LO",
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2605.28515",
+    "title": "Do LLMs Favor Their Providers? Measuring Vertical Integration Bias in Code Generation",
+    "authors": [
+      "Melih Catal",
+      "Alex Wolf",
+      "Tiago Ferreiro Matos",
+      "Pooja Rani",
+      "Harald Gall"
+    ],
+    "abstract": "Large Language Models (LLMs) have become an integral part of software development, especially with the advent of agentic capabilities. Yet, many frontier LLMs are affiliated with specific providers. This raises the question of whether generated code favors the provider's own ecosystem over comparable alternatives, potentially constraining developers' choices and increasing dependence on a single provider. We define this behavior as Vertical Integration Bias (VIB) and introduce \\textsc{VIBench}, a benchmark for measuring VIB in direct and agentic code generation across $20$ provider-selectable software-integration scenarios. Evaluating $10$ frontier provider-affiliated models against $3$ non-affiliated controls, we find positive VIB in direct generation, with six of ten affiliated models showing statistically significant effects up to $+18.8$ percentage points (pp). Agentic workflows further amplify VIB, reaching $+39.2$ pp. Moreover, early affiliated-ecosystem choices in agentic workflows can persist into conceptually decoupled downstream files, with persistence as high as $90.3\\%$. These findings underscore the need to measure and account for VIB in code generation, especially as agentic capabilities become more prevalent.",
+    "published": "2026-05-27",
+    "url": "http://arxiv.org/abs/2605.28515v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2605.28510",
+    "title": "Efficient and Scalable Provenance Tracking for LLM-Generated Code Snippets",
+    "authors": [
+      "Andrea Gurioli",
+      "Davide D'Ascenzo",
+      "Federico Pennino",
+      "Maurizio Gabbrielli",
+      "Stefano Zacchiroli"
+    ],
+    "abstract": "Large language models (LLMs) for code completion and generation are increasingly used in software development, yet they may reproduce training examples verbatim and without authorship attribution, raising legal and ethical concerns around plagiarism and license compliance. Classical fingerprint-based plagiarism detectors based on fingerprinting, such as Winnowing, remain highly effective, yet the inspection requires comparing fragments of code to the entire training set, and their linear-time search makes them impractical for the billion-scale corpora used to train modern code LLMs. To bridge this gap, we introduce SOURCETRACKER, a 300M-parameter encoder tailored for code retrieval, together with a hybrid two-stage provenance-tracking pipeline HYBRIDSOURCETRACKER (HST). HST first narrows down a small set of candidate snippets via vector search, then re-ranks those candidates using Winnowing on exact fingerprints. We train and evaluate our system on a 10M-snippet subset of the THESTACKV2 dataset, with both verbatim and adapted snippets that emulate realistic identifier renaming. On an in vitro 100k-snippet search space with adapted queries, our hybrid approach reaches a mean reciprocal rank on par with Winnowing for 30-token fragments. Then, starting from windows >= 60 tokens, it consistently over-performs by up to 5.4% while preserving logarithmic-time query complexity. In a complementary evaluation using an LLM-based judge, we find that many retrieved snippets not labeled as ground truth are still highly similar to the expected sources, particularly with longer context windows, and thus remain useful for end users. Overall, our results demonstrate that integrating vector search with fingerprinting enables scalable, high-precision provenance tracking for code produced by LLMs.",
+    "published": "2026-05-27",
+    "url": "http://arxiv.org/abs/2605.28510v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI",
+      "cs.IR"
+    ]
+  },
+  {
+    "arxiv_id": "2605.28500",
+    "title": "Functional Entropy: Predicting Functional Correctness in LLM-Generated Code with Uncertainty Quantification",
+    "authors": [
+      "Dylan Bouchard",
+      "Mohit Singh Chauhan",
+      "Zeya Ahmad",
+      "Ho-Kyeong Ra"
+    ],
+    "abstract": "Large language models have shown impressive capabilities in code generation, yet they often produce functionally incorrect code. Uncertainty quantification (UQ) methods have emerged as a promising approach for detecting hallucinations in natural language generation, but their effectiveness for code generation tasks remains underexplored. We systematically evaluate how UQ techniques transfer to code generation across three programming languages, five LLMs, and over 1,700 problems. We find that some token-probability-based methods generalize effectively without modification, while sampling-based methods relying on natural language inference (NLI) fail because NLI models cannot distinguish functionally different code, causing most responses to collapse into a single semantic cluster. To address this, we introduce functional equivalence methods, a family of code-specific methods that replace NLI-based semantic equivalence with an LLM-based functional equivalence assessment, including functional entropy, a code-specific analog of semantic entropy. Functional equivalence methods achieve top AUROC in 11 out of 15 model-benchmark combinations and the best calibration across most settings, consistently outperforming both NLI-based counterparts and all other methods evaluated.",
+    "published": "2026-05-27",
+    "url": "http://arxiv.org/abs/2605.28500v1",
+    "primary_category": "cs.CL",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ]
+  },
+  {
+    "arxiv_id": "2605.28482",
+    "title": "Rethinking Software Empirical Studies with Structural Causal Models",
+    "authors": [
+      "Daniel Rodriguez-Cardenas",
+      "Aya Garryyeva",
+      "David Nader Palacio",
+      "Antonio Mastropaolo",
+      "Denys Poshyvanyk"
+    ],
+    "abstract": "Causal Inference offers a fundamental approach for advancing empirical software engineering (ESE) beyond traditional statistical association, enabling researchers to rigorously identify and quantify causal relationships in software experiments. This paper introduces CausalSE, a framework that operationalizes Judea Pearl's causal inference paradigm in ESE context. The paper focuses on Structural Causal Models (SCMs) to address the limitations of classical statistical methods in mitigating confounding bias. Through a case study using the Galeras dataset and propensity score matching, we demonstrate how CausalSE disentangles the effect of prompt engineering strategies on code generation outcomes in a popular LLM (i.e., GPT-3). The results reveal that while associational analyses can suggest improvements in certain interventions (e.g., more complex prompts), causal analysis often does not find a significant treatment effect, highlighting the risk of false positives when confounding is not addressed. By providing a tutorial-based methodology and a real-world case study, this work equips software researchers with practical tools to design, analyze, and interpret software experiments with methodological rigor, ultimately enabling more informed and actionable conclusions in both research and practice.",
+    "published": "2026-05-27",
+    "url": "http://arxiv.org/abs/2605.28482v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2605.28409",
+    "title": "Efficient Post-training of LLMs for Code Generation With Offline Reinforcement Learning",
+    "authors": [
+      "Mingze Wu",
+      "Abhinav Anand",
+      "Shweta Verma",
+      "Mira Mezini"
+    ],
+    "abstract": "Post-training using online reinforcement learning (RL) is an important training step for LLMs, including code-generating models. However, online RL for code generation involves LLM inference and verification of the generated output, which can take considerable time and resources. In this paper, we explore the application of offline RL to code-generating models by leveraging existing code datasets. Our experiments demonstrate that offline RL is an effective training strategy for improving LLM performance. We show that offline RL can be especially beneficial for small LLMs and challenging coding problems.",
+    "published": "2026-05-27",
+    "url": "http://arxiv.org/abs/2605.28409v1",
+    "primary_category": "cs.AI",
+    "categories": [
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2605.28371",
+    "title": "From paper to benchmark: agentic, framework-based reproduction of under-specified methods in machine health intelligence",
+    "authors": [
+      "Raffael Theiler",
+      "Ludovico Comito",
+      "David Leko",
+      "Leandro Von Krannichfeldt",
+      "Lev Telyatnikov",
+      "Olga Fink"
+    ],
+    "abstract": "Industrial Prognostics and Health Management (PHM) provides a representative case study for a broader challenge in applied machine learning: translating published papers into executable, benchmark-ready implementations. Reproducing under-specified methods in PHM is particularly difficult due to restricted access to industrial datasets, incomplete reporting of preprocessing and evaluation protocols, and implicit design choices (e.g., windowing, target construction, data splits) that critically affect performance. Existing paper-to-code systems generate implementations for individual papers, but these artifacts are often not directly comparable due to inconsistencies in assumptions and evaluation settings. We introduce \\emph{agentic, framework-based PHM paper reproduction}, where an agent translates a paper into a shared PHM benchmark framework via a \\emph{slot-binding interface}. This interface maps equations and protocol descriptions into structured components (task definitions, dataset adapters, windowing, targets, models, and evaluators), while explicitly recording unresolved assumptions. The resulting implementations are validated against standardized task contracts and evaluation hooks, enabling consistent and comparable benchmarking. We evaluate this approach on 16 PHM papers, comparing framework-enhanced, skill-based and prompt-based agentic reproduction against a recent framework-free paper-reproduction agent. We assess reproduction success, model-based code evaluation, framework binding of paper assumptions, and cross-paper benchmark comparability under standardized protocols. Our results show that coupling agentic generation with a shared framework transforms paper reproduction from isolated code synthesis into executable, assumption-aware, and systematically comparable benchmark implementations.",
+    "published": "2026-05-27",
+    "url": "http://arxiv.org/abs/2605.28371v1",
+    "primary_category": "cs.AI",
+    "categories": [
+      "cs.AI",
+      "cs.LG",
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2605.28258",
+    "title": "GUI Agents for Continual Game Generation",
+    "authors": [
+      "Yixu Huang",
+      "Bo Li",
+      "Na Li",
+      "Zhe Wang",
+      "Kaijie Chen",
+      "Haonan Ge",
+      "Qingyi Si",
+      "Yuanzhe Shen",
+      "Ruihan Yang",
+      "Guangjing Wang",
+      "Hongcheng Guo"
+    ],
+    "abstract": "Generating a game is not the same as making one that can be played. Despite advances in code generation, existing approaches treat game generation as one-shot translation from prompt to artifact, leaving interaction-level failures undetected. We argue that evaluating and improving game generation requires a player, and study two roles for graphical user interface (GUI) agents in this process: (1) as an objective evaluator, for which we introduce PlaytestArena, a new evaluation environment that pairs 200 browser-based game generation tasks across eight genres with rubrics of expected in-play behaviors, adjudicated by a GUI agent that loads each build in a browser and plays it; and (2) as a subjective playtester, for which we propose Play2Code, where a game agent and a GUI agent operate in a sustained loop with shared memory, turning game generation into a dialogue between coding and playing. Our experiments show that even frontier models struggle to generate playable games directly, while Play2Code achieves a 66.8\\% rubric pass-rate, improving over single-pass and agentic-coding baselines by 37.1 and 14.6 points respectively. Further analysis shows that GUI playtester feedback is more traceable than a human report, yet idiosyncratic in ways reminiscent of human testers, establishing game playtesting as a critical testbed for interactive code generation. Our project website is available at https://continual-game-generation.vercel.app/.",
+    "published": "2026-05-27",
+    "url": "http://arxiv.org/abs/2605.28258v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI",
+      "cs.CV",
+      "cs.HC"
+    ]
+  },
+  {
+    "arxiv_id": "2605.28181",
+    "title": "When Confidence Misleads: Suffix Anchoring and Anchor-Proximity Confidence Modulation for Diffusion Language Models",
+    "authors": [
+      "Jungwon Park",
+      "Jimyeong Kim",
+      "Jungmin Ko",
+      "Nojun Kwak",
+      "Wonjong Rhee"
+    ],
+    "abstract": "Diffusion language models decode text by iteratively denoising masked token sequences, making the choice of which positions to decode a central inference-time decision. Most training-free decoding strategies use model confidence for position selection, assuming that high-confidence positions are ready to be decoded. In this work, we revisit this assumption by studying when confidence misleads fully non-autoregressive (fully non-AR) decoding. EOT tokens can receive high confidence and cause incomplete generation; inserting a suffix anchor can mitigate this issue but introduces local overconfidence near the anchor, causing anchor-adjacent tokens to be decoded too early. To address these issues, we propose Suffix-Anchored Confidence Modulation, a simple training-free method that inserts a short suffix anchor to encourage response completion and modulates confidence near the anchor according to decoding progress. This preserves the response-completion benefit of suffix anchoring while reducing premature decoding of anchor-adjacent tokens. Across text-only reasoning, vision-language reasoning, and code-generation benchmarks, our method consistently improves confidence-based fully non-AR decoding, outperforms explicit EOT suppression, and preserves the parallel decoding advantage of fully non-AR generation.",
+    "published": "2026-05-27",
+    "url": "http://arxiv.org/abs/2605.28181v1",
+    "primary_category": "cs.CL",
+    "categories": [
+      "cs.CL"
+    ]
+  },
+  {
+    "arxiv_id": "2605.28022",
+    "title": "Beyond pass@k: Redundancy-Aware RLVR for Multi-Sample Code Generation",
+    "authors": [
+      "Le Bronnec Florian",
+      "Alexandre Verine",
+      "Rio Yokota",
+      "Benjamin Negrevergne"
+    ],
+    "abstract": "LLMs for code generation are commonly evaluated in repeated-sampling settings using Pass@k, where multiple candidate programs are executed against unit tests under a finite sampling budget. While recent verifier-based reinforcement learning (RLVR) methods improve executable correctness, how these objectives affect redundancy among sampled programs remains poorly understood. In this work, we study implementation-level redundancy in code generation using JPlag, a plagiarism-detection system for code. Across models and benchmarks, we show that correctness-only RLVR often concentrates generations around repeated implementations, whereas Pass@k-aware objectives maintain lower redundancy and improve larger-budget performance. Motivated by these observations, we augment RLVR with direct anti-redundancy rewards based on JPlag similarity. Across 3 models and 3 benchmarks, discouraging near-duplicate generations reliably improves finite-budget executable performance, often matching or outperforming specialized Pass@k-aware objectives.",
+    "published": "2026-05-27",
+    "url": "http://arxiv.org/abs/2605.28022v1",
+    "primary_category": "cs.CL",
+    "categories": [
+      "cs.CL",
+      "cs.SE"
+    ]
+  }
+]

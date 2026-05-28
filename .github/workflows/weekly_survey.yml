@@ -1,0 +1,69 @@
+name: Weekly Survey Pipeline
+
+on:
+  schedule:
+    # Every Monday at 09:00 UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+    inputs:
+      full_rebuild:
+        description: 'Run full rebuild (ignore incremental state)'
+        type: boolean
+        default: false
+
+jobs:
+  survey:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run survey pipeline
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          if [ "${{ github.event.inputs.full_rebuild }}" = "true" ]; then
+            python -m src.pipeline --full
+          else
+            python -m src.pipeline --incremental
+          fi
+
+      - name: Commit and push updates
+        if: success()
+        run: |
+          git config user.name "survey-bot[bot]"
+          git config user.email "survey-bot[bot]@users.noreply.github.com"
+          git add data/ output/
+          if ! git diff --staged --quiet; then
+            WEEK=$(date +%Y-W%V)
+            git commit -m "chore(survey): weekly update ${WEEK}"
+            git push
+          else
+            echo "No changes to commit"
+          fi
+
+      - name: Notify on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Survey pipeline failed - ${new Date().toISOString().slice(0, 10)}`,
+              body: `Automated survey pipeline failed.\n[View workflow run](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})`
+            });

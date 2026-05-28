@@ -1,0 +1,51 @@
+# ============================================================
+# Survey Pipeline Configuration
+# ============================================================
+
+api:
+  deepseek:
+    api_key: ${DEEPSEEK_API_KEY}
+    base_url: https://api.deepseek.com
+    model_cards: deepseek-chat       # For paper card generation
+    model_digest: deepseek-chat      # For digest/report generation
+    model_reasoner: deepseek-reasoner # Optional: for complex analysis
+    max_rpm: 60                       # DeepSeek rate limit
+    max_retries: 5
+    initial_backoff: 1.0
+    max_backoff: 60.0
+    timeout: 120
+
+arxiv:
+  search_query: >
+    (cat:cs.CL OR cat:cs.SE OR cat:cs.AI OR cat:cs.LG OR cat:cs.PL)
+    AND (
+      "code generation" OR "code synthesis" OR "code LLM" OR
+      "program synthesis" OR "code completion" OR "code translation" OR
+      "program repair" OR "automated programming" OR
+      "large language model for code" OR "code intelligence"
+    )
+  max_results: 100
+  date_range_years: 2
+  sort_by: submittedDate
+  sort_order: descending
+  batch_size: 50
+
+clustering:
+  embedding_model: all-MiniLM-L6-v2   # Local sentence-transformers model
+  algorithm: hdbscan
+  min_cluster_size: 3
+  min_samples: 1
+  cluster_selection_epsilon: 0.15
+
+digest:
+  max_length_pages: 2
+
+report:
+  max_length_pages: 10
+
+pipeline:
+  data_dir: data
+  output_dir: output
+  log_level: INFO
+  log_file: pipeline.log
+  concurrent_card_generation: 5
