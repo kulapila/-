@@ -34,8 +34,8 @@ class Pipeline:
         logger.info("--- Step 1: Fetching papers from arXiv ---")
         from .fetcher import ArxivFetcher
         fetcher = ArxivFetcher(self.config)
-        since_date = state.last_arxiv_published_date if incremental else None
-        result = fetcher.fetch(incremental=incremental, since_date=since_date)
+        since_date = None  # Always fetch latest, dedup handles duplicates
+        result = fetcher.fetch(incremental=False, since_date=since_date)
         fetcher.save_papers(result, incremental=incremental)
 
         if result.total_new == 0 and incremental:
