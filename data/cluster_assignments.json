@@ -1,28 +1,39 @@
 {
   "assignments": {
-    "2605.28557": -1,
-    "2605.28515": -1,
-    "2605.28510": -1,
-    "2605.28500": -1,
-    "2605.28482": -1,
-    "2605.28409": -1,
-    "2605.28371": -1,
-    "2605.28258": -1,
-    "2605.28181": -1,
-    "2605.28022": -1
+    "2605.31478": 0,
+    "2605.31458": 0,
+    "2605.31268": 0,
+    "2605.31064": 0,
+    "2605.30813": -1,
+    "2605.30712": 1,
+    "2605.30680": 1,
+    "2605.30478": 0,
+    "2605.30104": 0,
+    "2605.30103": -1,
+    "2605.30042": 1,
+    "2605.30394": 0,
+    "2605.29822": 0,
+    "2605.29737": 0,
+    "2605.29734": 0,
+    "2605.29716": -1,
+    "2605.29687": 0,
+    "2605.29607": -1,
+    "2605.29372": -1,
+    "2605.29146": 1
   },
-  "labels": {},
-  "descriptions": {},
+  "labels": {
+    "0": "Code Generation and Optimization",
+    "1": "Multi-Agent LLM Frameworks"
+  },
+  "descriptions": {
+    "0": "This cluster focuses on improving code generation using large language models (LLMs) through techniques such as reinforcement learning, benchmark design, and error mitigation. Papers address challenges like API knowledge boundaries, numerical hallucinations, and code vulnerabilities, while also exploring optimization for specific domains like power systems and industrial automation.",
+    "1": "These papers propose multi-agent systems that leverage LLMs for tasks like experience learning, policy search, method selection, and medication recommendation. They share a common architecture of multiple specialized agents collaborating via structured communication and external knowledge integration."
+  },
   "noise_papers": [
-    "2605.28557",
-    "2605.28515",
-    "2605.28510",
-    "2605.28500",
-    "2605.28482",
-    "2605.28409",
-    "2605.28371",
-    "2605.28258",
-    "2605.28181",
-    "2605.28022"
+    "2605.30813",
+    "2605.30103",
+    "2605.29716",
+    "2605.29607",
+    "2605.29372"
   ]
 }
