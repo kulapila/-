@@ -42,6 +42,8 @@ main{max-width:1300px;margin:24px auto;padding:0 20px}
 .tag-green{background:#e8f5e9;color:#2e7d32}
 .tag-orange{background:#fff3e0;color:#e65100}
 .tag-purple{background:#f3e5f5;color:#7b1fa2}
+.card.clickable{cursor:pointer;transition:.2s}
+.card.clickable:hover{border-left-color:#e94560;transform:translateX(4px)}
 table{width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08)}
 th{background:#1a1a2e;color:#fff;padding:10px 12px;font-size:12px;text-align:left}
 td{padding:10px 12px;font-size:13px;border-bottom:1px solid #eee}
@@ -83,7 +85,7 @@ tr:hover{background:#f8f9fa}
 </div>
 <div id="tab-papers" class="tab">
 <div class="search-bar">
-<input type="text" id="paper-search" placeholder="Search by title, method, category..." oninput="filterPapers()">
+<input type="text" id="paper-search" placeholder="Search by title, method, category..." oninput="filterPapers()"><button onclick="document.getElementById('paper-search').value='';renderPapers(allCards)" style="padding:8px 16px;border:1px solid #ddd;border-radius:6px;background:#fff;cursor:pointer;font-size:13px">Show All</button>
 </div>
 <div id="papers-list"><div class="loading">Loading...</div></div>
 </div>
@@ -110,16 +112,16 @@ document.getElementById('stat-weeks').textContent='1';
 const catCount={};
 allCards.forEach(c=>{const cat=c.best_fit_category||'Unknown';catCount[cat]=(catCount[cat]||0)+1});
 document.getElementById('dashboard-categories').innerHTML=
-'<h3 style="margin-bottom:12px">Category Distribution</h3>'+
-Object.entries(catCount).map(([k,v])=>`<div class="card"><h2>${k}</h2><span class="meta">${v} paper(s)</span></div>`).join('');
+'<h3 style="margin-bottom:12px">Category Distribution (click to filter)</h3>'+
+Object.entries(catCount).map(([k,v])=>`<div class="card clickable" onclick="filterByCategory('${esc(k)}')"><h2>${k}</h2><span class="meta">${v} paper(s) →</span></div>`).join('');
 }
 function renderPapers(cards){
 const container=document.getElementById('papers-list');
 if(!cards.length){container.innerHTML='<div class="empty">No paper cards found.</div>';return}
 container.innerHTML=cards.map(c=>`
 <div class="card">
-<h2>${esc(c.title)}</h2>
-<div class="meta">${esc(c.arxiv_id)} &middot; ${esc(c.best_fit_category||'')} &middot; Confidence: ${esc(c.confidence_level)}</div>
+<h2><a href="https://arxiv.org/abs/${esc(c.arxiv_id)}" target="_blank" style="color:#1a1a2e;text-decoration:none">${esc(c.title)}</a></h2>
+<div class="meta"><a href="https://arxiv.org/abs/${esc(c.arxiv_id)}" target="_blank" style="color:#888;text-decoration:none">${esc(c.arxiv_id)}</a> &middot; ${esc(c.best_fit_category||'')} &middot; Confidence: ${esc(c.confidence_level)}</div>
 <div class="grid">
 <div class="field"><strong>Problem</strong><br>${esc(c.problem)}</div>
 <div class="field"><strong>Key Idea</strong><br>${esc(c.key_idea)}</div>
@@ -132,8 +134,15 @@ container.innerHTML=cards.map(c=>`
 </div>
 </div>`).join('');
 }
+function filterByCategory(cat){
+switchTab('papers');
+document.getElementById('paper-search').value=cat;
+const filtered=allCards.filter(c=>(c.best_fit_category||'')===cat);
+renderPapers(filtered);
+}
 function filterPapers(){
 const q=document.getElementById('paper-search').value.toLowerCase();
+if(!q){renderPapers(allCards);return}
 const filtered=allCards.filter(c=>
 c.title.toLowerCase().includes(q)||c.method.toLowerCase().includes(q)||
 (c.best_fit_category||'').toLowerCase().includes(q)||c.problem.toLowerCase().includes(q)

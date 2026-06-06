@@ -24,7 +24,7 @@ arxiv:
       "program repair" OR "automated programming" OR
       "large language model for code" OR "code intelligence"
     )
-  max_results: 20
+  max_results: 50
   date_range_years: 2
   sort_by: submittedDate
   sort_order: descending
