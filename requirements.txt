@@ -10,4 +10,4 @@ json-repair>=0.30.0
 sentence-transformers>=3.0
 feedparser>=6.0
 python-dotenv>=1.0
-tenacity>=8.0
+tabulate>=0.9
