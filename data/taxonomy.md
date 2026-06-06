@@ -1,7 +1,6 @@
 ## Research Taxonomy
 
-- **Code Generation Enhancement**
-  - LLM-based Code Generation: Techniques like reinforcement learning, benchmark design, and error mitigation to improve code generation from LLMs.
-  - Domain-Specific Optimization: Tailoring code generation for specific domains such as power systems and industrial automation.
-- **Multi-Agent Systems**
-  - Collaborative Multi-Agent Architectures: Systems with multiple specialized agents that communicate and integrate external knowledge for tasks like policy search and medication recommendation.
+- **Code Generation with LLMs**
+  - **Challenges and Solutions**: Addressing API knowledge boundaries, numerical reasoning, experience reuse, and evaluation through methods like demand-guided intervention, data-centric compilation, experience graphs, and new benchmarks.
+- **Efficiency in Autoregressive Decoding**
+  - **Acceleration Techniques**: Speculative decoding, parallel decoding, multi-token prediction, novel architectures, and training-free modules to speed up generation while maintaining quality.
