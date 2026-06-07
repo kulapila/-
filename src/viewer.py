@@ -72,6 +72,9 @@ tr:hover{background:#f8f9fa}
 <nav>
 <button class="active" onclick="switchTab('dashboard')">Dashboard</button>
 <button onclick="switchTab('papers')">Paper Cards</button>
+<button onclick="switchTab('comparison')">Comparison</button>
+<button onclick="switchTab('digest')">Weekly Digest</button>
+<button onclick="switchTab('report')">Final Report</button>
 </nav>
 <main>
 <div id="tab-dashboard" class="tab active">
@@ -89,18 +92,33 @@ tr:hover{background:#f8f9fa}
 </div>
 <div id="papers-list"><div class="loading">Loading...</div></div>
 </div>
+<div id="tab-comparison" class="tab">
+<div id="comparison-table"><div class="loading">Loading...</div></div>
+</div>
+<div id="tab-digest" class="tab">
+<div id="digest-selector" style="margin-bottom:16px"></div>
+<div id="digest-content"><div class="loading">Loading...</div></div>
+</div>
+<div id="tab-report" class="tab">
+<div id="report-content"><div class="loading">Loading...</div></div>
+</div>
 </main>
 <script>
 let allCards=[],allPapers=[];
 async function loadData(){
 try{
-const [cardsRes,papersRes]=await Promise.all([
-fetch('/api/cards'),fetch('/api/papers')
+const [cardsRes,papersRes,compRes,digestsRes,reportRes]=await Promise.all([
+fetch('/api/cards'),fetch('/api/papers'),fetch('/api/comparison'),
+fetch('/api/digests'),fetch('/api/report')
 ]);
 allCards=await cardsRes.json();
 allPapers=await papersRes.json();
+const allDigests=await digestsRes.json();
 renderDashboard();
 renderPapers(allCards);
+renderComparison(await compRes.json());
+renderDigestSelector(allDigests);
+renderMarkdown('report-content',await reportRes.text()||'No report generated yet.');
 }catch(e){document.querySelectorAll('.loading').forEach(el=>el.textContent='Error loading data: '+e.message)}
 }
 function renderDashboard(){
@@ -108,7 +126,7 @@ document.getElementById('stat-papers').textContent=allPapers.length;
 document.getElementById('stat-cards').textContent=allCards.length;
 const cats=new Set(allCards.map(c=>c.best_fit_category).filter(Boolean));
 document.getElementById('stat-categories').textContent=cats.size;
-document.getElementById('stat-weeks').textContent='1';
+fetch('/api/state').then(r=>r.json()).then(s=>{document.getElementById('stat-weeks').textContent=(s.history||[]).length||1}).catch(()=>{document.getElementById('stat-weeks').textContent='-'});
 const catCount={};
 allCards.forEach(c=>{const cat=c.best_fit_category||'Unknown';catCount[cat]=(catCount[cat]||0)+1});
 document.getElementById('dashboard-categories').innerHTML=
@@ -149,6 +167,45 @@ c.title.toLowerCase().includes(q)||c.method.toLowerCase().includes(q)||
 );
 renderPapers(filtered);
 }
+function renderDigestSelector(digests){
+const selector=document.getElementById('digest-selector');
+if(!digests.length){selector.innerHTML='';return}
+window.digestsData=digests;
+selector.innerHTML=digests.map((d,i)=>`<button id="dig-btn-${i}" onclick="switchDigest(${i})" style="padding:6px 14px;margin-right:4px;border:1px solid #ddd;border-radius:4px;cursor:pointer;font-size:13px">W${d.week}</button>`).join('');
+switchDigest(digests.length-1);
+}
+function switchDigest(idx){
+document.querySelectorAll('[id^=dig-btn-]').forEach(b=>{b.style.background='#fff';b.style.color='#333'});
+const btn=document.getElementById('dig-btn-'+idx);
+if(btn){btn.style.background='#0f3460';btn.style.color='#fff'}
+renderMarkdown('digest-content',window.digestsData[idx].content);
+}
+function renderComparison(rows){
+const container=document.getElementById('comparison-table');
+if(!rows.length){container.innerHTML='<div class="empty">No comparison data.</div>';return}
+const cols=['arxiv_id','title','method_name','complexity','scenario','pros','cons','data_driven'];
+container.innerHTML='<table><thead><tr>'+cols.map(c=>`<th>${c}</th>`).join('')+'</tr></thead><tbody>'+
+rows.map(r=>'<tr>'+cols.map(c=>`<td>${esc(r[c]||'')}</td>`).join('')+'</tr>').join('')+'</tbody></table>';
+}
+function renderMarkdown(id,md){
+const el=document.getElementById(id);
+let html=md
+.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+.replace(/^### (.+)$/gm,'<h3>$1</h3>')
+.replace(/^## (.+)$/gm,'<h2>$1</h2>')
+.replace(/^# (.+)$/gm,'<h1>$1</h1>')
+.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+.replace(/\*(.+?)\*/g,'<em>$1</em>')
+.replace(/^- (.+)$/gm,'<li>$1</li>')
+.replace(/^(\d+)\. (.+)$/gm,'<li>$2</li>')
+.replace(/(<li>.*<\/li>\n?)+/g,'<ul>$&</ul>')
+.replace(/`([^`]+)`/g,'<code>$1</code>')
+.replace(/\n\n/g,'</p><p>')
+.replace(/\n/g,'<br>');
+html='<p>'+html+'</p>';
+html=html.replace(/<\/ul>\n?<ul>/g,'');
+el.innerHTML=html||'<div class="empty">No content</div>';
+}
 function esc(s){if(!s)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 function switchTab(name){
 document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
@@ -177,8 +234,12 @@ class ViewerHandler(BaseHTTPRequestHandler):
             self._serve_json(self._load_comparison())
         elif path == "/api/digest":
             self._serve_text(self._load_latest_digest())
+        elif path == "/api/digests":
+            self._serve_json(self._load_all_digests())
         elif path == "/api/report":
             self._serve_text(self._load_report())
+        elif path == "/api/state":
+            self._serve_json(load_json(str(self.data_dir / "state.json")) or {})
         else:
             self.send_error(404)
 
@@ -217,6 +278,16 @@ class ViewerHandler(BaseHTTPRequestHandler):
             return ""
         files = sorted(weekly.glob("digest_*.md"), reverse=True)
         return files[0].read_text("utf-8") if files else ""
+
+    def _load_all_digests(self):
+        weekly = self.data_dir / "weekly"
+        if not weekly.exists():
+            return []
+        result = []
+        for f in sorted(weekly.glob("digest_*.md")):
+            week_label = f.stem.replace("digest_", "")
+            result.append({"week": week_label, "content": f.read_text("utf-8")})
+        return result
 
     def _load_report(self) -> str:
         path = Path("output") / "final_report.md"

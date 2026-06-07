@@ -3,7 +3,7 @@ name: Weekly Survey Pipeline
 on:
   schedule:
     # Every Monday at 09:00 UTC
-    - cron: '0 9 * * 1'
+    - cron: '0 0 * * 1'
   workflow_dispatch:
     inputs:
       full_rebuild:
