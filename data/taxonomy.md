@@ -1,6 +1,8 @@
 ## Research Taxonomy
 
-- **Code Generation with LLMs**
-  - **Challenges and Solutions**: Addressing API knowledge, numerical reasoning, experience reuse, and evaluation through methods like demand-guided intervention, data-centric compilation, experience graphs, and new benchmarks.
+- **Code Generation Applications and Challenges**
+  - Domain-Specific Code Generation: These papers focus on using large language models (LLMs) for code generation across various domains, including power systems, industrial automation, financial QA, healthcare, and general-purpose programming.
+  - Addressing Code Correctness and Reliability: They address challenges such as API knowledge boundaries, numerical hallucinations, and code correctness, proposing methods like documentation injection, reinforcement learning, and multi-agent frameworks.
 - **Efficiency in Autoregressive Decoding**
-  - **Acceleration Techniques**: Speculative decoding, parallel decoding, multi-token prediction, novel architectures, and training-free modules to speed up generation while maintaining quality.
+  - Decoding Acceleration Techniques: These papers focus on improving the efficiency of autoregressive decoding in large language models through techniques such as speculative decoding, parallel decoding, and multi-token prediction.
+  - Novel Architectures and Modules: They propose novel architectures and training-free modules to accelerate generation while maintaining quality.

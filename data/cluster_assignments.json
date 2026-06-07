@@ -6,7 +6,7 @@
     "2605.31064": 0,
     "2605.30813": -1,
     "2605.30712": 0,
-    "2605.30680": -1,
+    "2605.30680": 0,
     "2605.30478": 0,
     "2605.30104": 0,
     "2605.30103": -1,
@@ -60,19 +60,27 @@
     "2606.00308": 0,
     "2606.00220": -1,
     "2606.00167": -1,
-    "2606.00154": 0
+    "2606.00154": 0,
+    "2605.28978": 0,
+    "2605.28916": -1,
+    "2605.28557": -1,
+    "2605.28515": 0,
+    "2605.28510": -1,
+    "2605.28500": 0,
+    "2605.28482": 0,
+    "2605.28409": 0,
+    "2605.28371": 0
   },
   "labels": {
     "0": "Code Generation with LLMs",
     "1": "Efficient Decoding with LLMs"
   },
   "descriptions": {
-    "0": "These papers focus on using large language models (LLMs) for code generation, addressing challenges such as API knowledge boundaries, numerical reasoning, experience reuse, and evaluation. They propose methods like demand-guided intervention, data-centric compilation, experience graphs, and new benchmarks to improve code generation quality and reliability.",
+    "0": "These papers focus on using large language models (LLMs) for code generation across various domains, including power systems, industrial automation, financial QA, healthcare, and general-purpose programming. They address challenges such as API knowledge boundaries, numerical hallucinations, and code correctness, proposing methods like documentation injection, reinforcement learning, and multi-agent frameworks.",
     "1": "These papers focus on improving the efficiency of autoregressive decoding in large language models through techniques such as speculative decoding, parallel decoding, and multi-token prediction. They propose novel architectures and training-free modules to accelerate generation while maintaining quality."
   },
   "noise_papers": [
     "2605.30813",
-    "2605.30680",
     "2605.30103",
     "2605.29716",
     "2605.29146",
@@ -89,6 +97,9 @@
     "2606.01249",
     "2606.01053",
     "2606.00220",
-    "2606.00167"
+    "2606.00167",
+    "2605.28916",
+    "2605.28557",
+    "2605.28510"
   ]
 }

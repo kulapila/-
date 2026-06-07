@@ -1150,5 +1150,198 @@
     "categories": [
       "cs.SE"
     ]
+  },
+  {
+    "arxiv_id": "2605.29146",
+    "title": "SafeRx-Agent: A Knowledge-Grounded Multi-Agent Framework for Safe and Explainable Medication Recommendation",
+    "authors": [
+      "Xinyu Wang",
+      "Hanwei Wu",
+      "Zhenghan Tai",
+      "Sicheng Lyu",
+      "Qincheng Lu",
+      "Ziyu Zhao",
+      "Jijun Chi",
+      "Jingrui Tian",
+      "Xiao-Wen Chang",
+      "Ziyang Song"
+    ],
+    "abstract": "Medication recommendation predicts medications for patient visits, but existing methods still face two key challenges. At the model level, traditional drug recommendation methods only predict structured drug codes with limited evidence grounding, while LLM agents can use richer clinical context but may lack safety verification and traceability. At the task level, existing benchmarks often use broad medication categories, which ignore subgroup-level safety differences and can lead to risk overestimation. We introduce the first fine-grained medication recommendation setting based on fourth-level ATC code generation. We propose Safe Prescription Agent (SafeRx-Agent), a knowledge-grounded multi-agent framework that uses patient context, external clinical knowledge, and safety verification to recommend traceable medication sets. Experimental results on MIMIC-III and MIMIC-IV datasets show that SafeRx-Agent improves fine-grained medication prediction accuracy while controlling drug interactions, contraindications, and medication set size.",
+    "published": "2026-05-27",
+    "url": "http://arxiv.org/abs/2605.29146v2",
+    "primary_category": "cs.CL",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2605.28978",
+    "title": "VFEAgent: A Multimodal Agent Framework for End-to-End Automated Finite Element Analysis",
+    "authors": [
+      "Jiachen Zhang",
+      "Junyi Lao",
+      "Chenghao Liu",
+      "Siyuan Liu",
+      "Shixin Wu",
+      "Linsen Zhang",
+      "Boyu Wang",
+      "Songfang Huang"
+    ],
+    "abstract": "Finite Element Analysis (FEA) serves as the cornerstone of modern engineering design. However, its workflow is inherently complex and relies heavily on domain expertise. Although recent efforts have integrated Large Language Models (LLMs) into FEA, existing approaches face limitations in handling multimodal inputs and executing complex tasks. To address these limitations, we propose VFEAgent, an end-to-end multi-agent system designed to automate FEA modeling and simulation directly from input images and problem descriptions. Our methodology integrates two core components: (1) a multimodal vision-language multi-agent pipeline that employs ReAct-driven reasoning to extract structured FEA specifications from heterogeneous inputs and (2) a verification-first code synthesis framework, incorporating robust self-debugging and fallback mechanisms to ensure executability and physical validity. We systematically evaluated the system across various engineering mechanics scenarios. The results demonstrate that VFEAgent achieves a high success rate in generating complete and physically valid simulations, outperforming LLM-based baseline methods in reliability and correctness. These findings validate the feasibility of automating the complete FEA workflow, highlighting the framework's potential to liberate engineers from tedious manual analysis.",
+    "published": "2026-05-27",
+    "url": "http://arxiv.org/abs/2605.28978v1",
+    "primary_category": "cs.AI",
+    "categories": [
+      "cs.AI",
+      "cs.CE"
+    ]
+  },
+  {
+    "arxiv_id": "2605.28916",
+    "title": "First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope",
+    "authors": [
+      "Gianluca Inguglia"
+    ],
+    "abstract": "We report a comparison of two state-of-the-art agentic AI systems, Claude Code (Anthropic) and Codex (OpenAI), tasked with autonomously executing a simple end-to-end gravitational wave data analysis pipeline on a shared computing infrastructure without human intervention. The pipeline comprises power spectral density estimation from raw Einstein Telescope simulated noise, geometric template bank generation, matched filter recovery of 100 binary black hole signal injections, automated results generation, and large language model-assisted production of a manuscript formatted in the style of Physical Review D. Both agents received identical written specifications and identical compute resources. The experiment was run twice: a first run with unrealistically loud injections, and a second run with signals rescaled to a physically motivated SNR range. The scientific results converged in both runs. However, the agents exhibited substantially different behaviors and computational costs: Claude Code completed the pipeline in ~3.4 minutes with silent deviations from the specification, while Codex required ~16 minutes across explicit self-correcting restarts, including an unsolicited performance optimization of the matched filter inner loop. The autonomously generated manuscripts also diverged in length, details, and quality. In the second run, a subtle difference in the interpretation of the SNR range instruction led to a genuine scientific divergence: Claude Code silently reinterpreted the instructions, while Codex followed the specification literally. We discuss the implications of these behavioral differences, such as speed versus auditability, silent versus transparent error handling, instruction interpretation, and the criticality of intermediate data representations in multi-model pipelines, for the deployment of agentic AI in scientific computing workflows.",
+    "published": "2026-05-27",
+    "url": "http://arxiv.org/abs/2605.28916v2",
+    "primary_category": "astro-ph.IM",
+    "categories": [
+      "astro-ph.IM",
+      "cs.AI",
+      "cs.HC"
+    ]
+  },
+  {
+    "arxiv_id": "2605.28557",
+    "title": "Token Optimization Strategies for LLM-Based Oracle-to-PostgreSQL Migration",
+    "authors": [
+      "Oleg Grynets",
+      "Dmytro Babarytskyi",
+      "Vasyl Lyashkevych"
+    ],
+    "abstract": "LLMs are increasingly used for software modernization, code translation, and database migration. However, LLM-based Oracle2PostgreSQL migration remains constrained by high token consumption, long-context degradation, dialect-specific semantic differences, and the risk of semantic drift during query transformation. Direct inclusion of large Oracle SQL/PL-SQL artefacts, schema definitions, procedural logic, and migration instructions into the model context increases cost and may reduce generation quality. This paper shows token optimization as a constrained transformation problem in LLM-based Oracle2PostgreSQL migration. The study formalizes and evaluates twelve token optimization strategies: baseline representation, context pruning, minification, DSL-based semantic compression, metadata augmentation, context refactoring, schema distillation, adaptive routing, AST-based minification, identifier masking, output constraint enforcement, and hybrid optimization. The strategies are evaluated on samples of 10 and 100 Oracle SQL queries using Valid Syntax Rate, Exact Match, Semantic Match, CodeBLEU, and Token Efficiency. The results show that mild context pruning preserves semantic quality almost at the baseline level, achieving 89.75% Semantic Match on the 100-query sample compared with 89.80% for the unoptimized baseline. Adaptive routing provides the best practical trade-off, reducing input tokens by 8.72% and output tokens by 5.49% while maintaining 88.40% Semantic Match and increasing Token Efficiency by 6.67%. Aggressive schema distillation increases Token Efficiency by 132.22% but results in a 44.50-percentage-point decrease in Semantic Match. The findings demonstrate that token optimization cannot be treated as simple prompt shortening; it must be evaluated as a multi-objective migration problem balancing cost, syntactic validity, semantic preservation, and structural fidelity.",
+    "published": "2026-05-27",
+    "url": "http://arxiv.org/abs/2605.28557v1",
+    "primary_category": "cs.LO",
+    "categories": [
+      "cs.LO",
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2605.28515",
+    "title": "Do LLMs Favor Their Providers? Measuring Vertical Integration Bias in Code Generation",
+    "authors": [
+      "Melih Catal",
+      "Alex Wolf",
+      "Tiago Ferreiro Matos",
+      "Pooja Rani",
+      "Harald Gall"
+    ],
+    "abstract": "Large Language Models (LLMs) have become an integral part of software development, especially with the advent of agentic capabilities. Yet, many frontier LLMs are affiliated with specific providers. This raises the question of whether generated code favors the provider's own ecosystem over comparable alternatives, potentially constraining developers' choices and increasing dependence on a single provider. We define this behavior as Vertical Integration Bias (VIB) and introduce \\textsc{VIBench}, a benchmark for measuring VIB in direct and agentic code generation across $20$ provider-selectable software-integration scenarios. Evaluating $10$ frontier provider-affiliated models against $3$ non-affiliated controls, we find positive VIB in direct generation, with six of ten affiliated models showing statistically significant effects up to $+18.8$ percentage points (pp). Agentic workflows further amplify VIB, reaching $+39.2$ pp. Moreover, early affiliated-ecosystem choices in agentic workflows can persist into conceptually decoupled downstream files, with persistence as high as $90.3\\%$. These findings underscore the need to measure and account for VIB in code generation, especially as agentic capabilities become more prevalent.",
+    "published": "2026-05-27",
+    "url": "http://arxiv.org/abs/2605.28515v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2605.28510",
+    "title": "Efficient and Scalable Provenance Tracking for LLM-Generated Code Snippets",
+    "authors": [
+      "Andrea Gurioli",
+      "Davide D'Ascenzo",
+      "Federico Pennino",
+      "Maurizio Gabbrielli",
+      "Stefano Zacchiroli"
+    ],
+    "abstract": "Large language models (LLMs) for code completion and generation are increasingly used in software development, yet they may reproduce training examples verbatim and without authorship attribution, raising legal and ethical concerns around plagiarism and license compliance. Classical fingerprint-based plagiarism detectors based on fingerprinting, such as Winnowing, remain highly effective, yet the inspection requires comparing fragments of code to the entire training set, and their linear-time search makes them impractical for the billion-scale corpora used to train modern code LLMs. To bridge this gap, we introduce SOURCETRACKER, a 300M-parameter encoder tailored for code retrieval, together with a hybrid two-stage provenance-tracking pipeline HYBRIDSOURCETRACKER (HST). HST first narrows down a small set of candidate snippets via vector search, then re-ranks those candidates using Winnowing on exact fingerprints. We train and evaluate our system on a 10M-snippet subset of the THESTACKV2 dataset, with both verbatim and adapted snippets that emulate realistic identifier renaming. On an in vitro 100k-snippet search space with adapted queries, our hybrid approach reaches a mean reciprocal rank on par with Winnowing for 30-token fragments. Then, starting from windows >= 60 tokens, it consistently over-performs by up to 5.4% while preserving logarithmic-time query complexity. In a complementary evaluation using an LLM-based judge, we find that many retrieved snippets not labeled as ground truth are still highly similar to the expected sources, particularly with longer context windows, and thus remain useful for end users. Overall, our results demonstrate that integrating vector search with fingerprinting enables scalable, high-precision provenance tracking for code produced by LLMs.",
+    "published": "2026-05-27",
+    "url": "http://arxiv.org/abs/2605.28510v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI",
+      "cs.IR"
+    ]
+  },
+  {
+    "arxiv_id": "2605.28500",
+    "title": "Functional Entropy: Predicting Functional Correctness in LLM-Generated Code with Uncertainty Quantification",
+    "authors": [
+      "Dylan Bouchard",
+      "Mohit Singh Chauhan",
+      "Zeya Ahmad",
+      "Ho-Kyeong Ra"
+    ],
+    "abstract": "Large language models have shown impressive capabilities in code generation, yet they often produce functionally incorrect code. Uncertainty quantification (UQ) methods have emerged as a promising approach for detecting hallucinations in natural language generation, but their effectiveness for code generation tasks remains underexplored. We systematically evaluate how UQ techniques transfer to code generation across three programming languages, five LLMs, and over 1,700 problems. We find that some token-probability-based methods generalize effectively without modification, while sampling-based methods relying on natural language inference (NLI) fail because NLI models cannot distinguish functionally different code, causing most responses to collapse into a single semantic cluster. To address this, we introduce functional equivalence methods, a family of code-specific methods that replace NLI-based semantic equivalence with an LLM-based functional equivalence assessment, including functional entropy, a code-specific analog of semantic entropy. Functional equivalence methods achieve top AUROC in 11 out of 15 model-benchmark combinations and the best calibration across most settings, consistently outperforming both NLI-based counterparts and all other methods evaluated.",
+    "published": "2026-05-27",
+    "url": "http://arxiv.org/abs/2605.28500v1",
+    "primary_category": "cs.CL",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ]
+  },
+  {
+    "arxiv_id": "2605.28482",
+    "title": "Rethinking Software Empirical Studies with Structural Causal Models",
+    "authors": [
+      "Daniel Rodriguez-Cardenas",
+      "Aya Garryyeva",
+      "David Nader Palacio",
+      "Antonio Mastropaolo",
+      "Denys Poshyvanyk"
+    ],
+    "abstract": "Causal Inference offers a fundamental approach for advancing empirical software engineering (ESE) beyond traditional statistical association, enabling researchers to rigorously identify and quantify causal relationships in software experiments. This paper introduces CausalSE, a framework that operationalizes Judea Pearl's causal inference paradigm in ESE context. The paper focuses on Structural Causal Models (SCMs) to address the limitations of classical statistical methods in mitigating confounding bias. Through a case study using the Galeras dataset and propensity score matching, we demonstrate how CausalSE disentangles the effect of prompt engineering strategies on code generation outcomes in a popular LLM (i.e., GPT-3). The results reveal that while associational analyses can suggest improvements in certain interventions (e.g., more complex prompts), causal analysis often does not find a significant treatment effect, highlighting the risk of false positives when confounding is not addressed. By providing a tutorial-based methodology and a real-world case study, this work equips software researchers with practical tools to design, analyze, and interpret software experiments with methodological rigor, ultimately enabling more informed and actionable conclusions in both research and practice.",
+    "published": "2026-05-27",
+    "url": "http://arxiv.org/abs/2605.28482v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2605.28409",
+    "title": "Efficient Post-training of LLMs for Code Generation With Offline Reinforcement Learning",
+    "authors": [
+      "Mingze Wu",
+      "Abhinav Anand",
+      "Shweta Verma",
+      "Mira Mezini"
+    ],
+    "abstract": "Post-training using online reinforcement learning (RL) is an important training step for LLMs, including code-generating models. However, online RL for code generation involves LLM inference and verification of the generated output, which can take considerable time and resources. In this paper, we explore the application of offline RL to code-generating models by leveraging existing code datasets. Our experiments demonstrate that offline RL is an effective training strategy for improving LLM performance. We show that offline RL can be especially beneficial for small LLMs and challenging coding problems.",
+    "published": "2026-05-27",
+    "url": "http://arxiv.org/abs/2605.28409v1",
+    "primary_category": "cs.AI",
+    "categories": [
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2605.28371",
+    "title": "From paper to benchmark: agentic, framework-based reproduction of under-specified methods in machine health intelligence",
+    "authors": [
+      "Raffael Theiler",
+      "Ludovico Comito",
+      "David Leko",
+      "Leandro Von Krannichfeldt",
+      "Lev Telyatnikov",
+      "Olga Fink"
+    ],
+    "abstract": "Industrial Prognostics and Health Management (PHM) provides a representative case study for a broader challenge in applied machine learning: translating published papers into executable, benchmark-ready implementations. Reproducing under-specified methods in PHM is particularly difficult due to restricted access to industrial datasets, incomplete reporting of preprocessing and evaluation protocols, and implicit design choices (e.g., windowing, target construction, data splits) that critically affect performance. Existing paper-to-code systems generate implementations for individual papers, but these artifacts are often not directly comparable due to inconsistencies in assumptions and evaluation settings. We introduce \\emph{agentic, framework-based PHM paper reproduction}, where an agent translates a paper into a shared PHM benchmark framework via a \\emph{slot-binding interface}. This interface maps equations and protocol descriptions into structured components (task definitions, dataset adapters, windowing, targets, models, and evaluators), while explicitly recording unresolved assumptions. The resulting implementations are validated against standardized task contracts and evaluation hooks, enabling consistent and comparable benchmarking. We evaluate this approach on 16 PHM papers, comparing framework-enhanced, skill-based and prompt-based agentic reproduction against a recent framework-free paper-reproduction agent. We assess reproduction success, model-based code evaluation, framework binding of paper assumptions, and cross-paper benchmark comparability under standardized protocols. Our results show that coupling agentic generation with a shared framework transforms paper reproduction from isolated code synthesis into executable, assumption-aware, and systematically comparable benchmark implementations.",
+    "published": "2026-05-27",
+    "url": "http://arxiv.org/abs/2605.28371v1",
+    "primary_category": "cs.AI",
+    "categories": [
+      "cs.AI",
+      "cs.LG",
+      "cs.SE"
+    ]
   }
 ]
