@@ -974,5 +974,181 @@
     "categories": [
       "cs.CL"
     ]
+  },
+  {
+    "arxiv_id": "2605.30103",
+    "title": "Convergence Theory for Iterative LLM-Based Neural Architecture Search: A Parametric Cross-Entropy Framework with Closed-Form Proxy Reliability",
+    "authors": [
+      "Santosh Premi Adhikari",
+      "Radu Timofte",
+      "Dmitry Ignatov"
+    ],
+    "abstract": "Large language models (LLMs) are increasingly used as generators in iterative neural architecture search (NAS), yet no formal convergence theory exists for this class of algorithms. We model iterative LLM-NAS as a parametric Cross-Entropy (CE) method over executable programs and prove six results: (1) iterative LLM fine-tuning on elite architectures is equivalent to the CE update restricted to the LLM parametric family; (2) expected architecture quality is monotonically non-decreasing across cycles; (3) elite-set probability converges to a fixed point at a geometric rate C_t >= 1-(1-rho_0)^t; (4) delta-based generation achieves a strictly higher valid-generation rate than full-code generation under a first-order Markov token-error model; (5) the MinHash-Jaccard novelty filter prevents mode collapse; (6) proxy reliability admits the closed-form rho_S = (6/pi) arcsin(rho_P(SNR)/2), yielding the practical diagnostic sigma^2_arch >> sigma^2_noise as a necessary condition for trustworthy proxy-based rankings. Testing against a 22-cycle, three-LLM, six-dataset experiment with 3,300 generated architectures confirms two predictions quantitatively, two at direction-of-effect level, and explains the proxy-reliability ceiling effect previously reported empirically but left unexplained.",
+    "published": "2026-05-28",
+    "url": "http://arxiv.org/abs/2605.30103v1",
+    "primary_category": "cs.LG",
+    "categories": [
+      "cs.LG"
+    ]
+  },
+  {
+    "arxiv_id": "2605.30042",
+    "title": "Learning to Choose: An Empowerment-Guided Multi-Agent System with semantic communication for Adaptive Method Selection",
+    "authors": [
+      "Geremy Loachamín-Suntaxi",
+      "Robert Lazar",
+      "Dimitrios G. Giovanis",
+      "Ioannis G. Kevrekidis",
+      "Eleni D. Koronaki"
+    ],
+    "abstract": "Automating scientific computing workflows requires more than generating executable code: autonomous systems must also select appropriate computational strategies, implement them faithfully, and ensure that the resulting outcomes remain causally attributable to the decisions that produced them. In multi-agent pipelines, this process is particularly fragile, as small inconsistencies between agent intentions and actions can lead to semantic drift, where the eventually executed procedure no longer reflects the originally selected strategy, thereby corrupting downstream evaluation and adaptation. In this work, motivated by the ATHENA framework (Toscano et al., 2025; Toscano et al., 2026) and the concept of empowerment (Yiu et al., 2025), we introduce a multi-agent framework that combines contextual bandits with structured inter-agent communication and, most importantly, semantic checkpoints that preserve action-outcome fidelity throughout the pipeline. The system integrates specialized large language model (LLM) agents, grounded code generation, and self-healing execution loops within an adaptive decision-making architecture. Interpreting the framework through the lens of empowerment, we show that reliable autonomous learning requires not only identifying high-quality actions, but also preserving the integrity of their propagation across agents. Using sensitivity analysis and uncertainty quantification workflows as representative case studies, we demonstrate that unchecked semantic drift degrades policy learning, whereas the proposed framework improves convergence, robustness, and adaptation to novel problem contexts. These results suggest a broader design principle for scientific multi-agent systems: adaptive decision-making must be coupled with explicit mechanisms that guarantee semantic consistency and reliable information flow across the computational pipeline.",
+    "published": "2026-05-28",
+    "url": "http://arxiv.org/abs/2605.30042v1",
+    "primary_category": "cs.AI",
+    "categories": [
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2605.30394",
+    "title": "CodeGolf Bench: A Multi-Language Benchmark for Evaluating Concise Code Generation Capabilities of Large Language Models",
+    "authors": [
+      "Vedant Padwal"
+    ],
+    "abstract": "This paper introduces Code Bench, a benchmark capable of evaluating Large Language Models (LLMs) concise code generation abilities in 60 programming languages. Based on code golf, a recreational programming competition focused on minimal character or byte solutions, the benchmark provides a distinctive measure of LLMs ability to produce efficient, concise code. Unlike existing benchmarks limited by fixed problem sets and language coverage, CodeGolf Bench leverages the code.golf platform to provide new problems and live human performance baselines. Evaluation of nine LLMs on Python and C++ tasks demonstrates that reasoning models significantly outperform non-reasoning models, achieving best average percentile of 70.97%. This performance gap is particularly pronounced in C++, highlighting reasoning's importance for languages with strict syntax requirements. Non-reasoning models struggle more with efficiency optimization across both languages, with best percentiles significantly lower than reasoning counterparts. CodeGolf Bench offers a dynamic framework for evaluating LLM code generation capabilities against evolving human performance on code golf.",
+    "published": "2026-05-28",
+    "url": "http://arxiv.org/abs/2605.30394v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2605.29822",
+    "title": "Inferring Code Correctness from Specification",
+    "authors": [
+      "Tambon Florian",
+      "Papadakis Mike"
+    ],
+    "abstract": "Large language models (LLMs) have become integral to modern software development, enabling automated code generation at scale. However, validating the correctness of LLM-generated code remains a critical and largely unsolved challenge. Existing approaches either rely on dynamic consensus across multiple code candidates - making them costly and difficult to scale - or on static reasoning that is susceptible to dynamic bugs and order bias. In this paper, we propose TRAILS~ (Targeted Reasoning Agreement via Inputs and Specifications), an approach that grounds LLM reasoning with concrete (input, output) pairs. TRAILS~ first generates diverse test inputs via category partitioning based on the specification, then executes them against the candidate code and prompts LLMs to assess whether the resulting input-output pairs conform to the specification - without ever reasoning over the code itself. Scores are aggregated across inputs, to determines whether the program is likely correct. We evaluate TRAILS~ on two datasets, LiveCodeBench and CoCoClaNeL, across three LLMs (Qwen3Coder-30B, Devstral-Small-24B, and Olmo3.1-Instruct), comparing against HoarePrompt and a Zero-Shot Chain-of-Thought baseline. TRAILS~ improves Matthew Correlation Coefficient by up to 39\\% relative to Zero-Shot COT and consistently outperforms HoarePrompt. Beyond accuracy, TRAILS~ demonstrates greater stability across seeded runs, reducing sensitivity to LLM non-determinism, and assigns correct labels to a larger set of unique code samples than competing approaches.",
+    "published": "2026-05-28",
+    "url": "http://arxiv.org/abs/2605.29822v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2605.29737",
+    "title": "Minimal Prompt Perturbations Lead to Code Vulnerabilities: Prompt Fragility and Hidden-State Signals in Coding LLMs",
+    "authors": [
+      "Alexander Sternfeld",
+      "Andrei Kucharavy",
+      "Ljiljana Dolamic"
+    ],
+    "abstract": "LLM-based coding assistants are seeing rapid adoption, offering substantial gains in developer productivity. As organizations increasingly ship code these agents produce, the security of that code becomes critical. Prior work has shown that minor prompt perturbations degrade the functional correctness of LLM-generated code, but whether they also compromise code security has remained unstudied. We apply token-level mutations to prompts across three models and five programming languages, and show that mutations as small as a single-character change can flip generated code from secure to vulnerable. Probing the models' hidden states reveals that this fragility is partially encoded in prompt representations, but unevenly so. Input-handling vulnerabilities, where the model omits validation or sanitization, are more predictable (mean AUC 0.753) than secure-defaults vulnerabilities, where insecure code stems from one local choice such as a weak algorithm or unsafe parameter (mean AUC 0.674). These results show that the threat model for LLM-assisted coding extends beyond prompt injection to ordinary prompt variation, and indicate that input-handling flaws can be caught before generation while secure-defaults flaws require intervention during decoding.",
+    "published": "2026-05-28",
+    "url": "http://arxiv.org/abs/2605.29737v1",
+    "primary_category": "cs.CR",
+    "categories": [
+      "cs.CR",
+      "cs.CL",
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2605.29734",
+    "title": "HTAM: Hierarchical Transition-Attended Memory for Operator Optimization",
+    "authors": [
+      "Yining Zhang",
+      "Mingyang Yi",
+      "Chen Wang",
+      "Xuwen Xiang",
+      "Tianhe Jia",
+      "Zedong Dan",
+      "Chengqing Zong",
+      "Yue Wang"
+    ],
+    "abstract": "High-performance GPU kernels are essential for efficient LLM deployment, yet optimizing them remains expertise-intensive. Recent LLM-based code generation makes automatic GPU operator generation promising, but operator optimization remains a hardware-aware search problem. Existing LLM-based methods face a granularity mismatch: coarse hints are reusable but hard to execute, whereas detailed memories are actionable but enlarge the search space and obscure optimization bottlenecks. The key challenge is therefore to organize optimization experience at an appropriate granularity. To address this issue, this paper proposes HTAM (Hierarchical Transition-Attended Memory), a coarse-to-fine framework for LLM-based operator optimization. HTAM builds a two-level Hierarchical Transition Graph (HTG) to organize coarse global directions, detailed local strategies, and transition experience between optimization steps. During each evolution step, HTAM selects a global direction from the current state and recent optimization history, retrieves the corresponding local strategy memory, and uses it to guide concrete CUDA code generation. Experiments on the full KernelBench suite demonstrate that HTAM consistently improves correctness, fast-solution rate, and speedup over LLM-based baselines, while backend and Robust-KBench studies indicate transferable benefits from structured memory.",
+    "published": "2026-05-28",
+    "url": "http://arxiv.org/abs/2605.29734v1",
+    "primary_category": "cs.CL",
+    "categories": [
+      "cs.CL"
+    ]
+  },
+  {
+    "arxiv_id": "2605.29716",
+    "title": "NaRA: Noise-Aware LoRA for Parameter-Efficient Fine-Tuning of Diffusion LLMs",
+    "authors": [
+      "Shuaidi Wang",
+      "Zhan Zhuang",
+      "Ruping Huang",
+      "Yu Zhang"
+    ],
+    "abstract": "Diffusion Large Language Models (dLLMs) have emerged as a promising non-autoregressive generative paradigm. Given the prohibitive computational cost of full fine-tuning, Parameter-Efficient Fine-Tuning (PEFT) has become the standard approach. However, existing PEFT methods (e.g., LoRA), originally tailored for autoregressive models, rely on static parameters that are agnostic to the noise level. Consequently, they ignore the intrinsic dynamics of the diffusion process, where input distributions and generation difficulty shift significantly along the denoising trajectory, rendering them suboptimal for dLLMs. To address this, we propose Noise-aware Low-Rank Adaptation (NaRA), which introduces a low-rank core matrix generated by a lightweight, globally shared hypernetwork conditioned on the noise level. This design enables the update matrices to vary continuously along the diffusion process while keeping parameter and latency overhead negligible. We provide a theoretical justification for the proposed NaRA framework and empirically demonstrate consistent improvements over noise-agnostic baselines across commonsense reasoning, mathematical reasoning, and code generation benchmarks. Our code is available at https://github.com/generaldi/NaRA.",
+    "published": "2026-05-28",
+    "url": "http://arxiv.org/abs/2605.29716v1",
+    "primary_category": "cs.AI",
+    "categories": [
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2605.29687",
+    "title": "Reliable Reasoning with Large Language Models via Preference-Based Maximum Satisfiability",
+    "authors": [
+      "Pedro Orvalho",
+      "Marta Kwiatkowska",
+      "Guillem Alenyà",
+      "Felip Manyà"
+    ],
+    "abstract": "Large Language Models (LLMs) excel at understanding natural language but struggle with optimisation tasks involving multiple constraints and user-defined preferences, which commonly arise in domains such as robotics. We propose a hybrid reasoning approach in which LLMs externalise reasoning through code generation. Given a natural language problem description, an LLM generates Python code that encodes user-defined constraints and preferences as a preference-based Maximum Satisfiability (MaxSAT) problem, which is then solved by an exact MaxSAT solver. To ensure correctness, solutions returned by the model-generated code are independently verified for feasibility and optimality against a canonical MaxSAT encoding, allowing for different encodings and multiple optimal solutions. We evaluate our approach using both open-source and closed-access LLMs on three families of preference-based reasoning tasks, and compare it against direct-answer, chain-of-thought, and program-of-thought baselines using the same models. While these baselines rarely produce feasible solutions, the MaxSAT-based pipeline achieves substantially higher acceptance rates, in some cases exceeding 80%. Our results demonstrate that LLM-driven code generation combined with preference-based MaxSAT enables solver-verifiable optimisation with respect to generated encodings, and substantially improves correctness under independently verified reference semantics.",
+    "published": "2026-05-28",
+    "url": "http://arxiv.org/abs/2605.29687v1",
+    "primary_category": "cs.AI",
+    "categories": [
+      "cs.AI",
+      "cs.LO"
+    ]
+  },
+  {
+    "arxiv_id": "2605.29607",
+    "title": "Cluster-Level Attention-Guided Parallel Decoding for Masked Diffusion Language Models",
+    "authors": [
+      "Heqiang Qi",
+      "Wei Huang",
+      "Mingyuan Bai",
+      "Xiangming Meng"
+    ],
+    "abstract": "Masked diffusion language models (MDLMs) enable parallel decoding by predicting all masked positions at each denoising step, yet existing training-free samplers usually decide which positions to commit at token-level granularity. We revisit this granularity and observe that reliable predictions often emerge as contiguous high-confidence spans, suggesting that the unit of parallel commitment can be larger than a single token. We first group adjacent high-confidence candidates into confidence-induced clusters (CICs) as span-level update units. We then use self-attention maps from the same forward pass to estimate inter-cluster dependencies, enabling conflict-aware selection of mutually compatible CICs for parallel commitment. This yields CLAD (Cluster-Level Attention-Guided Decoding), a training-free cluster-level decoder for MDLMs. Experiments on LLaDA and Dream model families across four reasoning and code-generation benchmarks show that CLAD achieves 1.77x--8.47x speedups over Vanilla decoding while maintaining broadly comparable task accuracy in most settings.",
+    "published": "2026-05-28",
+    "url": "http://arxiv.org/abs/2605.29607v1",
+    "primary_category": "cs.LG",
+    "categories": [
+      "cs.LG"
+    ]
+  },
+  {
+    "arxiv_id": "2605.29372",
+    "title": "On the Road to Personalized Code Intelligence: Portraiting and Assisting Developers Based on Their In-IDE Behaviors",
+    "authors": [
+      "Yuhong Liu",
+      "Yunhe Su",
+      "Zhipeng Peng",
+      "Zhiwen Luo",
+      "Lin Shi",
+      "Zhi Jin",
+      "Li Zhang"
+    ],
+    "abstract": "With the advent of large language models, research in automated software engineering has increasingly focused on leveraging these models to achieve a deeper semantic understanding of code or to engineer sophisticated agent-based processes. However, this research trajectory has largely overlooked a critical factor: the developers themselves. Programming is a deeply individualized activity; developers exhibit significant variation in their tool-chain preferences, domain-specific expertise, and problem-solving strategies. Consequently, the current paradigm of one-size-fits-all code intelligence systems struggles to accommodate the needs of individual developers. To address this gap, we introduce VirtualME, a novel IDE-embedded data infrastructure designed to model the developer by continuously capturing and interpreting their dynamic programming behaviors and preferences. VirtualME contains three components. (1) Log-level Behavior Extraction: it captures and extracts developers' log-level behaviors from IDE. (2) Task-level Behavior Recognition: it aggregates log-level behaviors into task-level behaviors via a multi-agent pipeline. (3) Developer-personality Measurement: it builds a rule engine to distill a four-dimensional developer persona: technology stack, ability, behavioral habits, and learning style. On top of VirtualME, we propose a solution for personalized repository-level knowledge Q&A by integrating the developer persona into the Q&A agent. We evaluated VirtualME by building a multi-repository benchmark with real-world developer trajectories, balancing correctness and personalization. Experimental results show that VirtualME-enhanced answers outperform generic baselines on five dimensions, yielding an average 33.80% improvement. Our results demonstrate that abundant, continuous developer-behavior data can pave the new way for adaptive and personalized code intelligence.",
+    "published": "2026-05-28",
+    "url": "http://arxiv.org/abs/2605.29372v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
   }
 ]
