@@ -69,14 +69,18 @@
     "2605.28500": 0,
     "2605.28482": 0,
     "2605.28409": 0,
-    "2605.28371": 0
+    "2605.28371": 0,
+    "2606.06843": 0,
+    "2606.06826": 0,
+    "2606.06821": 0,
+    "2606.06525": 0
   },
   "labels": {
-    "0": "Code Generation and Evaluation",
+    "0": "Code Generation and Evaluation with LLMs",
     "1": "Efficient Decoding with LLMs"
   },
   "descriptions": {
-    "0": "This cluster focuses on generating code from specifications or natural language, evaluating code quality (correctness, conciseness), and improving LLM-based code generation through techniques like reinforcement learning, documentation injection, and multi-agent systems. The papers span diverse domains including power systems, industrial automation, financial QA, and healthcare, unified by their emphasis on code generation and evaluation.",
+    "0": "This cluster focuses on using large language models for code generation across diverse domains (power systems, industrial automation, financial QA, healthcare) and improving code quality through benchmarks, evaluation protocols, and reinforcement learning. The papers share a common interest in enhancing LLM-based code generation reliability, correctness, and efficiency via methods like documentation injection, verification feedback, and adaptive evaluation.",
     "1": "These papers focus on improving the efficiency of autoregressive decoding in large language models through techniques such as speculative decoding, parallel decoding, and multi-token prediction. They introduce methods to reduce latency and computational cost while maintaining or improving generation quality."
   },
   "noise_papers": [

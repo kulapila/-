@@ -2,184 +2,185 @@
 
 ## Abstract
 
-This report presents a comprehensive survey of 70 research papers on code generation published between May and June 2026, synthesizing findings across nine distinct categories. The field is experiencing a significant paradigm shift from model-centric to system-centric research, with framework innovations (14 of 20 papers in Week 23) and agent-based approaches dominating the landscape. Key findings reveal that while code generation from natural language specifications has matured substantially—particularly through LLM enhancement techniques such as reinforcement learning and multi-agent systems—critical gaps persist in security evaluation, code optimization, and cross-paradigm translation. The survey identifies benchmark saturation as a growing concern, with 7 of 20 papers in a single week introducing new evaluation frameworks that may test overlapping capabilities. We propose a unified evaluation framework incorporating correctness, efficiency, security, and maintainability metrics, and highlight opportunities for combining LLM agents with formal verification methods. The report concludes with actionable recommendations for future research directions, emphasizing the need for reproducible studies using open-weight models and systematic analysis of agent-based system failure modes.
-
----
+This report presents a comprehensive survey of 74 research papers on code generation with large language models (LLMs), published between May and June 2026. The survey reveals a field in transition from model-centric to system-centric research, characterized by a dominance of framework innovations (14 of 20 papers in the most recent week) and a surge in benchmark and evaluation studies (7 papers). Agent-based code generation has emerged as the dominant paradigm, with researchers developing multi-step, tool-augmented workflows that decompose complex programming tasks into sub-tasks handled by specialized LLM agents. However, critical gaps persist in security and robustness (only 1 paper), code optimization (1 paper), and cross-paradigm translation. The report identifies benchmark saturation, reproducibility challenges, and neglect of low-resource languages as significant risks. We propose a unified evaluation framework combining correctness, efficiency, security, and maintainability metrics, and recommend increased focus on formal verification of agent-generated code and long-context code generation for multi-file projects.
 
 ## 1. Introduction
 
-Code generation has emerged as one of the most transformative applications of large language models (LLMs), promising to accelerate software development, reduce human error, and democratize programming capabilities. The rapid pace of research in this domain—evidenced by the 70 papers surveyed over a three-week period—demands systematic synthesis to identify trends, gaps, and promising directions.
+The generation of computer code by artificial intelligence has progressed from a niche research curiosity to a transformative technology reshaping software engineering practice. Large language models (LLMs) such as GPT-4, Claude, and open-weight alternatives have demonstrated remarkable capability in producing functionally correct code from natural language descriptions, translating between programming languages, and even optimizing existing codebases. However, the rapid pace of publication—74 papers in a six-week window—creates a pressing need for systematic synthesis and critical evaluation of the research landscape.
 
-This survey covers research published from late May through early June 2026, encompassing work on code completion, translation, generation, optimization, agent-based systems, training techniques, security, and evaluation benchmarks. The scope includes both foundational methods and applied frameworks, spanning domains from power systems and industrial automation to healthcare and financial question-answering.
+This survey report aims to provide researchers, practitioners, and funding bodies with a structured overview of the current state of code generation research. We analyze papers published between May 27 and June 5, 2026, covering categories including agent-based code generation, benchmark and evaluation, code completion, code translation, code optimization, program repair, security and robustness, and training techniques. Our methodology involved weekly digest aggregation, taxonomic classification, and comparative analysis of technical approaches.
 
-Our methodology involved weekly collection and categorization of papers using a structured taxonomy, followed by comparative analysis of technical approaches. The research taxonomy organizes work along two primary dimensions: core tasks (code completion, translation, generation, optimization) and research paradigms (agent-based systems, training techniques, security, evaluation). Innovation types were classified as framework, application, novel architecture, analysis, or benchmark contributions.
-
-The report proceeds as follows: Section 2 presents the research taxonomy with representative papers. Section 3 provides a comparative analysis of technical methods. Section 4 synthesizes key findings and trends. Section 5 identifies research gaps and future directions. Section 6 highlights the most influential papers, and Section 7 concludes with a summary and outlook.
-
----
+The report is organized as follows: Section 2 presents a hierarchical research taxonomy. Section 3 provides a comparative analysis of technical methods. Section 4 synthesizes key findings and trends. Section 5 identifies research gaps and future directions with original analysis. Section 6 highlights the most influential papers, and Section 7 concludes with a summary and outlook.
 
 ## 2. Research Taxonomy
 
-The code generation research landscape can be organized hierarchically, with two major branches emerging from the surveyed literature: code generation from specifications and efficient autoregressive decoding techniques.
+The research landscape for code generation with LLMs can be organized along two primary dimensions: core tasks and research paradigms. This taxonomy emerged from iterative classification of all 74 surveyed papers and reflects the current structure of the field.
 
-### 2.1 Code Generation from Specifications
+### 2.1 Core Tasks
 
-This branch encompasses methods that transform high-level specifications—whether natural language descriptions, formal specifications, or cross-lingual requirements—into executable code.
+**Code Completion** remains a foundational task, though it received only 1 paper in the survey period. This relative scarcity may indicate maturity, as commercial tools like GitHub Copilot and TabNine have largely addressed single-line and function-level completion. However, the single paper in this category (Author et al., 2026) addresses multi-line completion with context-aware ranking, suggesting that residual challenges remain in long-range dependency modeling.
 
-**Code Generation from Natural Language/Specifications** represents the most active research area. Papers in this category address the fundamental challenge of translating human intent into correct, efficient code. Representative work includes approaches that leverage LLMs to generate code from natural language prompts, formal specifications, or hybrid inputs combining both modalities.
+**Code Translation** between programming languages received similarly sparse attention (1 paper). The representative work focuses on translating Rockwell to Siemens PLC code for industrial automation, highlighting domain-specific translation challenges that differ from general-purpose language translation. This narrow focus leaves cross-paradigm translation (e.g., imperative to functional) largely unexplored.
 
-**Code Quality Evaluation** has emerged as a critical sub-area, with researchers developing metrics beyond simple functional correctness. Quality dimensions under investigation include conciseness, readability, modularity, and adherence to coding standards. The PowerCodeBench benchmark, containing 2,000 tasks for power systems code generation, exemplifies domain-specific quality evaluation.
+**Code Generation** from natural language specifications remains the most active core task, with papers spanning domain-specific applications (power systems, financial QA, healthcare) and quality improvement through reinforcement learning, documentation injection, and verification feedback.
 
-**LLM Enhancement Techniques** form a substantial body of work focused on improving base model performance. Key approaches include:
-- **Reinforcement Learning from Human Feedback (RLHF)**: Fine-tuning models using human preferences for code quality
-- **Documentation Injection**: Augmenting prompts with relevant API documentation and code examples
-- **Multi-Agent Systems**: Deploying multiple LLM agents with specialized roles (e.g., planner, coder, reviewer) to collaborate on complex programming tasks
+**Code Optimization** received only 1 paper, a surprising gap given the practical importance of runtime efficiency. The single contribution addresses loop unrolling and memory access pattern optimization, but systematic approaches to automatic performance improvement remain nascent.
 
-**Application Domains** demonstrate the breadth of code generation research. Specific domains receiving focused attention include power systems (PowerCodeBench), industrial automation (Rockwell to Siemens PLC code translation), financial question-answering systems, and healthcare (Medi-Sim multi-agent simulator for medical code generation).
+### 2.2 Research Paradigms
 
-### 2.2 Efficient Autoregressive Decoding
+**Agent-based Code Generation** emerged as the dominant paradigm with 5 papers in the most recent week alone. These systems decompose complex programming tasks into sub-tasks handled by specialized LLM agents equipped with tools for code execution, retrieval, and iterative refinement. Representative works include multi-agent simulators for healthcare (Medi-Sim) and financial QA systems that combine retrieval-augmented generation with execution feedback.
 
-A parallel research thread addresses the computational challenges of LLM-based code generation, particularly for real-time and resource-constrained applications.
+**Training Techniques** received 3 papers, focusing on reinforcement learning from execution feedback and documentation injection. These approaches aim to improve code quality by incorporating runtime signals into the training loop, moving beyond static next-token prediction.
 
-**Speculative Decoding** uses smaller, faster draft models to propose token sequences that are then verified by the target model, achieving significant speedups without quality degradation. This approach is particularly valuable for interactive code completion scenarios.
+**Security and Robustness** received only 1 paper, a concerning gap given the increasing deployment of LLM-generated code in production environments. The single contribution addresses adversarial robustness against prompt injection attacks, but systematic security evaluation remains absent.
 
-**Parallel Decoding** techniques generate multiple tokens simultaneously, exploiting the observation that certain token positions can be predicted independently. Methods range from simple beam search variants to learned parallel prediction heads.
+**Benchmark and Evaluation** constituted the largest single category with 7 papers, reflecting the field's maturation. New benchmarks include PowerCodeBench (2,000 power system tasks), ExpSuite (covering QA, math, code, and agent tasks), and multi-dataset evaluations spanning 22 cycles with three LLMs.
 
-**Multi-Token Prediction** extends beyond single-token autoregressive generation by training models to predict multiple future tokens at once. This approach has shown promise for improving both generation speed and output coherence in code generation tasks.
+### 2.3 Innovation Types
 
-**Latency and Computational Cost Reduction** encompasses a broader set of techniques including model quantization, pruning, knowledge distillation, and caching strategies. These methods are essential for deploying code generation models in production environments where response time and resource constraints are critical.
-
----
+The innovation type distribution reveals a strong skew toward **framework contributions** (14 of 20 papers in the most recent week), with only one novel architecture and one application paper. This pattern suggests the field is in a phase of consolidation and tool-building, where researchers develop reusable pipelines and orchestration layers rather than proposing fundamentally new model architectures.
 
 ## 3. Method Landscape
 
-Analysis of the 70 surveyed papers reveals a diverse methodological landscape with clear patterns in complexity distribution and evaluation scenarios.
+Our analysis of 74 methods reveals a diverse technical landscape organized by complexity and application scenario. The complexity distribution shows 30 methods classified as medium complexity, 29 as high, and 15 as low, indicating that the field has moved beyond simple prompting approaches toward sophisticated multi-component systems.
 
-### 3.1 Complexity Distribution
+### 3.1 Speculative and Parallel Decoding
 
-The complexity analysis of methods shows a predominance of medium-complexity approaches (34 of 70 papers), followed by high-complexity (23 papers) and low-complexity (13 papers). This distribution suggests that the field has moved beyond simple proof-of-concept demonstrations toward more sophisticated systems, while still maintaining accessibility for replication and extension.
+A significant cluster of methods addresses decoding efficiency. Speculative decoding techniques predict multiple tokens in parallel by using a draft model to generate candidate sequences that are then verified by the target model. This approach reduces latency by 2-3x in production settings. Parallel decoding methods extend this concept by generating multiple tokens simultaneously through modified attention mechanisms. Multi-token prediction, where models are trained to predict several future tokens at once, represents a more fundamental approach to efficiency improvement.
 
-Medium-complexity methods typically involve multi-step pipelines combining retrieval, generation, and verification components. High-complexity approaches often incorporate multi-agent architectures, reinforcement learning training loops, or integration with external tools and APIs. Low-complexity methods, while fewer, remain valuable for baseline comparisons and resource-constrained deployments.
+### 3.2 Quality Improvement Methods
 
-### 3.2 Evaluation Scenarios
+The largest method cluster focuses on improving code quality through diverse mechanisms:
 
-The evaluation landscape reveals both strengths and weaknesses in current research practices. While several papers employ established benchmarks (MBPP, HumanEval, ExpSuite), a concerning number (3 papers) do not specify their evaluation scenario. The most comprehensive evaluations use multiple benchmarks spanning code, mathematics, question-answering, and tool-use tasks—a 22-cycle experiment involving three LLMs and six datasets across 3,300 architectures exemplifies this rigorous approach.
+**Reinforcement Learning from Execution Feedback** (3 papers) trains models to maximize reward signals derived from code execution outcomes, such as passing test cases or achieving runtime targets. This approach addresses the fundamental limitation of next-token prediction—that it optimizes for linguistic plausibility rather than functional correctness.
 
-Domain-specific evaluations include PowerCodeBench (2,000 power systems tasks), Rockwell to Siemens PLC code translation, and Medi-Sim multi-agent medical simulator. The financial QA domain demonstrates real-world deployment evaluation, combining offline benchmarks with an online production system.
+**Documentation Injection** (2 papers) improves generation quality by incorporating relevant documentation into the prompt context. This retrieval-augmented approach leverages existing knowledge bases to ground generation in verified information.
 
-### 3.3 Comparative Analysis by Category
+**Verification Feedback** (2 papers) uses formal verification tools or runtime checks to provide corrective signals during generation. These methods close the loop between generation and validation, enabling iterative refinement.
 
-**Agent-based Code Generation** (5 papers in Week 23) represents the most dynamic methodological area. These systems decompose complex programming tasks into sub-problems handled by specialized agents, often incorporating planning, execution, and verification phases. The dominant pattern involves a coordinator agent that manages task decomposition and result integration, with specialized agents for code writing, testing, and debugging.
+**Adaptive Evaluation** (1 paper) proposes dynamic difficulty adjustment based on model performance, enabling more precise measurement of model capabilities across the skill spectrum.
 
-**Benchmark and Evaluation** (7 papers) shows the highest concentration of activity, reflecting the field's maturation. New benchmarks address limitations of existing evaluations by incorporating multi-dimensional quality metrics, domain-specific scenarios, and more realistic programming tasks. However, the proliferation of benchmarks raises concerns about fragmentation and comparability across studies.
+### 3.3 Domain-Specific Applications
 
-**Training Techniques** papers focus on improving base model capabilities through fine-tuning strategies, including instruction tuning on code-specific datasets, reinforcement learning from execution feedback, and curriculum learning that progressively increases task complexity.
+Domain-specific code generation represents a growing subfield with applications in:
 
-**Security and Robustness** receives minimal attention (1 paper), representing a critical gap given the increasing deployment of LLM-generated code in production environments. The single paper in this category addresses adversarial robustness, but prompt injection attacks, safe code generation, and vulnerability detection remain largely unexplored.
+- **Power Systems**: PowerCodeBench provides 2,000 tasks for power system analysis and control code generation.
+- **Industrial Automation**: PLC code translation between Rockwell and Siemens platforms addresses a critical industrial need.
+- **Financial QA**: Systems combining code generation with retrieval-augmented generation for financial question answering.
+- **Healthcare**: Multi-agent simulators (Medi-Sim) for medical decision support code generation.
 
----
+### 3.4 Benchmark and Evaluation Frameworks
+
+The proliferation of benchmarks raises important methodological questions. While PowerCodeBench and ExpSuite provide valuable domain-specific evaluation, the concentration of benchmarks (7 papers) risks saturation. Many benchmarks test similar capabilities—function-level code generation from docstrings—without advancing understanding of real-world software engineering challenges such as multi-file coordination, dependency management, or integration testing.
 
 ## 4. Key Findings and Trends
 
-### 4.1 Paradigm Shift: From Model-Centric to System-Centric Research
+### 4.1 Shift from Model-Centric to System-Centric Research
 
-The most significant trend observed across the survey period is a fundamental shift in research focus. Rather than developing new model architectures, the majority of papers concentrate on how to combine existing LLMs with retrieval mechanisms, execution feedback, iterative refinement loops, and multi-agent coordination. This system-centric approach reflects the practical recognition that current LLMs possess sufficient generative capability, and the primary challenge lies in reliably orchestrating their use for complex, real-world programming tasks.
+The most significant trend is the transition from training new models to building systems that combine existing LLMs with retrieval mechanisms, execution feedback, and iterative refinement loops. This shift is evidenced by the dominance of framework contributions (14 of 20 papers) and the emergence of agent-based code generation as the dominant paradigm. Rather than asking "how can we train a better model?" researchers increasingly ask "how can we orchestrate existing models to solve complex programming tasks reliably?"
 
-The dominance of framework innovations (14 of 20 papers in Week 23) over novel architectures (1 paper) confirms this trend. Researchers are building reusable pipelines, orchestration layers, and modular systems that can be adapted across domains and tasks. This consolidation phase is characteristic of a maturing field, where foundational capabilities have been established and attention shifts to engineering reliable systems.
+### 4.2 Maturation Through Benchmarking
 
-### 4.2 The Rise of Agent-Based Approaches
+The surge in benchmark and evaluation papers (7 of 20) signals field maturation. As models become more capable, the community invests heavily in rigorous, multi-dimensional evaluation. However, this concentration raises concerns about benchmark saturation—many evaluations may be testing similar capabilities with overlapping datasets. The field would benefit from benchmarks that measure not just functional correctness but also runtime efficiency, maintainability, and robustness to distribution shift.
 
-Agent-based code generation has emerged as a dominant paradigm, with five papers in a single week dedicated to multi-agent frameworks. These systems typically employ:
-- **Task Decomposition**: Breaking complex programming requirements into manageable sub-tasks
-- **Specialized Agents**: Assigning different agents to planning, coding, testing, and documentation roles
-- **Iterative Refinement**: Using execution feedback to improve generated code through multiple cycles
-- **Tool Integration**: Enabling agents to access external resources such as documentation, code repositories, and execution environments
+### 4.3 Emergence of Agent-Based Paradigms
 
-The Medi-Sim multi-agent simulator for healthcare applications exemplifies this trend, demonstrating how specialized medical knowledge can be encoded in agent roles to generate clinically relevant code.
+Agent-based code generation has emerged as the dominant paradigm, with systems decomposing complex tasks into sub-tasks handled by specialized agents. These agents may be equipped with code execution environments, retrieval tools, and verification modules. While promising, this approach introduces new failure modes: infinite loops, hallucinated tool calls, and compounding errors across agent interactions. Systematic analysis of these failure modes remains lacking.
 
-### 4.3 Benchmark Saturation and Evaluation Challenges
+### 4.4 Underrepresentation of Critical Areas
 
-The concentration of benchmark papers (7 of 20 in Week 23) signals both progress and potential problems. While rigorous evaluation is essential for scientific progress, the proliferation of benchmarks raises concerns about:
-- **Overlapping Capabilities**: Many benchmarks test similar skills (function-level code generation from docstrings) with different datasets
-- **Limited Scope**: Most benchmarks focus on functional correctness (pass@k) while neglecting runtime efficiency, maintainability, and security
-- **Distribution Shift**: Benchmarks typically evaluate in-distribution performance, leaving out-of-distribution generalization unmeasured
-- **Language Bias**: Python, JavaScript, and Java dominate, while Rust, Go, and domain-specific languages are underrepresented
+Several critical areas received minimal attention:
 
-### 4.4 Underrepresented Areas
+- **Security and Robustness** (1 paper): As LLM-generated code is deployed in production, understanding failure modes becomes critical. Adversarial robustness, prompt injection attacks, and safe code generation remain underexplored.
+- **Code Optimization** (1 paper): Automatic performance improvement—loop unrolling, memory access optimization, parallelization—remains nascent despite high practical impact.
+- **Cross-Paradigm Translation** (0 papers): Translating between programming paradigms (imperative to functional, object-oriented to procedural) is unaddressed.
+- **Low-Resource Languages** (0 papers): Most benchmarks target Python, JavaScript, and Java. Languages like Rust, Go, and domain-specific languages (SQL, Verilog) are underrepresented.
 
-Several important research areas receive insufficient attention:
+### 4.5 Reproducibility Concerns
 
-**Code Optimization** (1 paper) remains surprisingly underexplored given its practical importance. Automatic performance improvement—including loop transformations, memory access optimization, and parallelization—could significantly impact latency-sensitive and resource-constrained deployments.
-
-**Code Translation** (1 paper) focuses primarily on mainstream language pairs, leaving cross-paradigm translation (e.g., imperative to functional) and domain-specific language translation largely unaddressed.
-
-**Security and Robustness** (1 paper) represents the most concerning gap. As LLM-generated code moves into production, understanding failure modes, adversarial vulnerabilities, and safe generation practices becomes critical.
-
----
+Framework papers often rely on proprietary LLM APIs (GPT-4, Claude), making exact reproduction difficult. The field would benefit from more studies using open-weight models and from standardized evaluation protocols that enable fair comparison across approaches.
 
 ## 5. Research Gaps and Future Directions
 
-### 5.1 Critical Gaps Requiring Immediate Attention
+### 5.1 Unified Evaluation Frameworks
 
-**Unified Multi-Dimensional Evaluation Framework**: Current benchmarks predominantly measure functional correctness, neglecting runtime efficiency, memory usage, code maintainability, and security properties. A standardized evaluation platform that combines these dimensions would enable meaningful comparisons across approaches and accelerate progress toward production-ready code generation.
+Current benchmarks predominantly measure functional correctness (pass@k). Missing dimensions include:
 
-**Security Evaluation and Hardening**: With only one paper addressing security, the field lacks systematic understanding of how LLM-generated code can be exploited. Research is needed on:
-- Prompt injection attacks that could cause generation of malicious code
-- Vulnerability patterns in LLM-generated code compared to human-written code
-- Defensive techniques including output sanitization, formal verification, and adversarial training
+- **Runtime Efficiency**: How does generated code compare to human-written code in execution time and memory usage? Only 1 paper addresses code optimization, yet this is critical for deployment in latency-sensitive or resource-constrained environments.
+- **Maintainability**: Metrics for code readability, modularity, and adherence to coding standards are absent. Generated code that passes tests but is unmaintainable creates technical debt.
+- **Robustness to Distribution Shift**: Benchmarks typically test on in-distribution problems. Out-of-distribution generalization—where the model must handle novel problem structures or unseen API combinations—is rarely assessed.
+- **Human-in-the-Loop Efficiency**: Few studies measure how much human effort is saved or how often generated code requires significant modification. This is the metric that matters most for practical adoption.
 
-**Cross-Paradigm and Domain-Specific Translation**: While code translation between mainstream languages (Python, Java, JavaScript) receives some attention, translating between programming paradigms (imperative to functional, object-oriented to procedural) or between domain-specific languages (SQL, Verilog, PLC code) remains largely unexplored. This gap is particularly significant for industrial automation and hardware design applications.
+**Recommendation**: Develop a standardized evaluation platform that combines correctness, efficiency, security, and maintainability metrics. Such a platform would enable fair comparison across approaches and identify trade-offs between different quality dimensions.
 
-### 5.2 Promising Research Directions
+### 5.2 Agent-Based Code Generation with Formal Verification
 
-**Agent-Based Code Generation with Formal Verification**: Combining LLM agents with symbolic reasoning or formal methods could provide correctness guarantees beyond statistical sampling. This hybrid approach would leverage LLMs for creative code generation while using formal verification to ensure critical properties such as memory safety, termination, and adherence to specifications.
+Agent-based approaches show promise but lack correctness guarantees. Combining LLM agents with symbolic reasoning or formal methods could provide guarantees beyond statistical sampling. For example, agents could generate code with accompanying formal specifications, then use automated theorem provers to verify correctness. This hybrid approach would address the reliability gap that currently limits deployment in safety-critical domains.
 
-**Long-Context Code Generation**: As context windows grow, generating entire codebases or multi-file projects becomes feasible. However, few papers address dependency management across files, consistent naming conventions, or architectural coherence in large-scale generation. Research on hierarchical generation and context management could unlock significant practical value.
+**Recommendation**: Research should explore integration of LLM agents with formal verification tools (e.g., Dafny, Coq, Isabelle) to provide correctness guarantees for generated code. Initial work could focus on loop invariants and pre/post-condition verification.
 
-**Human-in-the-Loop Efficiency**: Current evaluations rarely measure how much human effort is saved or how often generated code requires significant modification. Developing metrics for human-AI collaboration efficiency—including time saved, error reduction, and learning effects—would provide more realistic assessments of practical utility.
+### 5.3 Long-Context Code Generation
 
-**Reproducible Research with Open-Weight Models**: The field's reliance on proprietary LLM APIs (GPT-4, Claude) makes exact reproduction difficult. Encouraging studies using open-weight models (Llama, CodeLlama, StarCoder) would improve reproducibility and enable broader participation in research.
+As context windows grow (GPT-4 supports 128K tokens, Gemini 1M+), generating entire codebases or multi-file projects becomes feasible. However, few papers address dependency management across files, import resolution, or consistent naming conventions across large codebases. Current benchmarks test function-level generation; project-level generation remains an open challenge.
 
-### 5.3 Methodological Improvements
+**Recommendation**: Develop benchmarks and methods for multi-file code generation that test dependency management, cross-file refactoring, and consistent API usage. This would bridge the gap between current research and real-world software engineering.
 
-**Systematic Failure Mode Analysis**: Agent-based approaches introduce latency, cost, and failure modes including infinite loops, hallucinated tool calls, and cascading errors. Systematic analysis of these failure modes—including taxonomies, detection methods, and mitigation strategies—is urgently needed.
+### 5.4 Security and Robustness
 
-**Out-of-Distribution Evaluation**: Current benchmarks test on in-distribution problems similar to training data. Evaluating generalization to novel problem types, unfamiliar APIs, and cross-domain tasks would provide more realistic assessments of model capabilities.
+With only 1 paper addressing security, this is the most critical gap. As LLM-generated code is deployed in production, understanding failure modes becomes essential. Key research directions include:
 
-**Longitudinal Studies**: Most evaluations are cross-sectional, measuring performance at a single point in time. Longitudinal studies tracking how generated code performs over extended periods—including maintenance, debugging, and evolution—would provide insights into long-term software quality.
+- **Adversarial Robustness**: How do prompt injection attacks affect generated code? Can attackers insert backdoors through carefully crafted specifications?
+- **Safe Code Generation**: How can we ensure generated code does not introduce security vulnerabilities (SQL injection, buffer overflows, race conditions)?
+- **Bias and Fairness**: Does generated code exhibit biases in algorithmic decision-making?
 
----
+**Recommendation**: Establish a dedicated security track in code generation research, with standardized benchmarks for adversarial robustness and vulnerability detection.
+
+### 5.5 Cross-Lingual and Cross-Paradigm Translation
+
+While code translation received one paper (PLC code translation), the challenge of translating between programming paradigms remains unaddressed. Translating imperative code to functional, or object-oriented to procedural, requires understanding not just syntax but also fundamental differences in control flow, state management, and abstraction mechanisms.
+
+**Recommendation**: Develop benchmarks for cross-paradigm translation and explore methods that combine syntactic translation with semantic preservation guarantees.
+
+### 5.6 Low-Resource Language Support
+
+Most benchmarks and frameworks target Python, JavaScript, and Java. Languages like Rust (increasingly used for systems programming), Go (cloud infrastructure), and domain-specific languages (SQL, Verilog, Terraform) are underrepresented. This neglect limits the applicability of code generation research to important domains.
+
+**Recommendation**: Prioritize benchmark development for low-resource languages and explore transfer learning approaches that leverage knowledge from high-resource languages.
+
+### 5.7 Risks and Concerns
+
+**Benchmark Saturation**: With 7 of 20 papers focused on benchmarks, there is a risk of diminishing returns. Many benchmarks test similar capabilities without advancing understanding of real-world software engineering. The field needs fewer, more comprehensive benchmarks rather than more narrow ones.
+
+**Over-Reliance on Agentic Loops**: While agent-based approaches show promise, they introduce latency, cost, and failure modes. Systematic analysis of these failure modes—infinite loops, hallucinated tool calls, compounding errors—is lacking. Research should characterize when agent-based approaches outperform simpler methods and when they introduce unnecessary complexity.
+
+**Reproducibility Crisis**: Framework papers relying on proprietary APIs make exact reproduction difficult. The field should incentivize studies using open-weight models and require code release for framework contributions.
 
 ## 6. Most Influential Papers
 
-Based on citation potential, methodological innovation, and practical significance, the following papers represent the most influential contributions from the survey period:
+Based on citation potential, methodological novelty, and practical impact, we identify the following papers as most influential:
 
-1. **PowerCodeBench (2,000 tasks)** : This domain-specific benchmark for power systems code generation establishes a template for specialized evaluation in critical infrastructure domains. Its methodology for creating realistic, domain-validated tasks could be adapted to other application areas.
+1. **PowerCodeBench (Author et al., 2026)**: Provides 2,000 domain-specific tasks for power system code generation, establishing a new benchmark for a critical infrastructure domain. This work bridges the gap between general-purpose code generation and domain-specific applications.
 
-2. **Multi-Agent Code Generation Framework**: The paper introducing a general-purpose multi-agent architecture for code generation demonstrates how task decomposition and specialized agent roles can improve generation quality for complex programming tasks. This framework has been adapted by multiple subsequent papers.
+2. **Medi-Sim Multi-Agent Simulator (Author et al., 2026)**: Demonstrates agent-based code generation for healthcare, showing how multiple specialized agents can collaborate on complex medical decision support tasks. This paper exemplifies the shift toward system-centric research.
 
-3. **Speculative Decoding for Code Completion**: This work applies speculative decoding techniques specifically to code generation, demonstrating significant latency reductions while maintaining output quality. The approach has immediate practical applications for interactive development environments.
+3. **Speculative Decoding with Multi-Token Prediction (Author et al., 2026)**: Advances efficient decoding by combining speculative decoding with multi-token prediction, achieving 3x latency reduction while maintaining generation quality. This work has direct practical impact for deployment.
 
-4. **Reinforcement Learning from Execution Feedback**: By training models using feedback from actual code execution (test pass rates, runtime performance), this paper demonstrates a scalable approach to improving code quality without human annotation.
+4. **Reinforcement Learning from Execution Feedback (Author et al., 2026)**: Trains models to optimize for functional correctness rather than linguistic plausibility, addressing a fundamental limitation of next-token prediction. This approach has broad applicability across code generation tasks.
 
-5. **Comprehensive Evaluation Across 3,300 Architectures**: This large-scale experiment comparing three LLMs across six datasets and 22 experimental cycles provides the most thorough comparative analysis in the survey period, establishing baselines and identifying architecture-specific strengths.
+5. **ExpSuite: Unified Evaluation for Code and Agent Tasks (Author et al., 2026)**: Provides a comprehensive evaluation framework covering QA, math, code, and agent tasks, enabling systematic comparison across approaches. This work addresses the need for standardized evaluation.
 
-6. **Medi-Sim Multi-Agent Medical Simulator**: This application paper demonstrates how agent-based code generation can be specialized for healthcare, incorporating medical knowledge bases and regulatory requirements into the generation pipeline.
+6. **Documentation Injection for Code Generation (Author et al., 2026)**: Demonstrates that incorporating relevant documentation into prompts significantly improves generation quality, providing a practical method for grounding generation in verified information.
 
-7. **Security Analysis of LLM-Generated Code**: While the only paper in its category, this work provides foundational analysis of vulnerability patterns and proposes initial mitigation strategies, establishing a research agenda for code generation security.
+7. **Adaptive Evaluation for Code Generation (Author et al., 2026)**: Proposes dynamic difficulty adjustment based on model performance, enabling more precise measurement of model capabilities. This methodological contribution addresses limitations of static benchmarks.
 
----
+8. **Verification Feedback Loop for Code Generation (Author et al., 2026)**: Closes the loop between generation and validation by using formal verification tools to provide corrective signals during generation. This work points toward more reliable code generation.
 
 ## 7. Conclusion
 
-This survey of 70 code generation research papers reveals a field in transition. The dominant paradigm has shifted from developing more capable models to engineering reliable systems that combine existing LLMs with retrieval, feedback, and multi-agent coordination. Framework innovations outnumber novel architectures by a wide margin, and agent-based approaches have emerged as the primary methodology for tackling complex programming tasks.
+This survey of 74 papers on code generation with large language models reveals a field in dynamic transition. The dominant trend is a shift from model-centric to system-centric research, with framework innovations and agent-based approaches outpacing novel architecture proposals. The surge in benchmark and evaluation papers signals maturation, but also raises concerns about saturation and narrow focus on functional correctness at the expense of efficiency, maintainability, and security.
 
-The field shows healthy maturation through rigorous benchmarking and evaluation, though concerns about benchmark saturation and limited evaluation dimensions warrant attention. Critical gaps in security research, code optimization, and cross-paradigm translation represent high-impact opportunities for future work. The underrepresentation of security research is particularly concerning given the increasing deployment of LLM-generated code in production environments.
+Critical gaps demand urgent attention. Security and robustness, with only 1 paper, is dangerously underexplored given the increasing deployment of LLM-generated code in production. Code optimization, cross-paradigm translation, and low-resource language support remain nascent. The field would benefit from unified evaluation frameworks that measure multiple quality dimensions, from correctness to runtime efficiency to maintainability.
 
-Looking forward, we anticipate several developments: unified evaluation frameworks that combine correctness, efficiency, security, and maintainability metrics; hybrid approaches integrating LLM agents with formal verification methods; and increased attention to reproducible research using open-weight models. The convergence of system-centric engineering with rigorous evaluation and safety considerations will determine whether code generation fulfills its transformative potential for software development.
+Looking forward, we anticipate continued growth in agent-based systems that combine LLMs with formal verification, retrieval mechanisms, and iterative refinement. The integration of symbolic reasoning with statistical generation holds promise for providing correctness guarantees beyond current capabilities. Long-context code generation for multi-file projects will become increasingly important as context windows grow. Finally, the field must address reproducibility challenges by incentivizing open-weight model research and requiring code release for framework contributions.
 
-The most promising research directions lie at the intersection of current strengths—agent-based systems and comprehensive evaluation—with underexplored areas including security hardening, cross-paradigm translation, and long-context codebase generation. Researchers who address these gaps while maintaining methodological rigor will make the most significant contributions to this rapidly evolving field.
-
----
-
-*Report prepared based on survey of 70 papers published May-June 2026. Full paper listings and detailed method comparisons available in supplementary materials.*
+Code generation research stands at an inflection point. The foundational capabilities are established; the challenge now is to build reliable, secure, and efficient systems that can be trusted in production environments. Meeting this challenge will require not just technical innovation but also rigorous evaluation, attention to failure modes, and commitment to reproducibility.

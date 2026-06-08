@@ -1,12 +1,9 @@
 ## Research Taxonomy
 
-- **Code Generation from Specifications**
-  - **Code Generation from NL/Specs**: Generating code from natural language or formal specifications.
-  - **Code Quality Evaluation**: Assessing correctness, conciseness, and other quality metrics.
-  - **LLM Enhancement Techniques**: Improving LLM-based code generation via RL, documentation injection, multi-agent systems.
-  - **Application Domains**: Power systems, industrial automation, financial QA, healthcare.
-- **Efficient Autoregressive Decoding**
-  - **Speculative Decoding**: Using draft models to accelerate generation.
-  - **Parallel Decoding**: Generating multiple tokens in parallel.
-  - **Multi-Token Prediction**: Predicting multiple future tokens at once.
-  - **Latency/Computational Cost Reduction**: Techniques to reduce inference time and resource usage.
+- **Code Generation with LLMs**
+  - Domain-Specific Code Generation: Using LLMs to generate code for diverse domains (power systems, industrial automation, financial QA, healthcare).
+  - Quality Improvement: Enhancing code quality through benchmarks, evaluation protocols, reinforcement learning, documentation injection, verification feedback, and adaptive evaluation.
+- **Efficient Decoding for LLMs**
+  - Speculative Decoding: Techniques to reduce latency by predicting multiple tokens in parallel.
+  - Parallel Decoding: Methods for generating multiple tokens simultaneously.
+  - Multi-Token Prediction: Predicting several future tokens at once to improve efficiency.

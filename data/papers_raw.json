@@ -1343,5 +1343,80 @@
       "cs.LG",
       "cs.SE"
     ]
+  },
+  {
+    "arxiv_id": "2606.06843",
+    "title": "Empirical Study on the Characteristics and Evolution of AI-usage in GitHub Repositories: Evidence from Code Comments",
+    "authors": [
+      "Abdullah Al Mujahid",
+      "Preetha Chatterjee",
+      "Mia Mohammad Imran"
+    ],
+    "abstract": "Developers increasingly use AI tools such as ChatGPT, Copilot, and Claude in everyday software workflows, but prior studies often evaluate LLM outputs in isolation rather than examining how developers adapt them in real projects. We analyze 35,361 GitHub code comments that explicitly reference AI use and their associated code blocks. We first open-code 500 unique comments and code blocks to derive a taxonomy of AI-assisted development activities, then annotate the full dataset using two LLM-based classifiers and aggregate predictions with Dawid-Skene expectation-maximization. We also analyze 12,996 subsequent commit messages to study how AI-assisted code evolves after introduction, and examine temporal trends from December 2022 to March 2026. Our results show that developers primarily use LLMs for code implementation, followed by code enhancement, debugging, documentation, and testing. Subsequent commits frequently involve refactoring and cleanup, feature integration and extension, and bug fixing, indicating sustained human oversight in adapting AI-assisted code. Over time, AI-referencing comments shift from direct code generation toward knowledge and conceptual support and code enhancement. These findings suggest that AI tools are becoming embedded not only as code-generation aids, but also as collaborative support mechanisms whose outputs are refined, extended, and corrected by developers over time.",
+    "published": "2026-06-05",
+    "url": "http://arxiv.org/abs/2606.06843v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2606.06826",
+    "title": "SkelDPO: A Skeleton-Guided Direct Preference Optimization Framework for Efficient Code Generation",
+    "authors": [
+      "Yu Yu",
+      "Chen Lyu"
+    ],
+    "abstract": "With the remarkable progress of Code Large Language Models (Code LLMs) in achieving semantic correctness, execution efficiency has become an increasingly important dimension for evaluating their practical utility. However, existing approaches typically treat full programs as a single optimization target during training, without explicitly modeling the structural factors that influence efficiency. As a result, although these models can generate semantically correct code, they fail to learn, at a fine-grained level, the underlying skeleton features that lead to efficient implementations. To address this limitation, we propose SkelDPO (Skeleton-Guided Direct Preference Optimization), a skeleton-guided preference optimization framework that systematically enhances the efficiency of code generation. SkelDPO first identifies efficient and inefficient implementations from the code dataset and, through comparative analysis, locates their efficiency-prone and inefficiency-prone points, forming alignment signals between efficiency and inefficiency skeletons. During training, a joint code and skeleton preference loss is introduced, enabling the model to learn semantic correctness while reinforcing its understanding of efficiency-critical components in code. Results show that SkelDPO consistently surpasses existing methods: compared with SOTA method that relies solely on efficient and inefficient code preference optimization, it improves Pass@1, Beyond@1, and Effi@1 by 3-6%, 3-7%, and 2-5%, with greater improvements observed on complex tasks. Overall, SkelDPO provides a new perspective on skeleton-level efficiency alignment, breaking the limitation of conventional preference optimization that relies solely on correctness or efficiency pairs. All datasets and source code are publicly available at: https://github.com/icpcSkelDPO/SkelDPO.",
+    "published": "2026-06-05",
+    "url": "http://arxiv.org/abs/2606.06826v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2606.06821",
+    "title": "Chiseling Out Efficiency: Structured Skeleton Supervision for Efficient Code Generation",
+    "authors": [
+      "Yu Yu",
+      "Zhihong Sun",
+      "Jia Li",
+      "Yao Wan",
+      "Chuanyi Li",
+      "Hongyu Zhang",
+      "Ruyun Wang",
+      "Tao Huang",
+      "Zhi Jin",
+      "Ge Li",
+      "Chen Lyu"
+    ],
+    "abstract": "Large Language Models (LLMs) are capable of generating syntactically correct and functionally complete programs, greatly streamlining software development. However, recent studies reveal that these programs typically execute substantially slower than human-optimized counterparts. Existing approaches to bridging this efficiency gap typically involve either iteratively optimizing code after generation or fine-tuning models on corpora of efficient code. Yet, these methods expose the model to efficiency signals only by mimicking complete, optimized solutions, without explicitly encoding the structural code patterns essential for achieving high runtime performance. Addressing this gap presents two core challenges: (1) extracting and representing latent, efficiency-oriented structural patterns embedded within complex syntax and control flows, and (2) effectively learning these patterns without destabilizing the semantic training of LLMs. To tackle these challenges, we propose EffiSkel, an efficiency skeleton-guided framework that explicitly extracts and learns efficiency skeletons-abstract, reusable structural patterns underpinning efficient code-by leveraging three complementary strategies. These skeletons are integrated into a multi-task learning regime that jointly optimizes code generation and skeleton prediction. Experiments across multiple programming languages and benchmarks demonstrate that EffiSkel significantly enhances both functional correctness and efficiency, resulting on Mercury with DeepSeek-Coder (7B) a +11.11% (vs. EffiCoder) and +3.71% (vs. CodeDPO) higher Efficiency Ratio (ER), and a +0.36 (vs. EffiCoder) and +0.22 (vs. CodeDPO) increase in Average Speedup (AS). These results highlight the effectiveness of explicitly modeling efficiency skeletons in improving the runtime performance of code generated by LLMs.",
+    "published": "2026-06-05",
+    "url": "http://arxiv.org/abs/2606.06821v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2606.06525",
+    "title": "Agentic Large Language Models for Automated Structural Analysis of 3D Frame Systems",
+    "authors": [
+      "Ziheng Geng",
+      "Ian Franklin",
+      "Santiago Martinez",
+      "Jiachen Liu",
+      "Yunhe Zhao",
+      "Minghui Cheng"
+    ],
+    "abstract": "Large language models (LLMs) have emerged as powerful foundation models with strong reasoning capabilities across domains. Beyond reactive text generation, agentic LLMs enable autonomous workflow execution through modular task decomposition and coordinated tool use. In structural engineering, recent efforts have developed agentic LLMs for automated analysis of plane frames. However, their extension to 3D frames remains underexplored due to challenges in irregular geometric representation, topological consistency, and long-horizon reasoning. This paper proposes an agentic LLM framework for automated structural analysis of 3D frames from natural language inputs. Irregular 3D frames are represented by projection onto a 2D plan, where orthogonal gridlines define spatial coordinates and a matrix of number of stories encodes vertical extrusion of each grid cell. Building on this representation, the framework establishes a multi-agent pipeline: a problem analysis agent parses input into structured JSON; a floor decomposition agent derives the spatial layout of each floor; the 3D geometry is assembled by node, girder, slab, and column agents; support and load agents assign boundary and loading conditions, and code translation agents generate executable SAP2000 script. Evaluated on ten representative 3D frames, the proposed framework achieves an average accuracy of 90% across repeated trials, demonstrating consistent and reliable performance.",
+    "published": "2026-06-02",
+    "url": "http://arxiv.org/abs/2606.06525v1",
+    "primary_category": "cs.GR",
+    "categories": [
+      "cs.GR",
+      "cs.AI"
+    ]
   }
 ]
