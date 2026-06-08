@@ -72,12 +72,12 @@
     "2605.28371": 0
   },
   "labels": {
-    "0": "Code Generation with LLMs",
+    "0": "Code Generation and Evaluation",
     "1": "Efficient Decoding with LLMs"
   },
   "descriptions": {
-    "0": "These papers focus on using large language models (LLMs) for code generation across various domains, including power systems, industrial automation, financial QA, healthcare, and general-purpose programming. They address challenges such as API knowledge boundaries, numerical hallucinations, and code correctness, proposing methods like documentation injection, reinforcement learning, and multi-agent frameworks.",
-    "1": "These papers focus on improving the efficiency of autoregressive decoding in large language models through techniques such as speculative decoding, parallel decoding, and multi-token prediction. They propose novel architectures and training-free modules to accelerate generation while maintaining quality."
+    "0": "This cluster focuses on generating code from specifications or natural language, evaluating code quality (correctness, conciseness), and improving LLM-based code generation through techniques like reinforcement learning, documentation injection, and multi-agent systems. The papers span diverse domains including power systems, industrial automation, financial QA, and healthcare, unified by their emphasis on code generation and evaluation.",
+    "1": "These papers focus on improving the efficiency of autoregressive decoding in large language models through techniques such as speculative decoding, parallel decoding, and multi-token prediction. They introduce methods to reduce latency and computational cost while maintaining or improving generation quality."
   },
   "noise_papers": [
     "2605.30813",

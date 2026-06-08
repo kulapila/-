@@ -1,11 +1,11 @@
 {
-  "last_run": "2026-06-07T20:17:13.475813",
+  "last_run": "2026-06-08T00:11:46.511832",
   "papers_processed": 70,
   "cards_generated": 61,
   "last_arxiv_published_date": "2026-05-28",
-  "week_num": 3,
+  "week_num": 24,
   "year": 2026,
-  "version": 3,
+  "version": 4,
   "history": [
     {
       "week_label": "W21",
@@ -24,6 +24,15 @@
       "new_papers": 20,
       "key_themes": [],
       "generated_at": "2026-06-15T00:00:00"
+    },
+    {
+      "week_label": "2026-W24",
+      "new_papers": 0,
+      "key_themes": [
+        "Code Generation and Evaluation",
+        "Efficient Decoding with LLMs"
+      ],
+      "generated_at": "2026-06-08T00:11:46.511832"
     }
   ]
 }
