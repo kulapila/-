@@ -178,7 +178,10 @@
     "2606.20882": -1,
     "2606.20881": 2,
     "2606.20776": -1,
-    "2606.20711": 2
+    "2606.20711": 2,
+    "2606.28194": -1,
+    "2606.27733": 2,
+    "2606.27406": 2
   },
   "labels": {
     "0": "Diffusion Language Model Decoding",
@@ -187,10 +190,10 @@
     "3": "Evolutionary Optimization with LLMs"
   },
   "descriptions": {
-    "0": "These papers focus on improving the decoding process of diffusion language models (DLMs) for text generation, particularly through parallel decoding strategies, token selection, and architectural enhancements. They address challenges such as efficiency, quality, and coordination of parallel updates, often proposing training-free modules or modifications to existing methods.",
-    "1": "These papers focus on improving on-policy distillation (OPD) for large language models, addressing challenges like distribution mismatch and leveraging student-generated trajectories. They propose methods to selectively distill knowledge from teacher models, emphasizing the importance of negative or uncertain samples and identifying critical tokens for reasoning.",
+    "0": "These papers focus on improving the decoding process of diffusion language models (DLMs) for text generation, particularly through parallel decoding strategies, token selection, and architectural enhancements. They address challenges such as efficiency, quality, and coordination of updates in masked diffusion models.",
+    "1": "These papers focus on improving on-policy distillation (OPD) for large language models, addressing challenges like distribution mismatch and leveraging student-generated trajectories. They propose methods to selectively distill from teacher models, emphasizing the importance of negative or uncertain samples and identifying key tokens for effective knowledge transfer.",
     "2": "This cluster focuses on using large language models (LLMs) for code generation across various domains, including power systems, industrial automation, and general-purpose programming. The papers explore methods to improve code correctness, efficiency, and safety through techniques such as reinforcement learning, experience reuse, and prompt engineering.",
-    "3": "These papers unify around using evolutionary algorithms guided by large language models to optimize system prompts, heuristics, or code. They employ self-referential or metacognitive mechanisms to iteratively improve solutions through cycles of generation, evaluation, and reflection."
+    "3": "These papers unify around using evolutionary algorithms guided by large language models to optimize system prompts, heuristics, or program generators. They share a common approach of iterative self-improvement through evolutionary search, often incorporating metacognitive or self-referential mechanisms."
   },
   "noise_papers": [
     "2605.31064",
@@ -244,6 +247,7 @@
     "2606.25519",
     "2606.21401",
     "2606.20882",
-    "2606.20776"
+    "2606.20776",
+    "2606.28194"
   ]
 }
