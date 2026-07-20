@@ -1,11 +1,11 @@
 {
-  "last_run": "2026-06-29T02:51:35.207922",
+  "last_run": "2026-07-20T03:28:15.108605",
   "papers_processed": 70,
-  "cards_generated": 173,
-  "last_arxiv_published_date": "2026-06-26",
-  "week_num": 27,
+  "cards_generated": 243,
+  "last_arxiv_published_date": "2026-07-17",
+  "week_num": 30,
   "year": 2026,
-  "version": 8,
+  "version": 9,
   "history": [
     {
       "week_label": "W21",
@@ -78,6 +78,19 @@
         "Evolutionary Optimization with LLMs"
       ],
       "generated_at": "2026-06-29T02:51:35.207922"
+    },
+    {
+      "week_label": "2026-W30",
+      "new_papers": 70,
+      "key_themes": [
+        "Evolutionary Optimization with LLMs",
+        "On-Policy Distillation for LLMs",
+        "Diffusion Language Model Decoding",
+        "Quantum Computing with LLMs",
+        "Code Generation with LLMs",
+        "Self-Improving LLM Agents"
+      ],
+      "generated_at": "2026-07-20T03:28:15.108605"
     }
   ]
 }

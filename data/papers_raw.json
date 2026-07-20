@@ -1425,5 +1425,1366 @@
       "cs.SE",
       "cs.AI"
     ]
+  },
+  {
+    "arxiv_id": "2607.15937",
+    "title": "The Language of Security: How Prompt Syntax Shapes Secure Code Generation in Open LLMs",
+    "authors": [
+      "Matteo Cicalese",
+      "Antonio Della Porta",
+      "Stefano Lambiase",
+      "Emanuele Iannone",
+      "Torge Hinrichs",
+      "Riccardo Scandariato",
+      "Fabio Palomba"
+    ],
+    "abstract": "Large Language Models (LLMs) are increasingly used for source code generation despite their outputs often exhibiting security vulnerabilities. Prior work shows that prompt engineering can mitigate such risks, yet (1) they focused on high-level prompting strategies, neglecting recent evidence that fine-grained syntactic variations can substantially alter model behavior; and (2) predominantly evaluate proprietary LLMs, limiting the applicability of their findings in industrial settings where self-hosted, open models are preferred for privacy, compliance, and deployment control. In this paper, we study how fine-grained syntactic constituents of prompts influence the security of open LLM-generated code. Using a parser-driven approach, we systematically generate syntactic variants of security-relevant code generation prompts and evaluate their impact on code security across multiple open LLMs and programming languages. Our results show that specific syntactic elements, such as constraints, guards, conditions, and concept bindings, and their position within the prompt consistently affect the likelihood of generating insecure code. These findings identify prompt syntax as a concrete security control surface and provide actionable guidance for reducing vulnerability risk in LLM-assisted development.",
+    "published": "2026-07-17",
+    "url": "http://arxiv.org/abs/2607.15937v1",
+    "primary_category": "cs.CR",
+    "categories": [
+      "cs.CR",
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.15099",
+    "title": "Capturing and Exploiting Design Pattern Variability in Mobile Application Generation",
+    "authors": [
+      "Ramón Peralta",
+      "Jose-Miguel Horcas"
+    ],
+    "abstract": "The increasing reliance on automatic code generation in mobile application development often leads to code that neglects fundamental design principles and architectural quality. In this work, we address this challenge by capturing and exploiting the inherent variability of software design patterns to systematically generate customizable and well-structured mobile applications. We propose the use of the Universal Variability Language (UVL) to explicitly model the structural and behavioral variation points of common design patterns, such as Singleton, Strategy, Observer, Adapter, and Factory Method. These models are integrated with reusable Jinja templates, enabling code generation in Swift. Our approach leverages Software Product Line (SPL) engineering principles, treating design patterns as configurable assets within a product line and supporting automated generation of custom design patterns. We also analyze the configuration space of the modeled patterns, offering insights into their variability complexity. By formalizing design pattern variability and embedding it into the generation process, our work bridges model-driven engineering with practical mobile development, promoting the production of maintainable, reusable, and architecturally sound applications.",
+    "published": "2026-07-16",
+    "url": "http://arxiv.org/abs/2607.15099v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.15001",
+    "title": "LQCDMaster: Agentic Scientific Computing for Lattice Quantum Chromodynamics Research",
+    "authors": [
+      "Haofei Gao",
+      "Tingjia Miao",
+      "Wenkai Jin",
+      "Muhua Zhang",
+      "Hanzhang Wang",
+      "Jie Ran",
+      "Jinxin Tan",
+      "Zhentao Zhang",
+      "Bo Tang",
+      "Leiyi Li",
+      "Jun Hua",
+      "Xiangyu Jiang",
+      "Qi-An Zhang",
+      "Siheng Chen",
+      "Wei Wang"
+    ],
+    "abstract": "Lattice quantum chromodynamics (LQCD) provides a first-principles framework for computing hadronic observables, but its practical use remains limited by the substantial expertise required to turn research motivation into reliable computing workflows. Here we present \\textsc{LQCDMaster}, a tool-augmented, skill-guided and domain-specialized scientific computing agent that converts natural-language LQCD research tasks into executable PyQUDA computing workflows, including measurement scripts, job-submission artifacts, execution logs and numerical outputs. The system combines agentic planning, expert-annotated LQCD skills and a deterministic Wick-contraction tool to constrain the algebraically fragile components of code generation. We evaluate \\textsc{LQCDMaster} on a benchmark at the forefront of scientific research, comprising 70 LQCD computing tasks, with observables covering local and nonlocal two-point functions, Wilson loops, meson and baryon three-point functions. The generated workflows exactly reproduce expert-written implementations in 63 of 70 tasks at machine precision, with three additional discrepancies attributable to convention mismatches. Across representative observables, the agent reduces implementation time from hours to minutes while preserving end-to-end numerical validation. Further, we present a typical case of \\textsc{LQCDMaster}-driven exploration: a lattice computation of light-cone distribution amplitudes with diagonal Wilson-line, a quantity accessible with standard methods but never before computed, and computation of the spectrum of proton, deuteron, triton, hyperon, hyperdeuteron and hypertriton. This work pioneers the paradigm of agentic scientific computing by automating the end-to-end scientific computing workflows in lattice QCD research, lowering its barrier and facilitating the exploration and verification of non-standard scientific ideas.",
+    "published": "2026-07-16",
+    "url": "http://arxiv.org/abs/2607.15001v1",
+    "primary_category": "hep-lat",
+    "categories": [
+      "hep-lat",
+      "cs.AI",
+      "hep-ph"
+    ]
+  },
+  {
+    "arxiv_id": "2607.14816",
+    "title": "Large Language Models for Code Generation from Multilingual Prompts: A Curated Benchmark and a Study on Code Quality",
+    "authors": [
+      "Saima Afrin",
+      "Alessandro Midolo",
+      "Camilo Escobar-Velásquez",
+      "Mario Linares-Vásquez",
+      "Weiyuan Ding",
+      "Bowen Xu",
+      "Massimiliano Di Penta",
+      "Antonio Mastropaolo"
+    ],
+    "abstract": "Large Language Models (LLMs) perform differently on identical programming tasks when prompted in different natural languages, a phenomenon known as language bias. While this behavior has been widely studied for general text generation, its impact on code generation quality and programming conventions remains largely unexplored. We investigate how the language used to describe programming tasks affects the source code generated by GPT-4o mini, DeepSeek, and Claude. Our study comprises 460 coding tasks spanning Python (230) and Java (230). We translate and manually curate the original English prompts into Chinese, Hindi, Spanish, and Italian while preserving their technical meaning. We evaluate the generated code using multiple dimensions, including functional correctness through test pass rates, structural quality using established code metrics, issues detected by static analysis tools, and lexical characteristics such as the language used in identifiers and comments. Our results show that (i) English prompts do not consistently produce the best functional correctness or code quality, (ii) the impact of prompt language depends on both the programming language and the LLM, and (iii) generated code frequently mixes English with the prompt language in comments and string literals. These findings provide the first curated multilingual benchmark for studying language bias in code generation and offer insights for developing more robust multilingual code generation systems.",
+    "published": "2026-07-16",
+    "url": "http://arxiv.org/abs/2607.14816v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2607.14709",
+    "title": "Gold-Guided Programmatic Distillation for Financial Reasoning over Hybrid Tables and Text",
+    "authors": [
+      "Yun Dong",
+      "Erica Zhao",
+      "Elana Chen"
+    ],
+    "abstract": "Financial question answering over hybrid tabular and textual data may require multi-source reasoning and precise numerical computation. While large language models (LLMs) can generate intermediate reasoning steps, natural-language rationales remain prone to arithmetic errors, making them an unreliable supervision source for distillation. Building on programmatic distillation, we develop an approach that transfers reliable numerical reasoning from a large teacher model to a compact student using execution-verified Python programs instead of free-form textual rationales. It leverages gold derivations to guide teacher-side program synthesis and retains only programs that execute correctly and produce the gold answer, ensuring high-quality supervision. We further introduce an iterative recovery stage that revisits teacher-failed examples, enabling the student to recover and incorporate newly verified programs into training. Experiments on TAT-QA show that our framework is highly effective for hybrid financial reasoning. Our best 7B student achieves 87.00 EM / 87.18 F1 on the test set, substantially outperforming the 72B teacher (78.46 EM) as well as traditional and strong LLM-based baselines, including TAGOP and TAT-LLM. These results demonstrate that execution-verified programmatic distillation provides an effective and extensible framework for training smaller models to perform reliable numerical reasoning.",
+    "published": "2026-07-16",
+    "url": "http://arxiv.org/abs/2607.14709v1",
+    "primary_category": "cs.CL",
+    "categories": [
+      "cs.CL"
+    ]
+  },
+  {
+    "arxiv_id": "2607.14075",
+    "title": "VisualRepair: Dynamic Tool Calling and Region Focusing for Visual Software Issue Repair",
+    "authors": [
+      "Jingyu Xiao",
+      "Zhongyi Zhang",
+      "Haoran Hou",
+      "Yuxuan Wan",
+      "Yuan Jiang",
+      "Yintong Huo",
+      "Michael R. Lyu"
+    ],
+    "abstract": "Automated Program Repair (APR) has witnessed significant progress with the advent of Large Language Models (LLMs). However, as modern software systems increasingly expose rich graphical user interfaces, effectively leveraging visual information from bug screenshots has become essential for understanding bugs and generating accurate fixes in multimodal scenarios. Real-world issue reports frequently contain heterogeneous visual attachments including UI screenshots, IDE snapshots, GIFs, and text-centric images, each with distinct visual patterns and domain-specific semantics that impose substantial perceptual demands on MLLMs. Furthermore, bug screenshots often contain large expanses of uninformative and bug-irrelevant regions, distracting the model's attention and limiting patch diversity. To address these challenges, we propose VisualRepair, an MLLM-based framework for visual software issue repair comprising two core modules: Image Type-aware Tool Calling (ITTC), which classifies input images and dynamically invokes a tailored tool-calling chain for robust visual interpretation, and Dynamic Test-time Region Focusing (DTRF), which grounds multiple bug-related region candidates and refines them via an adaptive zoom-in and zoom-out strategy to improve fault localization and promote diverse patch generation. Extensive experiments on the SWE-bench Multimodal benchmark demonstrate that VisualRepair consistently outperforms state-of-the-art approaches. VisualRepair resolves 196 and 25 instances on the test and dev sets, respectively, surpassing the best baseline by 10 and 11 instances. These results highlight the effectiveness of type-aware visual understanding and region-focused localization for automated visual software issue repair.",
+    "published": "2026-07-15",
+    "url": "http://arxiv.org/abs/2607.14075v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.14181",
+    "title": "Quantize with Confidence? An Empirical Study of Quantization for Code Generation",
+    "authors": [
+      "Saima Afrin",
+      "Md. Zahidul Haque",
+      "Antonio Mastropaolo"
+    ],
+    "abstract": "The growing adoption of local inference frameworks such as Ollama has made it increasingly common for developers to run large code models on laptops and other resource-constrained hardware. In these settings, post-training quantization is essential for reducing memory footprint and enabling practical deployment, yet its impact on generated code remains insufficiently understood. We empirically evaluate six state-of-the-art quantization methods (GPTQ, AWQ, QuIP#, AQLM, BitsAndBytes, and GGUF) on two representative large code model families, Qwen2.5-Coder and CodeLlama, using the multilingual McEval and CoderEval benchmarks for Python and Java. We assess functional correctness (pass@1) together with maintainability, reliability, security, and structural complexity. We also introduce a novel analysis of robustness under varying prompt complexity, characterized by Shannon entropy and token length. Our results show that quantization techniques differ meaningfully in their impact on correctness and code quality. AQLM consistently matches or exceeds the full-precision baseline, whereas QuIP# exhibits the largest correctness degradation, particularly on complex prompts. Security attributes remain stable across models, benchmarks, and programming languages, while robustness to prompt complexity varies across techniques. These findings provide practical guidance for selecting quantization strategies for deploying large code models on resource-constrained hardware and highlight the importance of evaluating quantized models beyond functional correctness.",
+    "published": "2026-07-15",
+    "url": "http://arxiv.org/abs/2607.14181v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.LG",
+      "cs.PL"
+    ]
+  },
+  {
+    "arxiv_id": "2607.13820",
+    "title": "PROBE: Benchmarking Code Generation in Large Language Models",
+    "authors": [
+      "Rodrigo Pato Nogueira",
+      "Marco Vieira",
+      "João R. Campos"
+    ],
+    "abstract": "Large Language Models (LLMs) are increasingly being used in everyday software engineering tasks, particularly in automated code generation. Despite their widespread adoption, these models remain far from perfect, making systematic and fair evaluation essential to understand their strengths and limitations. In the context of code generation, existing benchmarks are limited: they often target a single programming language and rely primarily on unit test outcomes, while overlooking other critical dimensions such as the overall quality of the generated code and its closeness to a valid solution. To address these gaps, we introduce PROBE, an extensible benchmark framework that, unlike prior work, establishes a systematic structure built on diverse and well-defined metrics, representative workloads, varied prompt templates, and a robust experimental procedure. In practice, the code generated by the LLMs is evaluated along three complementary dimensions: functional correctness, proximity to valid solutions, and code quality, enabling a comprehensive assessment of performance. We use PROBE to evaluate four open-source and two proprietary models under three prompting strategies across five programming languages. We further complement this analysis with a study of common errors in the code and provide concrete examples, offering clearer insight into where LLMs tend to struggle. Our findings show that, while LLMs achieve promising results, they struggle with harder problems and, in the case of smaller models, with programming languages that have fewer available resources for training, and they often fail due to fundamental and easily avoidable errors that underscore the unreliability of automatically generated code.",
+    "published": "2026-07-15",
+    "url": "http://arxiv.org/abs/2607.13820v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.14165",
+    "title": "Towards Reliable AI-Assisted Analog Design: Template-Constrained LLM Agents for SAR ADC Generation",
+    "authors": [
+      "Dimple Vijay Kochar",
+      "Hae-Seung Lee",
+      "Anantha P. Chandrakasan"
+    ],
+    "abstract": "While Large Language Models (LLMs) have demonstrated significant capability in software code generation, their application to analog Electronic Design Automation (EDA) is bottlenecked. Owing to limited circuit topology understanding and data, directly prompting LLMs and multimodal models leads to hallucinations and failure to produce schematics capable of passing rigorous SPICE simulations, as we show in our work. Instead, we propose an end-to-end, multi-step LLM agentic framework ATLAS, capable of generating a functional Successive Approximation Register (SAR) Analog-to-Digital Converter (ADC) that successfully passes simulation validation. To adhere to the rigid constraints of analog design, we utilize expert knowledge to ground the LLM in its planning, selection, parameterization, and iterative modification. As part of ATLAS, we introduce Template-Constrained Generation - which unlike other template-based works - builds towards a more generalized SAR ADC generation flow. We demonstrate a strong proof-of-concept of our framework by developing SAR ADCs across technology nodes and input specs. Overall, our expert-knowledge grounded multi-step agentic ATLAS establishes a pragmatic foundation for integrating LLMs into reliable analog design methodologies.",
+    "published": "2026-07-15",
+    "url": "http://arxiv.org/abs/2607.14165v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI",
+      "cs.AR",
+      "cs.LG"
+    ]
+  },
+  {
+    "arxiv_id": "2607.14159",
+    "title": "MemoHarness: Agent Harnesses That Learn from Experience",
+    "authors": [
+      "Yue Huang",
+      "Wenjie Wang",
+      "Han Bao",
+      "Yuchen Ma",
+      "Xiaonan Luo",
+      "Yi Nian",
+      "Haomin Zhuang",
+      "Zheyuan Liu",
+      "Yue Zhao",
+      "Xiangliang Zhang"
+    ],
+    "abstract": "An agent harness is the external control layer that turns a base LLM into an executable agent by managing context, tools, orchestration, memory, decoding, and output handling. While harness design strongly affects agent behavior, most automatic improvement methods optimize narrower artifacts such as prompts, pipelines, or workflows, and deployed agents usually reuse a single global harness for all cases. We introduce MemoHarness, an adaptive harness optimization framework that learns from its own executions. MemoHarness decomposes the harness into six editable control dimensions, stores per-case diagnoses and distilled global patterns in a dual-layer experience bank, and adapts the learned harness to each test case using retrieved experience without test-time labels, feedback, or additional search. In our evaluation across shell-agent, code-generation, and analytical-reasoning benchmarks, MemoHarness improves over the fixed harnesses we compare against and shows selective transfer to unseen suites and base models. Its additional context can also remain cost-competitive when much of the retrieved experience is cacheable. These results provide evidence that execution experience is a practical substrate for building agent harnesses that are more adaptive than a single static configuration, while leaving broader claims about statistical robustness and component attribution to future work.",
+    "published": "2026-07-14",
+    "url": "http://arxiv.org/abs/2607.14159v1",
+    "primary_category": "cs.AI",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ]
+  },
+  {
+    "arxiv_id": "2607.13021",
+    "title": "Software Supply Chains are Dead: Use-Case-Oriented Regeneration",
+    "authors": [
+      "Tanmay Singla",
+      "James C. Davis"
+    ],
+    "abstract": "Modern software development relies on an increasingly doubtful premise: that the up-front implementation savings from adopting a dependency outweighs the maintenance costs. Two changes are reshaping the build-vs.-reuse calculus: software supply chain attacks have raised the cost of external reliance, while generative AI has lowered the cost of local implementation. We envision use-case-oriented regeneration as a new software sourcing paradigm that shifts the supply chain from external trust to local verification. We evaluate an agentic workflow that synthesizes only the specific slice of dependency functionality that a repository exercises. Our measurements across 180 repository-dependency pairs suggest that this approach is feasible: the replacements preserve 99.8% of repository-observed behavior across baseline validation checks and reduce the exported API surface by 93%. Software sourcing may evolve toward verifiable repository-specific code synthesis, especially when the required functionality is narrow, stable, and well tested.",
+    "published": "2026-07-14",
+    "url": "http://arxiv.org/abs/2607.13021v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.12962",
+    "title": "Form, Not Content? A Preregistered, Placebo-Controlled Evaluation of Learned Error-Conditioned Self-Repair Through Prompts and Weights in Frozen Small Code Models",
+    "authors": [
+      "Mehmet Iscan"
+    ],
+    "abstract": "Frozen small code LLMs are deployed locally, yet the information guiding a retry after a failed attempt is still measured without placebo controls in the self-repair literature. We treat a failed program as a conjecture and an execution counterexample as an oracle-relative refutation, and introduce PoPE (Popperian Placebo-controlled Evaluation): a methodology for measuring whether evidence that falsifies LLM-generated code can be used operationally by that same model. In PoPE, error content is paired with channel-specific placebos that keep the predeclared scaffold while ablating task-relevant content or deranging the task-error assignment. Frozen small code models (0.5-1.5B) are evaluated under preregistered rules through a prompt channel and a weight channel (small-data adapter training), with four generations per arm-unit pair. In the prompt channel, public-tier screening unlocked 12 units under the content-ablated form placebo versus 10 under the live error-pattern arm on a 40-unit resistant band; the result was recorded as mechanism-null. In the weight channel, an 8-8 tie was observed between the error-content adapter and the intervention-free baseline (p=1.0), while the SHA-deranged placebo adapter stayed ahead with 10 unlocks; content-attributable superiority was not confirmed. These results do not constitute evidence of equivalence or non-inferiority. Equivalence was not tested separately. Findings are restricted to the public-tier screening endpoint; hidden-tier confirmation was deferred by design. We read this not as compiled criticism disappearing as information, but as the loss of its external role in testing a new conjecture: when a representation learned from the oracle is written back into the generation state, testing is replaced by conditioning. No working JEPA-RL controller is claimed. PoPE is presented as a placebo-controlled, retestable measurement standard.",
+    "published": "2026-07-14",
+    "url": "http://arxiv.org/abs/2607.12962v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI",
+      "cs.LG"
+    ]
+  },
+  {
+    "arxiv_id": "2607.12790",
+    "title": "Who Grades the Grader? Co-Evolving Evaluation Metrics and Skills for Self-Improving LLM Agents",
+    "authors": [
+      "Xing Zhang",
+      "Guanghui Wang",
+      "Yanwei Cui",
+      "Ziyuan Li",
+      "Wei Qiu",
+      "Bing Zhu",
+      "Peiyang He"
+    ],
+    "abstract": "Self-evolving agent systems improve by creating, revising, and retiring their own skills, but every such loop rests on a hidden assumption: a reliable evaluation metric already exists. In many real applications it does not. We make three claims. First, metrics can be \\emph{evolved}: our metric loop searches compositions of small drawback detectors under a full evolutionary lifecycle, trained to agree with a ten-item anchored reference set, regularized by consensus over unlabeled outputs, and audited against a held-out anchor it never reads, yielding a transparent, inspectable metric rather than an opaque judge. Second, since no metric exists to beat, the yardstick is recovering what an accurate metric would have enabled, and \\emph{Double Ratchet}, our co-evolution of the metric with a lifecycle-managed skill loop, does so: across code generation (MBPP+), enterprise text-to-SQL (Spider~2.0-Snow), and reference-free report generation, it retains 88--110\\% of the held-out lift achieved by the same skill loop driven by ground truth or the best available rubric. Third, safety comes from anchor discipline plus outer audits: removing anchor guards collapses the metric into a vacuous detector while removing the lifecycle does not; and when evolved skills gamed the report rubric, an independent judge caught it, one detector repaired it, and a task-aware judge then preferred the evolved outputs over the pre-evolution baseline in 77\\% of decided pairs. We argue this failure-expecting architecture is the right default wherever no reliable automatic verifier exists.",
+    "published": "2026-07-14",
+    "url": "http://arxiv.org/abs/2607.12790v1",
+    "primary_category": "cs.AI",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.MA"
+    ]
+  },
+  {
+    "arxiv_id": "2607.12605",
+    "title": "Multi-Perspective Agentic Program Repair via Code Property Graphs and Temporal Execution Graphs",
+    "authors": [
+      "Zhili Huang",
+      "Ling Xu",
+      "Hongyu Zhang"
+    ],
+    "abstract": "Large language models (LLMs) have improved automated program repair (APR), but two limitations remain. First, raw execution traces are often too large and repetitive to serve as effective model context. Second, repeated patch sampling may produce different implementations without yielding distinct root-cause hypotheses or repair strategies. We present CT-Repair, an agentic APR framework representing static and dynamic evidence as queryable Code Property Graph (CPG) and Temporal Execution Graph (TEG). CT-Repair applies a three-stage filtering pipeline to construct compact TEGs. Three finite-state-machine-guided agents analyze each bug from static, dynamic, and hybrid perspectives and independently produce evidence-grounded repair strategies. A strategy-guided generation procedure instantiates these strategies as candidate patches and uses validation feedback to refine the most promising strategy. We evaluate CT-Repair on 854 Java bugs from Defects4J v3.0. In the mixed-model configuration, CT-Repair correctly repairs 489 bugs. Under a controlled GPT-5.4-mini configuration, it repairs 388 bugs, 19 and 30 more than ReinFix and RepairAgent, respectively. The union of the three evidence perspectives repairs 99 more bugs than the strongest individual perspective. The filtering pipeline also compacts runtime evidence, with execution filtering narrowing the candidate method scope by 94.85% on average and behavior filtering further reducing retained runtime records by 55.97%. These results show that structured runtime evidence and multi-perspective reasoning can improve repair effectiveness without relying solely on a larger patch-generation budget.",
+    "published": "2026-07-14",
+    "url": "http://arxiv.org/abs/2607.12605v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2607.12273",
+    "title": "Code-MUE: Measuring Code LLMs' Uncertainty through Execution-based Semantic Interaction Graphs",
+    "authors": [
+      "Xiaoning Ren",
+      "Yinxing Xue",
+      "Lei Ma",
+      "Yuheng Huang"
+    ],
+    "abstract": "As Code Large Language Models (LLMs) become central to modern software engineering, their inherent stochasticity poses significant real-world risks, where even minor errors can lead to severe functional, security, or safety consequences. Reliable automation, therefore, demands the ability to distinguish between confident, well-supported predictions and stochastic guessing. However, existing uncertainty estimation methods face a critical gap: white and grey-box techniques are often inapplicable to closed-source models, while standard \"black-box\" text metrics fail to capture the unique fragility of code, where syntactic variation does not always imply semantic divergence. To bridge this syntax-semantics gap, we introduce Code-MUE, a purely black-box framework that measures uncertainty through execution-based Semantic Interaction Graphs. Different from prior approaches that rely on superficial textual similarity, Code-MUE grounds uncertainty in observable runtime behavior, calculating the Von Neumann entropy of the solution space to quantify global semantic diversity. A large-scale empirical study across eight state-of-the-art LLMs demonstrates that Code-MUE achieves a strong negative correlation with functional correctness (Spearman's correlation up to -0.98), significantly outperforming lexical and embedding-based baselines while enabling robust risk detection and selective prediction in practical workflows.",
+    "published": "2026-07-14",
+    "url": "http://arxiv.org/abs/2607.12273v2",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI",
+      "cs.CL"
+    ]
+  },
+  {
+    "arxiv_id": "2607.13091",
+    "title": "Self-Improving AI Coding Agents Through Accumulated Behavioral Rules: A Closed-Loop Framework",
+    "authors": [
+      "Aditya Aggarwal",
+      "Nahid Farhady Ghalaty"
+    ],
+    "abstract": "LLM-based coding agents repeat the same classes of mistakes across sessions because they lack a mechanism to retain corrections from human review feedback. We present a closed-loop framework in which every accepted review comment is codified as a persistent behavioral rule, progressively expanding the set of error classes the agent can self-detect. The framework combines an accumulating rule set in a version-controlled instruction file, a self-review checklist executed before code submission, and automated validation that ensures rule set integrity as it grows. In deployment across a 35+ service microservices platform, the rule set grew from 5 to 18 behavioral rules, 15+ language-specific standards, and a 15-item self-review checklist, all derived from real review feedback. We present empirical results from 11 recorded working sessions spanning code generation, PR review, incident investigation, and cross service refactoring. We observe that accumulated rules shift review effort from low-level correctness toward design-level validation, achieve a measured 0% recurrence rate for ruled-against error classes, and transfer across heterogeneous agent interfaces. We compare our approach against related work in experiential LLM learning (Reflexion, ExpeL, Voyager) and automated code review (CodeReviewer, SWE-bench agents), showing that our framework achieves persistent cross-session learning without weight updates, operates on production codebases rather than synthetic benchmarks, and addresses an orthogonal dimension (behavioral consistency over time) that existing benchmarks do not measure. The result is a coding agent that improves with every review cycle, accumulating the engineering wisdom of its human collaborators without changing a single model weight.",
+    "published": "2026-07-13",
+    "url": "http://arxiv.org/abs/2607.13091v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2607.12089",
+    "title": "Cross-Cutting Security Analysis of LLM-Generated Code via Metamorphic Testing and Association Rule Mining",
+    "authors": [
+      "Zedong Peng",
+      "Chenggang Wang",
+      "Shangyue Zhu"
+    ],
+    "abstract": "Large language models (LLMs) frequently generate code with security vulnerabilities, yet these weaknesses are rarely isolated: they often span multiple concern areas simultaneously, reflecting the cross-cutting nature of security in software. We present a framework that combines security-oriented Metamorphic Relations (MRs) with Association Rule (AR) mining to detect vulnerabilities in LLM-generated code, uncover their co-violation structure, and trace that structure back to prompt-level risk factors. We define nine MRs covering major CWE categories, including SQL injection, XSS, command injection, path traversal, hard-coded credentials, weak cryptography, and memory-safety errors, and apply them using an LLM-based judge to 3,700 code snippets generated by five open models from the LLMSecEval benchmark. The results show that 68.8% of snippets violate at least one MR, with hard-coded credentials (79.1%) and command injection (74.4%) among the most prevalent applicable failures. AR mining reveals strong cross-cutting co-violation patterns, notably that XSS and weak cryptography co-violations predict hard-coded credentials with 82.5% confidence (lift = 3.23), along with tightly coupled clusters linking authentication, credential handling, and cryptographic weakness, as well as input-handling and memory-safety failures. We then perform prompt-level risk analysis and find that database- and authentication-related prompts are strong predictors of broad cross-cutting insecurity, while 65.5% of prompts yield consistent violation outcomes across all five models. These findings show that insecure code generation is not merely a collection of independent defects, but a structured and prompt-conditioned phenomenon, motivating cluster-aware verification and prompt-level intervention for safer LLM-assisted programming.",
+    "published": "2026-07-13",
+    "url": "http://arxiv.org/abs/2607.12089v1",
+    "primary_category": "cs.CR",
+    "categories": [
+      "cs.CR",
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.11342",
+    "title": "Fail-Aware and Explainable Test Oracle Prediction",
+    "authors": [
+      "Yue Zhao",
+      "Binish Tanveer",
+      "Jelena Zdravkovic"
+    ],
+    "abstract": "Despite their central role in fault detection, test oracles remain challenging to construct effectively. Recent learning based methods address this challenge by automatically generating test assertions, yet even if syntactically correct, they are often ineffective in revealing bugs. Rather than generating assertions, this study explores a different approach by training a model to directly predict whether a given test prefix passes or fails. We present FOCAL, an emerging code LLM-based discriminative oracle predictor. It learns from labeled pairs of test prefixes and methods under test, employs losses that emphasize failing cases during training, and grounds its predictions in statement level behavioral evidence. Compared with the baseline method SEER, we substantially improve performance on failing cases for unseen projects and provide richer explanations. A preliminary evaluation on fault-detection benchmarks and automated test-generation artifacts shows that our approach is highly accurate within its training distribution and substantially improves failure detection on previously unseen projects where prior discriminative oracles collapse. Moreover, the highlighted statements are supported by behavioral explanation checks. These early results suggest that fail-aware discriminative oracle prediction can complement existing approaches such as fuzzing, search-based testing, and LLM-based test generation. These techniques produce test prefixes at scale but often lack fault oriented oracles. In future work, FOCAL could take generated test prefixes and attach fault-aware predicted oracles to them, turning high-volume input generation into executable tests that are more likely to expose semantic failures.",
+    "published": "2026-07-13",
+    "url": "http://arxiv.org/abs/2607.11342v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2607.11084",
+    "title": "NVAITC AI Scientist: A Governed End-to-End Research System -- A Hypertension GWAS Case Study",
+    "authors": [
+      "Eddie Huang",
+      "Ken Liao",
+      "Iven Fu",
+      "Yang-Hsien Lin",
+      "Chao-Shun Zhan",
+      "Andy Liao",
+      "Virginia Chen",
+      "Johnson Sun",
+      "Pika Wang",
+      "Richard Huang",
+      "Jiun-Cheng Jiang",
+      "Ting-Yuan Liu",
+      "Hsing-Fang Lu",
+      "Ray Y. Lee",
+      "Chi-Chou Liao",
+      "Simon See",
+      "Fuu-Jen Tsai"
+    ],
+    "abstract": "Agentic research systems are emerging as a new paradigm for coordinating scientific workflows beyond isolated model inference, code generation, or statistical analysis. However, deployment in institutional biomedical environments requires governed mechanisms for research planning, data access, workflow orchestration, evidence tracking, reproducibility, and human oversight. We present NVAITC AI Scientist (NAIS), a governed end-to-end agentic research system designed to support domain-general scientific workflows while keeping protected data within institutional privacy boundaries. NAIS integrates proposal review, execution planning, governed computational routing, reproducible workflow orchestration, evidence generation, and scientist-in-the-loop oversight. We validate NAIS in a real-world hypertension genome-wide association study (GWAS) using hospital-linked genotype and electronic health record (EHR) data from 286,422 individuals under an aggregate-only data policy. The agent planned cohort extraction, orchestrated GWAS execution, generated quality-control summaries, and drafted publication-oriented outputs. Human-AI review identified phenotype discrepancies and enabled iterative refinement of the hypertension definition. After reconciliation, the agent-orchestrated GWAS reproduced established hypertension loci, including FGF5, ATP2B1, CNNM2, FTO, and GRB14, with the strongest signal at FGF5 reaching $-\\log_{10}(p) \\sim 70$. As a secondary demonstration, NAIS also supported a drug-induced liver injury prediction workflow, achieving a multimodal graph neural network AUC of 0.842. These results demonstrate that governed agentic research systems can support scalable AI-assisted biomedical discovery while producing outputs comparable to expert-led workflows.",
+    "published": "2026-07-13",
+    "url": "http://arxiv.org/abs/2607.11084v1",
+    "primary_category": "cs.AI",
+    "categories": [
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2607.11042",
+    "title": "BackendForge: Benchmarking Agentic End-to-End Code Generation with Backend Services",
+    "authors": [
+      "Yuzhe Guo",
+      "Mengzhou Wu",
+      "Yuan Cao",
+      "Jialei Wei",
+      "Dezhi Ran",
+      "Wei Yang",
+      "Tao Xie"
+    ],
+    "abstract": "Large language models (LLMs) are increasingly used in agentic coding settings, where they can inspect files, execute commands, run tests, observe failures, and iteratively revise code. This shift raises a central evaluation question: can an agentic LLM generate an end-to-end software artifact that is both deployable and behaviorally correct under execution? Backend services provide a controlled but realistic substrate for this evaluation. Their APIs expose application-level executable semantics, and deployed behavior can be checked deterministically against an OpenAPI contract through black-box HTTP interactions. We introduce BackendForge, a benchmark of 56 contract-defined backend generation tasks rewritten from real open-source applications. Given a visible specification and an OpenAPI contract, an LLM must generate a Dockerized service that is built, deployed, and evaluated only through HTTP tests. To strengthen evaluation without introducing hidden requirements, BackendForge uses a test agent and a code agent to co-evolve the test oracle and reference service, where the test agent proposes specification-grounded backend tests and the code agent repairs the reference implementation. Although the best-performing model, GPT-5.5, succeeds on 55.4\\% of tasks under the base oracle, it succeeds on only 28.6\\% under the final oracle. This gap suggests that current LLMs can implement many local API behaviors, but still struggle to produce complete backend services.",
+    "published": "2026-07-13",
+    "url": "http://arxiv.org/abs/2607.11042v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2607.11012",
+    "title": "EasyOPD: An Easy-to-use On-Policy Distillation Framework for Large Language Models",
+    "authors": [
+      "Jie Sun",
+      "Mao Zheng",
+      "Mingyang Song",
+      "Qiyong Zhong",
+      "Gengsheng Li",
+      "Zhepei Hong",
+      "Chang Wu",
+      "Pengfei Liu",
+      "Junfeng Fang",
+      "Xiang Wang"
+    ],
+    "abstract": "Conventional language-model distillation often relies on fixed teacher-generated data, which may not cover the states encountered by an evolving student policy. On-policy distillation (OPD) instead collects teacher or evaluator supervision on student-generated rollouts. However, existing OPD methods differ substantially in supervision form, tokenizer compatibility, teacher access, and supervision granularity, leading to fragmented implementations that are difficult to reproduce and extend. We present \\textsc{EasyOPD}, an on-policy distillation framework built on verl, a distributed reinforcement-learning framework for large language models. \\textsc{EasyOPD} separates user-side configuration, method-specific supervision logic, and verl-based execution. Its method modules connect to the shared backend through extension boundaries for loss construction, rollout metadata, reward processing, tokenizer alignment, and teacher-side computation. We instantiate representative methods for three OPD settings -- cross-tokenizer OPD, on-policy self-distillation, and step-wise OPD. Experiments on reasoning, code-generation, scientific-knowledge, and tool-use benchmarks show that these implementations can be executed through the same verl-based backend while retaining their method-specific objectives and task-dependent performance profiles. We release \\textsc{EasyOPD} with runnable YAML configurations, documentation, and an installable demonstration package and video.",
+    "published": "2026-07-13",
+    "url": "http://arxiv.org/abs/2607.11012v1",
+    "primary_category": "cs.CL",
+    "categories": [
+      "cs.CL"
+    ]
+  },
+  {
+    "arxiv_id": "2607.10674",
+    "title": "Commenting with Copilot: A Taxonomy and Multi-Year Analysis of Student Code-Generation Specifications",
+    "authors": [
+      "Nasser Giacaman",
+      "Valerio Terragni",
+      "Paul Denny",
+      "Viraj Kumar"
+    ],
+    "abstract": "As AI code tools become integrated into programming environments, students increasingly describe intended behavior in natural language and rely on these tools to generate code, shifting emphasis from code writing to specification. Yet little is known about the comments students write as specifications in AI-assisted programming tasks. We analyze a four-year dataset of undergraduate programming submissions and reflections from tasks in which students wrote comments to guide code generation and refined solutions using test-case feedback. We introduce a taxonomy spanning three dimensions: comment type, code expression level, and code construct. Using automated classification, we examine how these dimensions vary across attempts and how students describe the process in their reflections. Our findings show that students mostly wrote natural-language What comments, shifted toward How comments for more procedural constructs, and focused more on verifying generated code than on repeatedly rewriting comments.",
+    "published": "2026-07-12",
+    "url": "http://arxiv.org/abs/2607.10674v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI",
+      "cs.CY"
+    ]
+  },
+  {
+    "arxiv_id": "2607.10621",
+    "title": "WebDesignIter: Co-Evolving Design Knowledge for Repository-Level Front-End Code Generation",
+    "authors": [
+      "Zheng Pei",
+      "Mingwei Liu",
+      "Zhenxi Chen",
+      "Zihao Wang",
+      "Yanlin Wang"
+    ],
+    "abstract": "Front-end development accumulates change after change at the repository level, weaving complex cross-file dependencies that current LLM coding agents tuned for single-shot tasks cannot reliably track across multiple iterations, leading to functional regressions and code that resists maintenance. We argue the missing piece is design knowledge: architectural principles, module responsibilities, and structural constraints that developers lean on to keep code readable, maintainable, and evolvable as a system scales. To operationalize this, we propose WebDesignIter, a framework built around a persistent knowledge graph (WebAppArchKG) that fuses repository structure with design knowledge and keeps both in sync across development cycles. WebDesignIter works in two stages: design-informed planning pulls historical context and architectural overviews from WebAppArchKG to produce an implementation plan with corresponding test scripts, and design-aware generation executes that plan through targeted diff-based patches, validated by sandbox execution and automatic syntax repair. On Web-Bench, WebDesignIter delivers an average Pass@2 gain of 9.55 percentage points across nine foundation models over existing baselines. More importantly, WebDesignIter outperforms every general-purpose coding agent Claude Code, OpenHands, SWE-Agent, Codex CLI on every model configuration, posting the highest Pass@1 and Pass@2 while consuming 2530 fewer input tokens. Ablation singles out design knowledge as the most impactful component: stripping it drops Pass@1 by 11.40 percentage points, a degradation far larger than removing code-graph retrieval, patch-based generation, or sandbox verification, confirming that design knowledge provides a fundamentally more efficient and reliable path to repository-level code generation.",
+    "published": "2026-07-12",
+    "url": "http://arxiv.org/abs/2607.10621v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.10474",
+    "title": "Reinforcement Learning with Verifiable Physics: Post-training LLMs with Continuous Rewards",
+    "authors": [
+      "Pengfei Cai",
+      "Utkarsh Utkarsh",
+      "Alan Edelman",
+      "Christopher Vincent Rackauckas",
+      "Rafael Gomez-Bombarelli"
+    ],
+    "abstract": "Partial differential equations (PDEs) are foundational to modeling in science and engineering, but constructing reliable numerical solvers remains labor-intensive, demanding expert knowledge of discretization schemes, stability conditions, and boundary treatments. Recent work has begun to frame PDE solving as a code-generation task for large language models (LLMs), yet existing approaches operate primarily at inference time: relying on prompting, debugging, self-refinement, and test-time scaling rather than adapting the model itself. In parallel, reinforcement learning with verifiable rewards has emerged as a post-training paradigm for code and math reasoning, but its verifiers are typically binary: a compiler runs, or a test passes. Such signals discard the graded structure of scientific correctness, where two solvers may both execute and yet differ in solution accuracy by orders of magnitude. In this work, we introduce RLVP: Reinforcement Learning with Verifiable Physics, an RL post-training framework for multi-PDE solver code generation. RLVP addresses this verifiability gap with a hybrid verifier: hard program-validity checks ensure executability, while continuous physics rewards score function-space accuracy and PDE-residual consistency. A single policy is post-trained across diverse PDE families spanning hyperbolic, parabolic, elliptic, and incompressible-flow systems. RLVP improves over both pre-trained and supervised-only baselines on PDE benchmarks, and shows zero-shot improvement transfer to held-out PDEs. We show that a smaller LLM post-trained with RLVP can outperform prompting a frontier model on in-distribution PDE solver generation. The trained policy shows evidence of compositionality in numerical motifs: it recombines stencils, time-stepping schemes, and boundary-handling primitives learned from the PDEs used in training into generated solvers for unseen PDE problems.",
+    "published": "2026-07-11",
+    "url": "http://arxiv.org/abs/2607.10474v1",
+    "primary_category": "cs.LG",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.10295",
+    "title": "Program-Synthesis-Driven Autodesign of Universal Unitary Operators",
+    "authors": [
+      "Yifei Zhang",
+      "Dong Chen",
+      "Fan Wang",
+      "Wenrui Zhang",
+      "Yan Chen",
+      "Dingding Han",
+      "Jianmin Yuan",
+      "Xiangjin Kong",
+      "Yu-Gang Ma"
+    ],
+    "abstract": "We demonstrate that AI-driven program synthesis can autonomously discover fundamental strategies for decomposing unitary matrices in photonic networks. By extending DreamCoder to complex-valued linear algebra, the system generates decomposition programs achieving the minimal $N(N-1)/2$ Mach-Zehnder interferometers, distinct from both Reck and Clements architectures. Learned programs encode dimension-agnostic invariants: strategies discovered for $5 \\times 5$ matrices generalize to higher dimensions such as $64 \\times 64$. The discovered programs encode interpretable, dimension-agnostic construction rules. These rules generalize across matrix sizes without retraining, demonstrating that autonomous program synthesis can serve as a scalable paradigm for algorithm discovery and the automated design of universal unitary operators. Beyond universal decompositions, the system automatically exploits matrix structure to reduce the interferometer count below the universal theoretical bound. For instance, for Householder matrices, it discovers a dimension-independent rule that requires only $2N-3$ MZIs. This achieves linear, rather than quadratic, scaling and generalizes to arbitrary $N$ without retraining. For matrices obtained from the singular value decomposition of sparse matrices, reductions generally increase with sparsity, reaching up to 38% fewer MZIs than the universal theoretical bound $N(N-1)/2$ at 95% sparsity. These MZI reductions translate directly into practical hardware benefits for scalable photonic implementations. Taken together, the system functions as a single unified engine that discovers both universal decomposition rules and matrix-specific optimizations, without being provided with the structural or analytical properties of the input matrices.",
+    "published": "2026-07-11",
+    "url": "http://arxiv.org/abs/2607.10295v1",
+    "primary_category": "physics.optics",
+    "categories": [
+      "physics.optics",
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2607.10221",
+    "title": "Which Neurons Detect Malicious Code? A Probing Study of LLM Security Knowledge",
+    "authors": [
+      "Lam D. Dao",
+      "Vang T. Nguyen",
+      "Anh M. T. Bui",
+      "Phuong T. Nguyen"
+    ],
+    "abstract": "Background. Large language models (LLMs) have become increasingly capable of understanding and generating source code, leading to their widespread adoption in software engineering tasks such as code completion, repair, and vulnerability detection. However, despite their strong empirical performance, the internal mechanisms through which LLMs recognize malicious or vulnerable code patterns remain poorly understood. Aim. We investigated where the malware detection behavior is encoded inside LLMs Feed Forward Network (FFN) neurons and verified the attribution with causal interventions on the neurons identified. This aims to identify the most important neurons in detecting malicious code. Methods. We applied mechanistic interpretability methods to locate the neurons being responsible for malware-detection behavior in three instruction-tuned LLMs: Llama3.1-8B-Instruct, Mistral-v0.3-7B-Instruct, and Qwen2.5-7B-Instruct. Using 1,500 malicious and 1,500 benign PyPI packages from the PyPI Malregistry, we attribute the behavior to a set of neurons. Results. The experimental results reveal that amplifying facilitating neurons for malware detection while suppressing inhibiting ones can boost accuracy, while the reverse collapses predictions toward a single class, although the magnitude and consistency is heavily model-dependent. We demonstrated that the guardrail detection mechanism varies across models, each represents its malware detection behavior differently within its FFN layers. Conclusions. Probing the neurons associated with security-relevant knowledge helps us gain insights into how LLMs encode malicious programming concepts, identify potentially harmful memorized behaviors, paving the way toward more reliable defense mechanisms, such as neuron-level editing, selective unlearning, and security-aware alignment for code-focused LLMs.",
+    "published": "2026-07-11",
+    "url": "http://arxiv.org/abs/2607.10221v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.CR"
+    ]
+  },
+  {
+    "arxiv_id": "2607.10210",
+    "title": "Toward Stronger Code Watermarking: A Grammar-Driven Approach to Optimizing the Trade-off Between Quality and Detectability",
+    "authors": [
+      "Licheng Yu",
+      "Aiwei Liu",
+      "Songze Li"
+    ],
+    "abstract": "With the rapid development of Large Language Models (LLMs), text watermarking has emerged as a crucial technique for identifying machine-generated content. However, directly applying existing logits-based watermarking methods to code generation remains challenging, since the low-entropy nature of code exacerbates the trade-off between code quality and watermark detectability. In this paper, we propose a novel code watermarking approach called Grammar-Driven Watermark (GDW) for LLMs. GDW preserves syntactic validity through a grammar-guided three-level masking mechanism and injects watermark signals via structural role-aware modulation, assigning a stronger bias to content-bearing tokens while applying a more conservative bias to syntax-critical tokens. Aligning with the generation process, we further design a role-aware weighted detection statistic to improve detectability. Experiments across multiple programming languages, models, and decoding strategies show that GDW establishes a stronger quality-detectability trade-off frontier than existing methods, while maintaining robustness against variable-renaming attacks.",
+    "published": "2026-07-11",
+    "url": "http://arxiv.org/abs/2607.10210v1",
+    "primary_category": "cs.CR",
+    "categories": [
+      "cs.CR",
+      "cs.CL"
+    ]
+  },
+  {
+    "arxiv_id": "2607.10057",
+    "title": "Quantum Circuit Vision: Cost-Aware Evaluation of Visual AI Agents for Quantum Code Generation",
+    "authors": [
+      "Dongping Liu",
+      "Aoyu Zhang",
+      "Luyao Zhang"
+    ],
+    "abstract": "Can AI agents visually comprehend quantum circuit diagrams and generate verified executable code--and at what cost? We present Quantum Circuit Vision, a cost-aware evaluation framework for multimodal AI agents on quantum circuit visual understanding. We construct a 132-circuit benchmark spanning 13 categories ($1$--$10$ qubits) with executable Amazon Braket code and unitary-fidelity verification. Evaluating three frontier Claude-family models at different capability-cost tiers with $n=5$ repeated trials, we find that the mid-tier model (Sonnet 4.6, $1.30\\times$ credits) offers the most favorable balance on the cost-accuracy frontier: 91% pass rate on the core subset at 18% of the per-call cost of the strongest model (Opus 4.6), whose accuracy advantage is not statistically significant (paired $t$: $p=0.083$). Logistic regression confirms that circuit depth--not qubit count--is the primary predictor of failure ($p<0.001$). Chain-of-thought prompting shows no statistically significant effect (all $p>0.18$, $n=5$), suggesting that visual pattern recognition outweighs explicit reasoning strategy for structurally coupled diagrams. We propose a cascade routing strategy (cheap $\\rightarrow$ expensive models) that achieves 84% accuracy at 38% of single-model cost, demonstrating that model routing dominates prompt engineering as a cost lever. We release QCV-Dataset (132 circuits, 5 modalities, 1,931 files) on Hugging Face Hub as an open evaluation infrastructure with structured metadata for discoverability, interoperability, and responsible AI documentation, and all evaluation code, cost logs, and verification scripts on GitHub for full reproducibility.",
+    "published": "2026-07-11",
+    "url": "http://arxiv.org/abs/2607.10057v1",
+    "primary_category": "quant-ph",
+    "categories": [
+      "quant-ph",
+      "cs.AI",
+      "cs.CV",
+      "cs.LG"
+    ]
+  },
+  {
+    "arxiv_id": "2607.09510",
+    "title": "Failure as a Process: An Anatomy of CLI Coding Agent Trajectories",
+    "authors": [
+      "Xiangxin Zhao",
+      "Han Li",
+      "Shuaiting Li",
+      "Tianyi Zhao",
+      "Earl T. Barr",
+      "Federica Sarro",
+      "He Ye"
+    ],
+    "abstract": "Large language model (LLM) coding agents are increasingly deployed to autonomously perform software engineering tasks in terminal-based environments, making their reliability a growing concern. Existing empirical studies investigate why coding agents fail, yet they largely treat failure as a final outcome rather than a temporal process, providing limited insight into how failures emerge, evolve, and become unrecoverable. We present the first large-scale empirical study of CLI coding-agent failure trajectories, introducing a process-oriented framework that analyzes failure through its onset, evolution, and recovery across execution trajectories. We first collect 3,843 execution trajectories generated by seven frontier models across three coding-agent scaffolds (OpenHands, MiniSWE, and Terminus2) on Terminal-Bench, then carefully filter them to obtain 1,794 complete and valid trajectories for manual annotation (over 63,000 execution steps), from which we derive 14 findings spanning failure occurrence, root causes, recovery, and cross-system consistency. Our findings show that coding-agent failures are predominantly driven by epistemic errors, typically begin within the first few execution steps, and often remain hidden until recovery is no longer possible, suggesting that improving coding-agent reliability requires earlier validation and intervention rather than relying solely on final-outcome evaluation.",
+    "published": "2026-07-10",
+    "url": "http://arxiv.org/abs/2607.09510v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2607.09434",
+    "title": "How Do Software Professionals Evaluate AI-Generated Code? (Registered Report)",
+    "authors": [
+      "Samuli Määttä",
+      "Hera Arif",
+      "Burak Turhan",
+      "Paul Ralph",
+      "Markus Kelanti"
+    ],
+    "abstract": "Recent advances in generative AI tools have significantly changed how software professionals write, evaluate, and interact with code. Generative AI tools such as GitHub Copilot, ChatGPT, and Claude are increasingly being integrated into everyday workflows. Despite the growing adoption of and reliance on these tools, it remains unclear as to how software professionals evaluate the code they generate. To explore this topic, we will conduct a constructivist grounded theory study that incorporates a survey, semi-structured interviews, and laddering interviews. With the initial survey data collection complete, we aim to interview 20--50 software professionals iteratively until theoretical saturation is achieved. This research aims to build a theory of how software professionals evaluate AI-generated code, grounded in their accounts of evaluative practices, perceptions, and preferences.",
+    "published": "2026-07-10",
+    "url": "http://arxiv.org/abs/2607.09434v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.09217",
+    "title": "OpenProver: Agentic and Interactive Theorem Proving with Lean 4",
+    "authors": [
+      "Matěj Kripner",
+      "Milan Straka"
+    ],
+    "abstract": "In this system paper, we present OpenProver, an open-source system for LLM-driven automated theorem proving (ATP) with integrated Lean 4 formal verification. OpenProver integrates a Planner-Worker-Verifier architecture inspired by recent ATP agentic systems such as Aletheia. A Planner agent maintains a compact Whiteboard scratchpad and an unbounded Repository of intermediate findings, and decomposes mathematical work into parallel Workers. OpenProver is fully open-source, offers reproducible evaluation through automatic formal verification of generated proofs, and provides an interactive terminal interface for human-guided proof search. In interactive mode, OpenProver allows the human operator to monitor and steer the proof search process, motivated by the established human-AI synergy in interactive code generation. To showcase the potential for quantitative ablation experiments enabled by automatic formal verification, we evaluate OpenProver on ProofNet and compare it with a simple baseline. OpenProver is publicly available at https://github.com/kripner/OpenProver.",
+    "published": "2026-07-10",
+    "url": "http://arxiv.org/abs/2607.09217v1",
+    "primary_category": "cs.AI",
+    "categories": [
+      "cs.AI",
+      "cs.MS"
+    ]
+  },
+  {
+    "arxiv_id": "2607.09146",
+    "title": "Exploring the Potential of Program Flowcharts on Code Generation Using Multimodal LLMs",
+    "authors": [
+      "Yuki Toi",
+      "Tao Xiao",
+      "Kazushi Tomoto",
+      "Masanari Kondo",
+      "Yasutaka Kamei"
+    ],
+    "abstract": "In recent years, Large Language Models (LLMs) have made significant strides, leading to the emergence of multimodal LLMs capable of processing diverse inputs such as images and audio. Previous research indicates that the supply of multimodal LLMs with combined textual and visual information improves the automatic code generation capabilities. In software development, diagrams such as flowcharts are widely employed to facilitate tasks like code comprehension. While existing studies investigated the impact of visual inputs on LLMs and the usage of software diagrams, the potential influence of providing flowcharts on multimodal LLM performance remains underexplored. In this study, we generated flowcharts from example solution code for AtCoder problems and provided these visual aids alongside problem statements to GPT-4o for code generation. Our findings demonstrate that integrating flowcharts with problem statements yields performance improvements of up to 10%. Furthermore, when employing abstracted flowcharts, we observed a trend indicating that increasing levels of flowchart detail correlate with enhanced performance. Additionally, we compared the effectiveness of flowchart provision to Few-Shot Learning approaches. The findings suggest that one-shot learning provides sustainable improvements, whereas two-shot learning results in only minor improvements. Our work highlights the importance of software diagrams in supporting multimodal LLM-driven code generation.",
+    "published": "2026-07-10",
+    "url": "http://arxiv.org/abs/2607.09146v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.09072",
+    "title": "Agentic Proof and Property-Based Testing via Property-Templates in Data-Intensive Computing",
+    "authors": [
+      "Seongmin Lee",
+      "Yaoxuan Wu",
+      "Miryung Kim"
+    ],
+    "abstract": "As the cost of code generation becomes cheaper with AI, the new bottleneck in software engineering has shifted to intent specification and validation. Overcoming this durability crisis of AI-driven coding requires more than traditional fuzzing: each candidate property must be proven correct over a model and shown to hold on the real implementation, making formal proof and systematic property-based testing (PBT) complementary. However, validating properties this way at scale requires solving two subproblems: verifying candidate properties and operationalizing PBT without AI hallucination. We hypothesize that recurring property patterns, cast as property templates--abstract, parameterized forms with holes--address both at once. This paper investigates recurring property patterns in Apache Spark. In data-intensive scalable computing systems, correctness properties arise from the principles of data partition, computation decomposition, and dataflow computation. For instance, aggregation decomposition relates a global function executed on the entire dataset to a local function followed by a recombiner. We design an agentic, dual-track validation framework that uses property templates to formally verify correctness in the Lean 4 theorem prover and instantiate PBT templates as executable PySpark tests. Our evaluation shows that property templates increase agentic proof engineering success by up to 2.6x (1.6x on average) and reduce proof hallucinations by 59%. Template-guided PBT synthesis reduces intent misalignments from 22 to 1 and cuts synthesis cost by up to 5.7x (3.8x on average). Template-guided synthesis further exceeds a state-of-the-art Spark fuzzer and approaches unguided LLM-based PBT on code coverage. Finally, comparing the two tracks is informative: when a proof succeeds yet a PBT finds a counterexample, the mismatch identifies a gap between the formal model and implementation.",
+    "published": "2026-07-10",
+    "url": "http://arxiv.org/abs/2607.09072v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.09059",
+    "title": "ARCANA: A Reflective Multi-Agent Program Synthesis Framework for ARC-AGI-2 Reasoning",
+    "authors": [
+      "Kunbo Zhang",
+      "Lei Fu",
+      "Zeyu Wang",
+      "Zijing Liu",
+      "Kejian Tong"
+    ],
+    "abstract": "We present ARCANA, a collaborative multi agent framework for solving ARC AGI 2 tasks under strict test time and hardware constraints. ARCANA decomposes each task into iterative perception, hypothesis generation, symbolic execution, and reflective refinement. A perceptual grounding agent builds object centric scene graphs from raw grids, a latent program policy proposes diverse DSL programs, a symbolic executor verifies candidates on demonstrations, and a reflective agent synthesizes failure driven feedback for the next turn. These agents communicate through a shared differentiable blackboard and are scheduled by a learned meta controller. The design combines structured program search with adaptive multi turn correction, improving reasoning efficiency and solution quality on challenging abstract transformation tasks.",
+    "published": "2026-07-10",
+    "url": "http://arxiv.org/abs/2607.09059v1",
+    "primary_category": "cs.AI",
+    "categories": [
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2607.08885",
+    "title": "Programmers Are Poor and Overconfident Judges of LLM-Generated Assertions",
+    "authors": [
+      "Zhanna Kaufman",
+      "Yuriy Brun",
+      "Adithya Murali",
+      "Madeline Endres"
+    ],
+    "abstract": "Code comprehension and code review are already critically important software engineering tasks, and the rising use of AI code generation tools is only increasing that importance. Generative AI has the possibility of supporting these activities, for example by augmenting code with assertions and natural-language explanations describing code behavior. However, little is known about how effective such support may be. We conduct a controlled experiment with 86 Python programmers and a follow-up think-aloud study to examine developers' ability to assess the correctness and completeness of generated assertions of varying quality, and to investigate how natural-language explanations influence these assessments. While programmers can somewhat accurately judge correct assertions (74% accuracy), they perform poorly when shown incorrect assertions (49% accuracy), despite reporting similar levels of confidence in both judgments. This difference in judgment accuracy is statistically significant (p < 0.001): the odds of a developer accurately judging a correct assertion was nearly three times higher than the odds of accurately judging an incorrect assertion (OR = 2.94). Surprisingly, natural-language explanations of assertions provided no overall benefit. Furthermore, low-quality explanations could impair specification assessment accuracy (p = 0.037, OR = 0.58) while simultaneously increasing developer confidence (p = 0.005, 3.99/5 vs. 4.25/5). Our findings suggest that, contrary to common assumptions, AI assistance may not improve the reliability of code comprehension and review. More broadly, our findings highlight the importance of helping developers evaluate machine-generated reliability artifacts, in addition to generating them.",
+    "published": "2026-07-09",
+    "url": "http://arxiv.org/abs/2607.08885v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.08691",
+    "title": "ProjAgent: Procedural Similarity Retrieval for Repository-Level Code Generation",
+    "authors": [
+      "QiHong Chen",
+      "Aaron Imani",
+      "Iftekhar Ahmed"
+    ],
+    "abstract": "Repository-level code generation requires implementing target functions while accounting for complex cross-file dependencies and project-specific conventions. Existing retrieval methods predominantly rely on lexical, structural, or semantic similarity, often overlooking repository functions that implement similar procedural logic despite differing in identifiers or application domains. We propose ProjAgent, a repository-level code generation system that introduces procedural similarity as an explicit retrieval signal. ProjAgent decomposes the target function into intermediate reasoning steps and employs an agentic workflow to retrieve repository functions that exhibit similar procedural behavior at each step. The retrieved procedural context is integrated with conventional semantic retrieval to construct a richer repository context for code generation. ProjAgent further incorporates a conservative static-analysis feedback loop that iteratively repairs generated code using compiler and static-analysis feedback. Evaluated on REPOCOD, ProjAgent achieves 41.14% Pass@1, outperforming existing retrieval-based baselines. These results demonstrate that procedural similarity is an effective and previously unexplored retrieval dimension for repository-level code generation.",
+    "published": "2026-07-09",
+    "url": "http://arxiv.org/abs/2607.08691v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI",
+      "cs.IR"
+    ]
+  },
+  {
+    "arxiv_id": "2607.08056",
+    "title": "Reinforcing the Generation Order of Multimodal Masked Diffusion Models",
+    "authors": [
+      "Yidong Ouyang",
+      "Zhe Wang",
+      "Sourav Bhabesh",
+      "Dmitriy Bespalov"
+    ],
+    "abstract": "Diffusion Language Models (DLMs) have recently achieved substantial progress in natural language generation tasks. Recent research demonstrates that adaptive token generation ordering can significantly improve performance in mathematical reasoning and code synthesis applications. In this work, we investigate the optimization of generation order for both text-to-image synthesis and multimodal understanding. We first establish that, unlike structured problems in language generation such as Sudoku puzzles, model logits alone are insufficient for determining optimal generation sequences in text-to-image generation and multimodal understanding. To address this challenge, we introduce a learnable control module trained via Group Relative Policy Optimization (GRPO) to determine the generation order. Our results demonstrate that learning this control block substantially improves both text-to-image alignment and multimodal understanding in DLMs. In particular, it enhances the model's ability to capture fine-grained spatial relationships in generated images while also strengthening performance on multimodal reasoning and comprehension tasks. We evaluate our framework on GenEval, an object-focused benchmark for text-to-image alignment, where it achieves 4.08% relative improvements. In addition, experiments on VLMEvalKit confirm 4.85% relative improvements in multimodal understanding, highlighting the broad effectiveness of our approach.",
+    "published": "2026-07-09",
+    "url": "http://arxiv.org/abs/2607.08056v1",
+    "primary_category": "cs.LG",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "stat.ML"
+    ]
+  },
+  {
+    "arxiv_id": "2607.08011",
+    "title": "Beware What You Autocomplete: Forensic Attribution of Backdoored Code Completions",
+    "authors": [
+      "Anjun Gao",
+      "Yueyang Quan",
+      "Zhuqing Liu",
+      "Minghong Fang"
+    ],
+    "abstract": "Large language models have enabled powerful code completion systems that assist developers by predicting subsequent lines of code. However, these models remain vulnerable to backdoor attacks, where malicious fine-tuning data covertly implants unsafe behaviors. Despite advances in defensive techniques, adaptive and sophisticated backdoor attacks still evade detection and mitigation. We present CodeTracer, a forensic framework that traces malicious code completions back to the backdoor fine-tuning data responsible for them. Operating under realistic post-deployment constraints, CodeTracer relies solely on the fine-tuning corpus and the reported miscompletion event. It extracts a structured behavioral fingerprint from the compromised output, narrows the search to semantically relevant code samples, and employs LLM-based reasoning to attribute unsafe logic to specific backdoor data. Extensive evaluations across three representative vulnerability cases and ten backdoor attacks, along with sixteen competitive baselines, demonstrate that CodeTracer consistently achieves high forensic accuracy, low false identification rates, and strong robustness against adaptive attacks.",
+    "published": "2026-07-09",
+    "url": "http://arxiv.org/abs/2607.08011v1",
+    "primary_category": "cs.CR",
+    "categories": [
+      "cs.CR",
+      "cs.AI",
+      "cs.IR",
+      "cs.LG"
+    ]
+  },
+  {
+    "arxiv_id": "2607.08010",
+    "title": "Tool-Making and Self-Evolving LLM Agents in Low-Latency Systems",
+    "authors": [
+      "Kalle Kujanpää",
+      "Ning Liu",
+      "Shahnawaz Alam",
+      "Yeshwanth Reddy Sura",
+      "Tianyu Yang",
+      "Kristina Klinkner",
+      "Shervin Malmasi"
+    ],
+    "abstract": "Production LLM agents often waste latency and reliability by regenerating code for the same procedural steps on every request. We replace this inference-time coding loop with an agentic tool-making pipeline that compiles repeated SOP steps into validated, versioned tools before deployment. The tool-maker grounds synthesis in the live environment as it collects execution traces, observes backend schemas and values, generates candidate tools, and repairs them against labeled cases. At runtime, the production agent calls these tools directly and falls back to code generation only when needed. We deploy the approach in a Fulfillment Center alarm-triage system, where an agent diagnoses alarms against a 44-node SOP over heterogeneous metric backends. In production, tool calls reduce p50 latency by 42%. On 1,500 historical alarms, they reduce end-to-end error rate by up to 53% by suppressing run-to-run variance in repeated steps. Because tools return compact structured verdicts, they also enable a simpler direct-call architecture, reducing p50 latency by a further 62% in a controlled ablation. Versioned tools also improve auditability and expose specification gaps and upstream data drift. Our results show that self-evolving agents can make industrial LLM systems faster, more reliable, and easier to operate.",
+    "published": "2026-07-09",
+    "url": "http://arxiv.org/abs/2607.08010v1",
+    "primary_category": "cs.CL",
+    "categories": [
+      "cs.CL",
+      "cs.LG",
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.07952",
+    "title": "fog: Expressing Motion and Emotion through Function Composition of AI-Generated Code",
+    "authors": [
+      "Vivian Liu",
+      "Lydia Chilton"
+    ],
+    "abstract": "Motion and emotion are core parts of intelligent, expressive behavior. In this paper, we introduce fog, a function composition framework for implementing and compose motion functions. We demonstrate how fog can be used to express motion and emotion in Heider-Simmel style animations. This code generation framework can help users generate functions for verbs, adverbs, gestures, and emotions to create an open-ended motion vocabulary. It is complemented by an animation editor that helps users refine motion through direct manipulation and dynamically generated UI. We evaluate our approach with a perceptual evaluation, where we test 452 fog-generated animations to see if people can recognize the semantic meaning of the motion. We find that fog's motion functions can be recognized at 68% accuracy, a 2.68x improvement over a chance baseline. In a mixed-methods user study with professionals and novices, we show that fog in interface form can support users with more rapid iteration, exploration, and control.",
+    "published": "2026-07-08",
+    "url": "http://arxiv.org/abs/2607.07952v1",
+    "primary_category": "cs.HC",
+    "categories": [
+      "cs.HC",
+      "cs.CL"
+    ]
+  },
+  {
+    "arxiv_id": "2607.07882",
+    "title": "Bug Report Specification Refinement with Trajectory Guidance for Automated Program Repair",
+    "authors": [
+      "S M Farah Al Fahim",
+      "Md Nakhla Rafi",
+      "Md Ahasanuzzaman",
+      "Zeyang Ma",
+      "Dong Jae Kim",
+      "Shaowei Wang",
+      "Tse-Hsun",
+      "Chen"
+    ],
+    "abstract": "Bug reports serve as task specifications for repository-level automated program repair (APR) agents, but they often describe only the observed failure and omit repair-relevant information such as the failure-inducing behavior, behavioral requirement, and implementation scope. As a result, a repair agent may inspect irrelevant code, infer an incorrect requirement, or generate a patch that addresses the reported symptom without restoring the intended repository behavior. We present TrajSpec, a trajectory-guided approach for repository-supported bug report specification refinement. Given an original report and a pre-fix repository, TrajSpec runs a trajectory-collection agent and uses the resulting unverified trajectory as a source of trajectory-derived specification evidence. It organizes this evidence into a three-level representation consisting of a high-level interpretation of the issue, diagnostic findings supporting that interpretation, and concrete repository observations. TrajSpec then generates a draft refined report and applies repository-based review to remove unsupported claims, revise uncertain claims, and add repository-supported details. We evaluate TrajSpec on all 300 SWE-Bench Lite instances using Mini-SWE-Agent V2. TrajSpec's refined reports improve Pass@1 from 41.00% to 59.67% with GPT-5-mini and from 54.67% to 64.33% with MiniMax M2.5. On a stratified sample of 100 instances, TrajSpec's refined reports also improve Pass@1 from 41.00% to 71.00% with Agentless and from 47.00% to 72.00% with AutoCodeRover. Ablation results show that removing repository-based review or the hierarchical evidence representation reduces Pass@1 from 59.67% to 48.00% and 47.67%, respectively. Overall, TrajSpec provides actionable repository-supported context that consistently improves repair performance.",
+    "published": "2026-07-08",
+    "url": "http://arxiv.org/abs/2607.07882v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.07881",
+    "title": "Functional and Secure Code Generation with Task Vectors",
+    "authors": [
+      "Felix Wang",
+      "Anudeep Das",
+      "Mei Nagappan",
+      "N. Asokan"
+    ],
+    "abstract": "Large language models (LLMs) are increasingly used for code generation, but they struggle to generate functional code free of security vulnerabilities. Prior work to improve the secure code generation abilities of such coding LLMs has largely focused on evaluating code functionality and security separately using different datasets, or focused on finding vulnerabilities post-generation. At the same time, the text-generation domain has seen significant work on alignment techniques, where models are tuned such that their outputs exhibit certain qualities (e.g., helpfulness, harmlessness). Of particular interest is task-vector arithmetic, where linear operations on LLM weights can be used to arbitrarily enhance alignment while incurring only minimal computational overhead. We develop a novel method, SecVecCoder, leveraging task vectors to produce trustworthy code that is simultaneously functional and secure without the need for post-generation adjustment. Across six coding LLMs from three families on the CodeGuard+ benchmark, SecVecCoder improves the rate of trustworthy code completions by 2.1-36.0 percentage points over the base model, with improvements on unseen CWE types reaching up to 39.1 percentage points. Since the effectiveness of the coding LLM relies only on changing the model weights, SecVecCoder requires no method-specific decoding and hence achieves a decoding latency within 0.6% of the base model's, on average.",
+    "published": "2026-07-08",
+    "url": "http://arxiv.org/abs/2607.07881v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.CR",
+      "cs.LG"
+    ]
+  },
+  {
+    "arxiv_id": "2607.07696",
+    "title": "Breaking Database Lock-in: Agentic Regeneration of High Performance Storage Readers for Database Bypass",
+    "authors": [
+      "Victor Giannakouris",
+      "Immanuel Trummer"
+    ],
+    "abstract": "Analytical workloads operating on data stored in external database systems face a fundamental bottleneck: data access is guarded entirely by the database driver, like JDBC or ODBC, forcing all reads through query execution and other driver layers that are not designed for bulk columnar analytics. We present Jailbreak, an approach that bypasses the database engine entirely by reading storage files directly and materializing data as in-memory columnar buffers. Jailbreak's key insight is that database file formats, while complex, are fully specified by their source code and documentation, artifacts that Large Language Models (LLMs) can ingest to regenerate operator-specific table reading components without human-engineered parsing logic. Jailbreak leverages LLM-assisted code synthesis for database storage decoding, turning a traditionally opaque format into a directly queryable artifact. We evaluate Jailbreak on PostgreSQL and MySQL storage files, targeting analytical snapshot scenarios common in read replicas and offline processing pipelines. The generated reader produces Apache Arrow buffers consumable directly by most of the widely known query engines, including DuckDB, Apache Spark, and GPU-accelerated frameworks such as cuDF and Spark RAPIDS. We validate correctness against JDBC/ODBC-based baselines using the TPC-H benchmark across all query results, and demonstrate significant performance improvements in end-to-end analytical throughput, achieving up to 27x speedups. Our results showcase that LLM-assisted storage reader synthesis is a viable and generalizable methodology for breaking data lock-in across database systems, with applications beyond PostgreSQL and MySQL for any system whose file format is available to the LLM from documentation or source code.",
+    "published": "2026-07-08",
+    "url": "http://arxiv.org/abs/2607.07696v1",
+    "primary_category": "cs.DB",
+    "categories": [
+      "cs.DB",
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2607.07593",
+    "title": "What Makes a Good Bug Report for an AI Agent?",
+    "authors": [
+      "Lara Khatib",
+      "Noble Saji Mathews",
+      "Meiyappan Nagappan",
+      "Pengyu Nie",
+      "Thomas Zimmermann"
+    ],
+    "abstract": "Automated program repair (APR) agents are transitioning from research benchmarks to developer workflows, yet they still begin with bug reports written for human developers. While decades of research have established what makes a good bug report for humans (e.g., steps to reproduce, stack traces), it remains unclear whether these features transfer to LLM-based agents. We study this question in two analyses. First, we use statistical modeling to examine associations between 27 bug-report features and repair success across 433 SWE-bench Verified issues attempted by 87 repair agents. We find that fix suggestions, reproduction scripts, repository source code, and localization info are associated with higher resolution likelihood, while longer reports are associated with lower odds. Second, we conduct controlled ablations across 2 models and 17 problem-statement mutations on SWE-bench Pro, varying the information available to an agent while holding the underlying task fixed. We remove or isolate selected bug-report content, delete fault-localization cues, and test structural changes that flatten lists or remove section headers. We find that both models depend on localization cues and expected behavior, and that structural changes alone can reduce solve rates, even without removing any content. The two models diverge in how they handle missing information: Qwen searches more widely and can exhaust its turn budget, while Gemma commits to a plausible interpretation early and patches on it. Our findings indicate that a good bug report for an agent overlaps with, but is not identical to, a good report for a human: agents benefit most from concrete, executable, and well-localized information, whereas some qualities long emphasized for human readers, such as natural language steps to reproduce and readable descriptions, contribute little or even correlate with lower success.",
+    "published": "2026-07-08",
+    "url": "http://arxiv.org/abs/2607.07593v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.07436",
+    "title": "The Blind Curator: How a Biased Judge Silently Disables Skill Retirement in Self-Evolving Agents",
+    "authors": [
+      "Xing Zhang",
+      "Yanwei Cui",
+      "Guanghui Wang",
+      "Ziyuan Li",
+      "Wei Qiu",
+      "Bing Zhu",
+      "Peiyang He"
+    ],
+    "abstract": "A self-evolving agent retires its bad skills by watching them fail, so what happens when the judge cannot see the failures? Skill retirement is the structural constraint that keeps a growing library from drifting below the no-skill baseline, but its guarantee assumes an unbiased reward, which is false for the LLM judges that reference-free tasks force upon us. We show that a biased judge does not merely add noise; it \\emph{silently switches off the curator}. We make this precise with a corrupted-reward analysis and, isolating the causal channel by injecting corruption on top of a deterministic reward, a behavioral study on a reference-free report-writing testbed with a code-generation cross-check. Symmetric noise leaves retirement intact, but \\emph{false-pass} bias (failures slipping through as passes) disables contribution-based retirement past a sharp threshold that no amount of data can cross. Separating genuine retirement from cap-eviction churn shows this \\emph{mechanism} failure is universal, holding across domains and failure rates and sparing only near-zero-false-pass, verifier-like graders. The downstream \\emph{outcome}, though, is regime-dependent: eval quality degrades only where the same corruption also starves skill synthesis, and otherwise holds steady, so the disabled curator is \\emph{silent}, surfacing in no aggregate metric. The contribution is a behavioral safety result, not a performance one. A cheap defect-injection audit then tells an operator, before deployment, which side of the threshold their judge occupies.",
+    "published": "2026-07-08",
+    "url": "http://arxiv.org/abs/2607.07436v1",
+    "primary_category": "cs.AI",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.CR"
+    ]
+  },
+  {
+    "arxiv_id": "2607.07217",
+    "title": "Finding and Understanding Miscompilation Bugs in the Solidity Compiler",
+    "authors": [
+      "Bhargava Shastry"
+    ],
+    "abstract": "Smart contract compilers are critical to ensuring the correctness of public blockchains whose defining characteristics are open-source and immutable code. We created SolSmith, a semantics-aware differential fuzz testing tool, to improve the quality of the Solidity compiler -- the most popular compiler for the Ethereum blockchain -- and spent over three years finding compiler defects that produce incorrect code. We call these defects miscompilation bugs. During this time period, we have discovered 25 miscompilation bugs that went unnoticed, some for multiple years. Our first contribution is to make compiler testing more rigorous. SolSmith achieves this goal by generating valid test programs that are likely to stress test code generation and optimization components. This helps SolSmith find bugs missed during routine testing that could potentially have serious implications for smart contracts and their users. Our second contribution is a qualitative and quantitative analysis of miscompilation bugs that we found in the Solidity compiler. We classify miscompilation bugs found by SolSmith based on their nature, root-causes, and impact on end-users. This sheds light on some pitfalls of optimizing compilers.",
+    "published": "2026-07-08",
+    "url": "http://arxiv.org/abs/2607.07217v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.CR",
+      "cs.PL"
+    ]
+  },
+  {
+    "arxiv_id": "2607.07748",
+    "title": "Selective Left-Shift: Turning Test-Time Compute and Difficulty-based Curation into Training Data for Low-Resource Code Generation",
+    "authors": [
+      "Didula Samaraweera",
+      "Anjana Supun",
+      "Srinath Perera"
+    ],
+    "abstract": "Large Language Models achieve strong code generation for high resource languages like Python and Java but suffer sharp performance drops on Low-Resource Programming Languages~(LRPLs) such as Julia. Improving Small Language Models~(SLMs) for these languages faces a trilemma: Supervised Fine-Tuning~(SFT) is bottlenecked by data scarcity, inference-time scaling is too expensive for deployment, and Reinforcement Learning from scratch yields near zero advantages. We propose a three-phase pipeline that resolves this trilemma by decoupling syntax acquisition from algorithmic reasoning. First, we \\emph{left-shift} inference-time compute to an offline data synthesis engine that uses iterative compiler and test feedback to generate verified training examples. Second, we fine-tune an SLM on this synthetic, verified data to embed strong syntactic priors. Third, we apply Reinforcement Learning with Verifiable Reward~(RLVR) grounded by language-agnostic Input/Output tests, where the SFT prior constrains exploration away from syntax errors. Applied to Qwen3-8B, our pipeline improves pass@1 by up to +7.6 points on MultiPL-E and +14.2 points on the Agnostics LiveCodeBench for Julia compared to SOTA results. Furthermore, the pipeline only used $\\frac{1}{3}$ data and $\\frac{1}{6}$ cost over the previous state-of-the-art. We further demonstrate that the pipeline generalizes to Ballerina achieving 49.7\\% MultiPL-E Pass@1, a language with near-zero pretraining representation. Ablations confirm that both the SFT phase and execution-grounded rewards are necessary for stable training.",
+    "published": "2026-07-08",
+    "url": "http://arxiv.org/abs/2607.07748v1",
+    "primary_category": "cs.LG",
+    "categories": [
+      "cs.LG"
+    ]
+  },
+  {
+    "arxiv_id": "2607.06963",
+    "title": "Large Language Models (LLMs) and Generative AI in Cybersecurity and Privacy: A Survey of Dual-Use Risks, AI-Generated Malware, Explainability, and Defensive Strategies",
+    "authors": [
+      "Kiarash Ahi",
+      "Saeed Valizadeh"
+    ],
+    "abstract": "Large Language Models (LLMs) and generative AI (GenAI) systems, such as ChatGPT, Claude, Gemini, LLaMA, Copilot, Stable Diffusion by OpenAI, Anthropic, Google, Meta, Microsoft, Stability AI, respectively, are revolutionizing cybersecurity, enabling both automated defense and sophisticated attacks. These technologies power real-time threat detection, phishing defense, secure code generation, and vulnerability exploitation at unprecedented scales. Following a rapid surge where LLM-generated malware grew to account for an estimated 50% of detected threats by 2025, up from just 2% in 2021, navigating this highly automated threat landscape in 2026 demands next-generation security frameworks. This paper presents a comprehensive survey of the beneficial and malicious applications of LLMs in cybersecurity, including zero-day detection, DevSecOps, federated learning, synthetic content analysis, and explainable AI (XAI). Drawing on a review of over 70 academic papers, industry reports, and technical documents, this work synthesizes insights from real-world case studies across platforms like Google Play Protect, Microsoft Defender, Amazon Web Services (AWS), Apple App Store, OpenAI Plugin Stores, Hugging Face Spaces, and GitHub, alongside emerging initiatives like the SAFE Framework and AI-driven anomaly detection. We conclude with practical recommendations for responsible and transparent LLM deployment and trustworthy AI, including model watermarking, adversarial defense, and cross-industry collaboration, setting a new benchmark for rigorous, holistic cybersecurity research at the intersection of AI and threat defense, and offering a roadmap for secure, scalable LLM systems that serves as a critical reference for researchers, engineers, and security leaders navigating the complex challenges of AI-driven cybersecurity.",
+    "published": "2026-07-08",
+    "url": "http://arxiv.org/abs/2607.06963v1",
+    "primary_category": "cs.CR",
+    "categories": [
+      "cs.CR",
+      "cs.AI",
+      "cs.CL"
+    ]
+  },
+  {
+    "arxiv_id": "2607.06764",
+    "title": "Cost-Effective Agent Harnesses for Abstract Reasoning and Generalization on ARC-AGI-1",
+    "authors": [
+      "Kabir Moghe",
+      "Peter Chin"
+    ],
+    "abstract": "Recent progress on ARC-AGI-1 from disclosed architectures has come broadly from two regimes: heavy test-time compute over frontier models (evolutionary search, exhaustive sampling, extended chain-of-thought), or benchmark-specific training in which small models are fine-tuned on ARC data, often with task-specialized architectures. We study a third regime: an open-weight model in non-thinking mode (DeepSeek V3.2) under a strict budget, with no ARC-specific fine-tuning. We study what is recoverable through architecture alone, building agentic harnesses that decompose pattern-discovery and program-synthesis stages explicitly. First, we introduce an Explorer-Definer Pipeline that separates pattern discovery from executable transformation synthesis, implemented as a two-stage agent pipeline. Next, we present the Reflective Orchestrator, which augments the pipeline with autonomous exploration of new transformations when previous hypotheses fail on training pairs. On the ARC-AGI-1 public 400-task evaluation set, the pipeline reaches 57.50% pass@2 at \\$0.25 per task, and the orchestrator reaches 67.25% pass@2 at \\$0.62 per task. Together these architectures lift a 15.50% one-shot baseline by ~52 points without benchmark-specific training or heavy test-time compute. Furthermore, the orchestrator-driven lift tests a falsifiable diagnostic the pipeline produces; unbiased pass@k analysis suggests the pipeline is generation-bound, not selection-bound (selection via training-pair accuracy captures ~95% of the candidate ceiling) and predicts that significant improvement requires broader generation, not better ranking. The orchestrator implements this prediction via adaptive re-exploration and confirms it (unbiased pass@1 lift +9.81 pp, matching selection-mediated pass@2 lift). An additional pipeline ablation identifies its think tool as a significant component, with removal reducing pass@2 by 5.75 pp.",
+    "published": "2026-07-07",
+    "url": "http://arxiv.org/abs/2607.06764v1",
+    "primary_category": "cs.AI",
+    "categories": [
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2607.06519",
+    "title": "FreqDepthKV: Frequency-Guided Depth Sharing for Robust KV Cache Compression in Long-Context LLM Inference",
+    "authors": [
+      "Anna Córdoba",
+      "Adam Puente Tercero",
+      "Nerea Angulo Hijo",
+      "Mar Linares Tercero",
+      "Julia Barrientos",
+      "Ainhoa Miranda",
+      "Jesús Olivera"
+    ],
+    "abstract": "Long-context LLM inference is increasingly limited by the memory and bandwidth cost of KV caches, yet aggressive compression can remove the layer-specific evidence needed for retrieval and multi-step reasoning. We introduce FreqDepthKV, an inference-time cache compression method that factorizes adjacent-layer KV states into shared low-frequency depth components and sparse high-frequency residuals. A lightweight online probe assigns attention heads to shared-depth, residual-depth, or exact cache modes according to their contribution to reconstruction-sensitive attention logits, allowing the compression policy to adapt to prompt structure without retraining. Across long-context question answering, needle retrieval, summarization, and code generation benchmarks, FreqDepthKV preserves task accuracy under substantially smaller cache budgets. With a 32k-token prefill window, FreqDepthKV reaches 58.3 Exact Match, 63.0 F1, 32.5 ROUGE-L, and 48.1 pass@1, closely matching full KV while outperforming prior compressed-cache methods. It also improves decoding throughput to 70.4 tokens/s, reduces TTFT to 2.06 seconds, and lowers peak KV memory to 6.2 GB, achieving a 3.9x effective compression ratio.",
+    "published": "2026-07-07",
+    "url": "http://arxiv.org/abs/2607.06519v1",
+    "primary_category": "cs.AI",
+    "categories": [
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2607.06125",
+    "title": "Evaluating Fine-Tuning and Metrics for Neural Decompilation of Dart AOT Binaries",
+    "authors": [
+      "Raafat Abualazm",
+      "Ayman AboElhassan",
+      "Amr G. Wassal"
+    ],
+    "abstract": "Neural decompilation is increasingly studied as a code-generation problem, yet its evaluation methodology remains underdeveloped for modern languages. We present a systematic empirical study of fine-tuning effectiveness and metric validity for Dart Ahead-of-Time (AOT) neural decompilation. We evaluate six fine-tuned model variants across three base architectures (4B-8B parameters) using three metrics: CodeBLEU, compile@k, and pass@k on a new 154-task HumanEval-Dart benchmark. Our study yields three principal findings grounded in paired task-level statistical tests. First, no fine-tuning configuration produces a statistically significant pass@k improvement. The sole positive case yields +0.71 pp (McNemar p=0.21), while fine-tuning the strongest base (Qwen3-8B) causes a highly significant regression of -5.65 pp (p<0.001). This capacity-dependent trend is consistent across architectures but needs broader scale sweeps. Second, cross-lingual interference from Swift training is highly significant at 4B (-2.66 pp, p<0.001) but statistically indistinguishable from zero at 8B, consistent with the scaling hypothesis. Third, we demonstrate metric divergence: CodeBLEU and compile@k can improve significantly while pass@k moves in the opposite direction. This has implications for any LLM code generation task where fine-tuning targets superficial similarity. Error analysis reveals assembly sequence length is the strongest predictor of task difficulty (p=0.001), with a capability cliff at 200 instructions. We contribute the HumanEval-Dart benchmark, a Dart-adapted CodeBLEU, and empirical evidence that pass@k must be the primary evaluation metric for neural decompilation.",
+    "published": "2026-07-07",
+    "url": "http://arxiv.org/abs/2607.06125v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI",
+      "cs.CR"
+    ]
+  },
+  {
+    "arxiv_id": "2607.06074",
+    "title": "Prompt Coach: An Empirical Evaluation of an Agentic Tutor for Learning Prompt Engineering in Software Development",
+    "authors": [
+      "Rohit Mehra",
+      "Kapil Singi",
+      "Vikrant Kaulgud",
+      "Vibhu Saujanya Sharma",
+      "Swapnajeet Gon Choudhury",
+      "Swati Sharma",
+      "Adam P. Burden",
+      "Majd Sakr"
+    ],
+    "abstract": "Prompt engineering has emerged as a critical yet undertaught skill for software developers, one that traditional learning approaches are ill-equipped to support given its evolving, interactive, and context-dependent nature. In this paper, we introduce Prompt Coach (PC), an agentic tutor that helps developers learn how to craft high-quality code-generation prompts through Socratic guidance embedded in-flow within their IDE. PC evaluates prompt quality across multiple dimensions and surfaces targeted questions to guide self-correction, grounded in the developer's codebase and the behavior of the target LLM. We present an early empirical study with 15 professional developers combining quantitative prompt quality scoring with qualitative perception measures. Participants showed statistically significant improvements after a single 60-minute session, with the largest gains across dimensions commonly overlooked by developers. They also reported strong trust, high adoption readiness, and unanimous agreement that PC improved their prompt-writing skills.",
+    "published": "2026-07-07",
+    "url": "http://arxiv.org/abs/2607.06074v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI",
+      "cs.CY",
+      "cs.HC"
+    ]
+  },
+  {
+    "arxiv_id": "2607.05936",
+    "title": "Mitigating Errors in LLM-Generated Web API Invocations via Retrieval-Augmented Generation and Constrained Decoding",
+    "authors": [
+      "Daniel Maninger",
+      "Leon Chemnitz",
+      "Jannis Brugger",
+      "Tushar Lamba",
+      "Amir Molzam Sharifloo",
+      "Mira Mezini"
+    ],
+    "abstract": "Integration of web APIs is a cornerstone of modern software systems, yet writing correct web API invocation code remains challenging due to complex and evolving API specifications. Although LLMs are increasingly used for code generation, previous work has empirically shown that their ability to generate correct web API integrations is limited. At the same time, mitigation techniques and their effectiveness for this setting remain insufficiently understood. In this paper, we propose and systematically evaluate retrieval-augmented generation (RAG) and constrained decoding (CD) as two complementary approaches to improving LLM-generated web API invocation code. For RAG, we design a retriever that processes OpenAPI specifications and retrieves compact endpoint representations to inject into model prompts. For CD, we introduce an automatic translation from OpenAPI specifications to regex-based constraints enforced during generation. We evaluate both approaches on WAPIIBench's existing synthetic dataset and on a new real-world dataset derived from GitHub repositories. Our results show that RAG reduces hallucinations and improves correctness when generating full API invocations but reduces it when the endpoint is already provided as it encourages the generation of unnecessary parameters. In contrast, CD reliably prevents illegal URLs, HTTP methods, and arguments and substantially improves overall correctness for both starter codes.",
+    "published": "2026-07-07",
+    "url": "http://arxiv.org/abs/2607.05936v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.LG"
+    ]
+  },
+  {
+    "arxiv_id": "2607.05810",
+    "title": "SCOPE: Leveraging Subgoal Critiques for Code Generation",
+    "authors": [
+      "Yueke Zhang",
+      "Yifan Zhang",
+      "Zihan Fang",
+      "Kevin Leach",
+      "Wei Zhang",
+      "Yu Huang"
+    ],
+    "abstract": "Code generation with large language models (LLMs) remains unreliable because generated programs can appear correct while still violating key semantic requirements in the natural language specification. Existing feedback-based methods improve over coder-only generation, but they often rely on unstructured critique or execution signals that do not explicitly identify what the code is semantically missing. We present SCOPE, a prover-initialized subgoal critic for code generation. SCOPE adapts a Lean-oriented prover model to produce three parseable feedback fields for downstream code generation: subgoals, gap analysis, and a robustness checklist. Our approach combines supervised fine-tuning, process-aligned reinforcement learning (RL), and feedback-guided inference, with two complementary rewards during RL: a dense reward for structured critique quality and a sparse reward based on whether the critique improves the coder's execution score. Experiments show that SCOPE improves over the compared feedback baselines. On LiveCodeBench V6, SCOPE achieves 39.4% pass@1, compared with 36.6% for Reflexion and 20.6% for the coder-only baseline. On BigCodeBench (Hard), it reaches 42.6%, surpassing Reflexion at 36.5% and coder-only generation at 34.5%. Further analysis shows that SCOPE's gains are concentrated in tasks with concrete semantic constraints and that its code corrections are more localized than Reflexion's.",
+    "published": "2026-07-07",
+    "url": "http://arxiv.org/abs/2607.05810v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.05762",
+    "title": "Articulating Assumptions in AI-Generated Scientific Analyses through Task Decomposition",
+    "authors": [
+      "Ahmed Hammad",
+      "Mihoko Nojiri"
+    ],
+    "abstract": "Scientific results produced by LLM generated analysis code must be understandable and reproducible. However, uncertainty can arise at different stages of the process, both in the original natural language specification and in the generated implementation. As a result, even executable code may not provide a clear understanding of which quantities are being computed or which assumptions determine the final results. To address this challenge, we introduce quantity grounded semantic differencing, a multi-agent framework for analyzing and comparing scientific programs generated by LLMs. The framework assigns code generation, execution, tracing, and validation to separate agents, allowing it to reconstruct how key output quantities are produced and to identify differences between the intended analysis and the implemented code. We also introduce a module that inspects ambiguities in the initial user instruction and suggests alternative rewrites before code generation. Its modular design enables application to different scientific domains by replacing domain specific resources while preserving the same workflow. We validate the framework on representative collider physics analyses. The results demonstrate that the modular task decomposition enhances both transparency and reliability relative to the previous single prompt approach, while enabling substantially smaller models to execute the complete workflow.",
+    "published": "2026-07-07",
+    "url": "http://arxiv.org/abs/2607.05762v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "hep-ex",
+      "hep-ph"
+    ]
+  },
+  {
+    "arxiv_id": "2607.05659",
+    "title": "Agents with Feelings? Personality and Emotion in Multi-Agent Software Teams",
+    "authors": [
+      "Yunyan Ding",
+      "Thomas Zimmermann",
+      "Iftekhar Ahmed"
+    ],
+    "abstract": "Multi-agent LLM systems for Software Engineering (SE) typically differentiate agents through roles and workflows, but little is known about how agents' behavioral profiles affect team performance. We investigate the impact of personality and emotion profiles on LLM agent teams using a psychology-informed framework that combines Big Five personality traits, basic emotions, SE-relevant work styles, and task roles. We evaluate 78 team-profile configurations across code generation and code review using four LLMs and 659 task instances. Results show that profile choice substantially affects both performance and team behavior. For code generation, the gap between the best and worst shared-profile configurations reaches 7.1-11.3 percentage points in pass@1 across models, while the best mixed-profile configuration outperforms the best shared-profile configuration in six of eight model-task settings. Profiles also influence collaboration dynamics and cost: fear and high-conscientiousness profiles increase revision activity, over-revision, and token usage without consistent performance gains. These findings identify agent profiles as an important design dimension in multi-agent SE systems, affecting not only task outcomes but also the efficiency of collaboration.",
+    "published": "2026-07-06",
+    "url": "http://arxiv.org/abs/2607.05659v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.05197",
+    "title": "Is Three the Magic Number? An Empirical Evaluation of LLM-Based Repair Loops",
+    "authors": [
+      "Tobias Kiecker",
+      "Eik Reichmann",
+      "Hosung Kang",
+      "Gabin An",
+      "Lars Grunske"
+    ],
+    "abstract": "Iterative repair loops have become a core design pattern in LLM-based software engineering systems. These workflows repeatedly generate, validate, and repair artifacts using feedback such as compiler errors or test failures. Despite their widespread use, the impact of repair-loop iteration limits remains poorly understood, as most prior work adopts fixed, often arbitrary, repair budgets. We study repair-loop effectiveness across multiple software engineering tasks, including code generation, test generation, and code translation. Across several representative workflows, datasets, and contemporary low-cost LLMs, we observe a consistent pattern of diminishing returns: the first three to four repair iterations account for most achievable gains, while later iterations contribute only marginal improvements. We further find that repair behavior is influenced more strongly by workflow orchestration and feedback design than by the underlying model itself. These results suggest that repair budgets should be treated as an explicit experimental variable, as they directly affect evaluation outcomes, computational cost, runtime, and reproducibility in LLM-based software engineering research.",
+    "published": "2026-07-06",
+    "url": "http://arxiv.org/abs/2607.05197v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.05121",
+    "title": "From Failing to Passing: Evolving Natural Language Prompt Optimization Rules for LLM Code Generation",
+    "authors": [
+      "Amal Akli",
+      "Melissa Akli",
+      "Cedric Richter",
+      "Mike Papadakis",
+      "Yves Le Traon"
+    ],
+    "abstract": "Large language models are known to be sensitive to prompt formulation. Even minor variations in wording can substantially degrade performance. This sensitivity reveals an opportunity: if prompt phrasing can harm performance, can it be used to improve it? To investigate this question, we introduce a search-based approach that identifies and evolves a set of natural language transformation rules with strong downstream effects on coding performance. We then propose DUALFIX, a staged repair pipeline that combines the evolved transformation rules with execution-feedback repair, addressing both specification-level and implementation-level failures. A key strength of our approach lies in its generality: the evolved rules are error-agnostic, reusable across problems, and transferable across models. We evaluate DUALFIX against execution-feedback repair baselines across three models on two challenging benchmarks, LiveCodeBench and APPS. Our results show that the evolved transformations fix from 10-30% of failing cases, including 12-17% of failures that execution-based repair alone cannot resolve. Overall, DualFix recovers up to 30% of baseline failures and fixes 3-5 times more failing cases than Self-Fix across all evaluated settings. Furthermore, we also show that rules evolved on one model transfer zero-shot to other models, outperforming execution-feedback repair without any re-optimization.",
+    "published": "2026-07-06",
+    "url": "http://arxiv.org/abs/2607.05121v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.04939",
+    "title": "Teaching LLMs a Low-Resource Language: Enhancing Code Completion in Pharo",
+    "authors": [
+      "Kilian Kier",
+      "Alessandro Giagnorio",
+      "Omar AbedelKader",
+      "Oleksandr Zaitsev",
+      "Robert Peharz",
+      "Romain Robbes",
+      "Gabriele Bavota",
+      "Stéphane Ducasse"
+    ],
+    "abstract": "Large Language Models (LLMs) unlocked new possibilities in automated code writing, becoming the backbone of most code completion tools. While LLMs excel in mainstream languages, they often lack support for the so-called low-resource languages where training data is scarce. As a result, these languages lag behind in the quality of code completion tooling available to their communities. A concrete example is Pharo, a Smalltalk-inspired language whose IDE currently offers only single-token completion. In this work, we report on our experience bringing LLM-based code completion to Pharo. First, we describe an end-to-end pipeline that combines Pharo-specific data curation, continued pre-training and fine-tuning of open code LLMs. Second, we introduce a set of Pharo code completion benchmarks designed to evaluate whether models (i) learn Pharo's syntax and (ii) accurately complete masked Pharo code from real-world GitHub repositories. Third, we show empirically that Pharo-specialized models substantially outperform their original base checkpoints and also exceed the accuracy of substantially larger code LLMs on Pharo completion. Overall, our case study demonstrates the feasibility of bringing strong LLM-based code completion to low-resource programming languages, with models small enough to provide ``real-time'' in-IDE support.",
+    "published": "2026-07-06",
+    "url": "http://arxiv.org/abs/2607.04939v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.05471",
+    "title": "KAT-Coder-V2.5 Technical Report",
+    "authors": [
+      "Bo Huang",
+      "Fengxiang Li",
+      "Hao Xu",
+      "Haoyang Huang",
+      "Hongyi Fu",
+      "Jinhua Hao",
+      "Kun Yuan",
+      "Minglei Zhang",
+      "Pengcheng Xu",
+      "Shiyang Liu",
+      "Wenhao Zhuang",
+      "Yuze Shi",
+      "Zongxian Feng",
+      "Chao Wang",
+      "Cheng He",
+      "Chongling Rao",
+      "Deyu Cao",
+      "Fan Yang",
+      "Gang Xiong",
+      "Haochen Liu",
+      "Jiabao Li",
+      "Jian Liang",
+      "Jinghui Jia",
+      "Jingwen Chang",
+      "Jun Du",
+      "Junyu Shi",
+      "Min Li",
+      "Mingqi Wu",
+      "Qiang Gao",
+      "Shangpeng Yan",
+      "Shaotong Qi",
+      "Shu Xu",
+      "Shuo Zhou",
+      "Tiankuo Xu",
+      "Tong Zheng",
+      "Weilun Zhao",
+      "Xiancheng Meng",
+      "Xianda Sun",
+      "Xiaoyu Jiang",
+      "Xunhao Jia",
+      "Yao Xia",
+      "Yimeng Xu",
+      "Yinghan Cui",
+      "Yingpeng Chen",
+      "Yiwen Ning",
+      "Yong Wang",
+      "Yuxuan Sun",
+      "Zhongsheng Liu",
+      "Ming Sun",
+      "Cheng Luo",
+      "Chen Yang",
+      "Han Li",
+      "Kun Gai"
+    ],
+    "abstract": "We present KAT-Coder-V2.5, a coding-focused agentic model trained to act autonomously inside real, executable repositories rather than as a single-turn code generator. Its capability is bottlenecked less by model scale than by the scarcity of reproducible environments, verifiable rewards, and high-value trajectories, which we address with an end-to-end agentic post-training framework. AutoBuilder reconstructs multilingual repositories into sandboxed environments with fail-to-pass and pass-to-pass verification at scale, from which we regenerate self-contained task specifications, recover near-miss trajectories, and distill supervision through process-aware filtering, while KwaiClawEnv synthesizes large-scale tool-use trajectories from executable services and real task seeds. We further scale reinforcement learning with harness randomization, a reliability-hardened sandbox, an asymmetric actor--critic PPO with hindsight-augmented value estimation, and a harness-oriented reward framework, and unify SWE, Agent-Claw, and WebCoding experts via Multi-Teacher On-Policy Distillation. Across six software-engineering and agentic benchmarks, KAT-Coder-V2.5 delivers the best agentic tool-use result on PinchBench and ranks second only to the frontier Opus 4.8 on repository-level software engineering. Our service is available at https://streamlake.com/product/kat-coder.",
+    "published": "2026-07-06",
+    "url": "http://arxiv.org/abs/2607.05471v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2607.04726",
+    "title": "What You See Is What You Get: Observation-Aligned Supervision for Chart-to-Code Generation",
+    "authors": [
+      "Tianhao Niu",
+      "Qingfu Zhu",
+      "Wanxiang Che"
+    ],
+    "abstract": "Chart-to-code generation is commonly trained with supervised fine-tuning on reference plotting scripts, implicitly treating the gold code as a fully observable target. We argue that this assumption is often invalid: many chart programs contain latent raw variables that cannot be uniquely recovered from the rendered image. For example, a boxplot exposes summary statistics rather than original samples, a pie chart reveals proportions rather than arbitrary raw values, and a histogram shows bin-level mass rather than individual observations. Supervising models to reproduce such non-identifiable quantities encourages hallucination and over-specified code generation. We introduce Observation-Aligned supervision, a rewriting framework that replaces latent raw-data targets with quantities constrained by the visual observation: box statistics for boxplots, wedge percentages for pie charts, and bin weights for histograms. Applying this framework to chart-to-code training data from two sources, we obtain the Observation-Aligned supervision target data. Experiments across multiple VLMs on ChartMimic and ChartX demonstrate consistent improvements in observable value recovery, including under both-executable evaluation. Our results suggest that improving chart-to-code models requires not only more data or advanced learning objectives or algorithms, but also supervision targets that respect what is identifiable from the chart image.",
+    "published": "2026-07-06",
+    "url": "http://arxiv.org/abs/2607.04726v1",
+    "primary_category": "cs.CL",
+    "categories": [
+      "cs.CL",
+      "cs.LG"
+    ]
+  },
+  {
+    "arxiv_id": "2607.04577",
+    "title": "Beyond the Need for Speed: Energy-Aware Code Generation via Simulation-Guided Reinforcement Learning",
+    "authors": [
+      "Saurabhsingh Rajput",
+      "Tushar Sharma"
+    ],
+    "abstract": "Code models strictly prioritize functional correctness, leaving software energy efficiency as an unoptimized byproduct. Training models to generate energy-efficient code requires reproducible feedback at scale, which physical hardware measurement cannot reliably provide due to variance. In this paper, we replace hardware profiling with a deterministic architectural simulation harness to build Green Tea, a corpus of $3.5$ million evaluations across $1{,}474$ C++ problems. We train an energy-aware code model via supervised fine-tuning on energy-contrastive pairs, followed by closed-loop reinforcement learning (GRPO) using simulation-in-the-loop feedback. To rigorously evaluate deployment readiness, we introduce the Correctness-Adjusted Reduction in Energy Total (CARET), a metric that explicitly penalizes code that sacrifices functionality for efficiency. On $143$ held-out problems, our simulation-in-the-loop pipeline achieves $12.63\\%$ CARET, nearly tripling the gain of fine-tuning alone, and successfully beats the energy efficiency of human-expert references on $58.4\\%$ of its valid outputs. Furthermore, our analysis exposes the IPC trap: standard throughput proxies like Instructions-Per-Cycle (IPC) actively misrank true energy efficiency on $67.8\\%$ of problems, proving the absolute necessity of direct energy simulation. By releasing our dataset and infrastructure, we bypass the $263{,}000$ CPU-hours required for reproduction, structurally empowering the community to deploy inherently energy-efficient code generation models.",
+    "published": "2026-07-06",
+    "url": "http://arxiv.org/abs/2607.04577v1",
+    "primary_category": "cs.LG",
+    "categories": [
+      "cs.LG",
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.04558",
+    "title": "EEG-SpikeAgent: Agentic Closed-Loop Program Synthesis for Automated EEG Spike Detection",
+    "authors": [
+      "Sonali Santhosh",
+      "Kelly Shuhong Yu",
+      "Eugene Chang",
+      "Jonathan Kim",
+      "Kie Shidara",
+      "Danilo Bernardo"
+    ],
+    "abstract": "Automated detection of interictal epileptiform discharges in scalp electroencephalography (EEG) is clinically important, but recent high-performing deep-learning models often trade interpretability for accuracy. We introduce EEG-SpikeAgent, a closed-loop program-synthesis framework that uses a large language model (LLM) agentic system to generate signal-processing features for spike detection in scalp EEG. The system iteratively proposes one deterministic EEG feature module at a time, executes the resulting code on EEG to generate tabular features, evaluates performance via a tabular classifier, summarizes run-level metrics, and feeds structured diagnostics back to the model for refinement. Across iterations, EEG-SpikeAgent proposes and refines candidate signal features and decision rules informed by model performance. We evaluated EEG-SpikeAgent on VEPISET, a public 29-channel dataset of 4-second epochs containing 2,516 discharge-containing and 22,933 non-discharge epochs. Across five-fold cross-validation with a gradient-boosted tree classifier, agent-generated features achieved an area under the receiver operating characteristic curve of 0.935, balanced accuracy of 0.699, F1 score of 0.557, sensitivity of 0.401, and specificity of 0.996 at the default operating point. At an operating point with sensitivity 0.80, mean precision was 0.470 and mean specificity was 0.900. Artifact-aware feature generation improved balanced accuracy and F1 score over spike-only feature search. These results indicate that LLM-based program synthesis can automate EEG feature engineering in auditable and inspectable code-driven manner for clinical and methodological review.",
+    "published": "2026-07-06",
+    "url": "http://arxiv.org/abs/2607.04558v1",
+    "primary_category": "cs.CL",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ]
+  },
+  {
+    "arxiv_id": "2607.04537",
+    "title": "Obey, Diverge, Collapse: Blind Obedience to Incorrect Instructions Drives Code LLMs to Irrecoverable Code Semantic Collapse",
+    "authors": [
+      "Raj Jaiswal",
+      "Anany Singh Divy",
+      "Savar Bhasin",
+      "Adi Bajpai",
+      "Tanuja Ganu",
+      "Rajiv Ratn Shah"
+    ],
+    "abstract": "Code language models are now trusted collaborators in production workflows for debugging, refactoring, and iterative repair, and every benchmark that evaluates them assumes the instructions they act on are correct. We study what happens when that assumption breaks. We evaluate code language models across four experiments designed to assess whether models resist or obey incorrect instructions in single-pass and iterative repair settings, using the RunBugRun dataset of algorithmic Python problems with deterministic test cases. Our findings reveal a striking behavioral pattern: models correctly identify an incorrect instruction as wrong, then follow it anyway. This compliance unknowingly introduces errors beyond the original bug, and the corrupted code state cannot be recovered through subsequent self-guided iterative repair, which fails to converge across passes. We term this Blind Obedience, characterize the Ghost (Unknown) Errors it introduces, quantify the proportion of cases where semantic corruption proves irrecoverable, and show that extended reasoning cannot reverse it. These findings surface behavioral properties invisible to pass-rate evaluation, with direct consequences for code language models deployed in production settings.",
+    "published": "2026-07-05",
+    "url": "http://arxiv.org/abs/2607.04537v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2607.04454",
+    "title": "Correct but Slow: An Empirical Study of the GPU Kernel Evaluation Gap in Modern Domain-Specific Languages",
+    "authors": [
+      "Tingxi Li",
+      "Ravishka Rathnasuriya",
+      "Wei Yang"
+    ],
+    "abstract": "Modern GPU domain-specific languages (DSLs), such as Triton and TileLang, are increasingly used to implement specialized deep-learning kernels and as target languages for automated kernel-generation systems. Existing DSL-kernel evaluations establish correctness through reference-based numerical validation -- necessary, but silent on replacement quality: a functionally valid kernel may still fall far below the throughput of the optimized library operator it is intended to replace. We study this correctness-performance gap using 22 Triton and TileLang kernels from five operator categories on NVIDIA A100 and GH200 GPUs, asking whether correctness-based evaluation identifies kernels unsuitable as library replacements, why such failures occur, and how they can be detected without exhaustive benchmark coverage. The study yields three results. \\emph{First}, correctness-based evaluation can admit severe slowdowns: an idiomatic TileLang LayerNorm kernel passes KernelBench's correctness check while running more than 300$\\times$ slower than the PyTorch baseline. \\emph{Second}, the causes differ by kernel family. TileLang normalization and reduction slowdowns are mainly repairable authoring defects, such as sequential reductions and unnecessary dtype conversions, whereas convolution and large general matrix multiplication (GEMM) retain residual gaps after optimization due to code-generation and autotuning-coverage limits; vendor-library algorithm selection contributes only marginally. \\emph{Third}, two lightweight checks -- library-relative efficiency and roofline utilization -- are complementary screening criteria: together they flag every functionally valid but inefficient kernel in our suite and separate repairable authoring defects from structural residuals.",
+    "published": "2026-07-05",
+    "url": "http://arxiv.org/abs/2607.04454v3",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.04428",
+    "title": "dOPSD: On-Policy Self-Distillation for Diffusion Language Models",
+    "authors": [
+      "Phuong Tuan Dat",
+      "Qi Li",
+      "Xinchao Wang"
+    ],
+    "abstract": "Diffusion large language models (dLLMs) generate text by iteratively denoising a masked sequence, offering a parallel alternative to autoregressive models, but eliciting strong reasoning through post-training remains difficult: supervised fine-tuning is off-policy and suffers from exposure bias, while reinforcement learning gives only sparse, sequence-level rewards and is hard to apply without tractable sequence likelihoods. On-policy self-distillation (OPSD) offers a promising alternative, using one model as both student and teacher to provide dense, token-level, on-policy supervision, but its effectiveness hinges on giving the teacher privileged information (PI) - typically an instance-specific ground-truth reference unavailable at inference - so the student ends up distilling a weak PI-free consensus policy that yields little improvement on dLLM reasoning. We introduce dOPSD, which instead derives the teacher's privilege directly from the student's own denoising trajectory, evaluating masked positions using later, more-decoded steps of that same trajectory rather than an external label, so the teacher's advantage emerges from the model's own decoding process; on Dream and LLaDA, dOPSD improves both in-domain math reasoning and out-of-domain code generation, outperforming supervised and on-policy baselines.",
+    "published": "2026-07-05",
+    "url": "http://arxiv.org/abs/2607.04428v1",
+    "primary_category": "cs.CL",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ]
+  },
+  {
+    "arxiv_id": "2607.04232",
+    "title": "Teaching Code LLMs to Reason with Intermediate Formal Specifications",
+    "authors": [
+      "Minh Le-Anh",
+      "Cuong Chi Le",
+      "Tien N. Nguyen"
+    ],
+    "abstract": "Unlike natural-language specifications, executable formal specifications provide machine-checkable constraints for verifying, debugging, and repairing code. However, writing such specifications is labor-intensive, and existing LLM-based methods mainly infer whole-program pre/postconditions, missing the intermediate semantic commitments that programmers rely on when reasoning about an algorithm. Our study further shows that prompting current CodeLLMs often produces executable assertions that are syntactically invalid, trivial, or too weak to reject behavior-changing faults. In this paper, we study executable checkpoint specification generation, where assertions are inserted at meaningful internal program points to describe expected intermediate states. We introduce SpecCoder, a verification-guided CodeLLM training framework that learns from validated reference programs, behavior-changing mutants, and multi-turn specification-refinement traces. SpecCoder selects specifications that hold on correct executions while rejecting faulty executions, turning specifications from passive annotations into executable evidence. To evaluate this setting, we introduce HumanExec, a benchmark built from recent Codeforces competitive programming problems with test suites, reference solutions, and human buggy submissions, supporting three tasks: specification generation, program correctness checking, and program repair. Experiments on HumanExec show that SpecCoder substantially improves checkpoint-specification quality over base CodeLLMs. Across Qwen2.5-Coder models, SpecCoder improves inline-specification correctness by up to 55.8%, completeness by up to 358.1%, and executable assertion validity by up to 26.6%. These gains further translate to downstream correctness reasoning and repair, showing that executable checkpoints provide fine-grained evidence for reliable verification.",
+    "published": "2026-07-05",
+    "url": "http://arxiv.org/abs/2607.04232v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.CL"
+    ]
+  },
+  {
+    "arxiv_id": "2607.04212",
+    "title": "An Evaluation of Role-Based Multi-Agent Code Generation on Repository-Scale Problems",
+    "authors": [
+      "Benedetta Donato",
+      "Noah Hagar-Dent",
+      "Aaron Worsnop",
+      "Leonardo Mariani",
+      "Valerio Terragni"
+    ],
+    "abstract": "Role-based multiagent code generation aims to make LLMs more effective on repository-scale problems, moving beyond small programming tasks. We evaluate this approach on 12 Java repositories, finding greater similarity to developer code than single LLMs, but a persistent gap from human implementations.",
+    "published": "2026-07-05",
+    "url": "http://arxiv.org/abs/2607.04212v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.04092",
+    "title": "SEDCoT: Enhancing LLM-Based COBOL Code Translation via Symbolic Execution and Delta Debugging",
+    "authors": [
+      "Phillip Entin",
+      "Wenchao Gu",
+      "Alexander Knapp",
+      "Chunyang Chen"
+    ],
+    "abstract": "COBOL remains critical across banking, insurance, and government infrastructure. However, maintenance is increasingly challenging due to outdated technologies, sparse documentation, and developer retirement, necessitating code translation into modern languages like C. Traditional rule-based transcompilers yield outputs that are difficult to read and maintain, while general-purpose large language models (LLMs) achieve suboptimal correctness because COBOL is a low-resource language with distinct logic patterns. To bridge this gap, we propose SEDCoT, a novel COBOL-to-C translation framework. SEDCoT first leverages LLMs for initial translation, then combines symbolic execution with LLM guidance to generate test suites and iteratively repair semantic discrepancies. Finally, it integrates delta debugging to minimize failing tests into succinct counterexamples, accelerating automated code repair. Evaluating SEDCoT on a public COBOL-to-C dataset demonstrates that it outperforms state-of-the-art baselines by at least 12% while producing translations with substantially higher readability than rule-based alternatives.",
+    "published": "2026-07-05",
+    "url": "http://arxiv.org/abs/2607.04092v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE"
+    ]
+  },
+  {
+    "arxiv_id": "2607.04072",
+    "title": "Benchmarking API Drift in LLM-Generated Quantum Code Across Successive SDK Versions",
+    "authors": [
+      "Mohammad Arif Rasyidi",
+      "Syahirul Faiz"
+    ],
+    "abstract": "Large language models can generate plausible quantum code, but it is unclear whether they can reliably target the specific software development kit (SDK) version requested by the user. We study this problem as API drift and introduce quantum-api-drift, a benchmark for measuring version fidelity, defined here as execution success on the requested SDK version, cross-version compatibility, failure modes, and documentation-guided repair in LLM-generated quantum SDK code. We instantiate the benchmark with Qiskit, a representative quantum SDK that underwent substantial interface changes across v0.43, v1.3, and v2.0. We evaluate 17 models on 50 tasks with 3 samples per prompt, yielding 450 generated samples and 1,350 executions per model. Sixteen models are tested in a matched REST API setting with a 1024-token output cap, while GPT-5.4 (Codex CLI) is reported separately as a reference configuration. Across the 16 matched REST models, diagonal Pass@1 ranges from 0.02 to 0.85. Claude Opus 4.7 is strongest on v0.43 and v2.0, while Grok 4.20 is strongest on v1.3 at 0.513. Error profiles differ systematically by model strength: weaker models fail mainly with broken imports, while stronger models more often reach deprecation-level failures. Documentation-guided repair succeeds for 0.19 to 0.59 of repair attempts overall and is consistently much more effective for migration to v2.0 than to v1.3. The benchmark artifacts are publicly available at https://github.com/arasyi/quantum-api-drift. These results show that version alignment is a distinct evaluation axis for quantum code generation and that API drift remains only partly recoverable even with migration guidance.",
+    "published": "2026-07-05",
+    "url": "http://arxiv.org/abs/2607.04072v1",
+    "primary_category": "cs.SE",
+    "categories": [
+      "cs.SE",
+      "cs.AI",
+      "quant-ph"
+    ]
   }
 ]

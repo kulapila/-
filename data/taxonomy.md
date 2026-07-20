@@ -1,9 +1,11 @@
 ## Research Taxonomy
 
-- **Code Generation**
-  - **General-Purpose Code Generation**: Cluster 2 focuses on using LLMs for code generation across domains, improving correctness, efficiency, and safety via RL, experience reuse, and prompt engineering.
-- **Language Model Optimization**
-  - **Diffusion Language Models**: Cluster 0 improves decoding of diffusion LMs for text generation, addressing efficiency, quality, and coordination.
-  - **Knowledge Distillation**: Cluster 1 enhances on-policy distillation for LLMs, tackling distribution mismatch and selective knowledge transfer.
-- **Evolutionary Optimization**
-  - **LLM-Guided Evolutionary Search**: Cluster 3 uses evolutionary algorithms guided by LLMs to optimize prompts, heuristics, or program generators via iterative self-improvement.
+- **LLM Training and Optimization**
+  - On-Policy Distillation: These papers focus on on-policy distillation methods for large language models, where the student model learns from its own generated outputs under teacher guidance. They address challenges like distribution mismatch, credit assignment, and token-level supervision, proposing techniques such as trust-region learning, negative trajectory reweighting, and self-distillation.
+  - Decoding Enhancement: These papers focus on improving the decoding process of masked diffusion language models, particularly through parallel decoding strategies, token selection, and scheduling. They introduce training-free methods to enhance efficiency and quality by leveraging attention mechanisms, confidence scores, and adaptive decoding orders.
+- **Code Generation and Automation**
+  - Code Generation with LLMs: This cluster focuses on improving code generation using large language models (LLMs) through techniques such as reinforcement learning, multi-agent systems, benchmarks, and robustness analysis. The papers address challenges like API knowledge boundaries, model efficiency, verification feedback, and vulnerability detection.
+  - Quantum Computing Automation: These papers focus on using large language models (LLMs) to automate and assist in quantum computing tasks, including circuit design, scientific computing for lattice QCD, and visual understanding of quantum circuits. They share a common theme of integrating LLMs with domain-specific tools and workflows to generate executable quantum code.
+- **Autonomous Improvement and Meta-Learning**
+  - Evolutionary and Self-Referential Optimization: These papers unify around using evolutionary algorithms guided by large language models to optimize system prompts, heuristics, or planning patterns. They employ self-referential or metacognitive mechanisms to iteratively improve solutions through cycles of generation, evaluation, and reflection.
+  - Agentic Self-Improvement: These papers focus on frameworks and methods for LLM-based agents to autonomously improve their performance through iterative learning from experience, co-evolving policies, metrics, and behavioral rules. They address challenges such as adapting agent harnesses, evolving evaluation metrics, and accumulating skills or rules to enhance code generation and other tasks.
